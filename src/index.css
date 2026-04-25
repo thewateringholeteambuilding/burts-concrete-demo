@@ -203,6 +203,19 @@
   }
 }
 
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.hero-photo-zoom {
+  animation: heroZoom 12s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
 html {
   scroll-behavior: smooth;
 }

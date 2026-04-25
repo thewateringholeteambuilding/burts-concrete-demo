@@ -112,6 +112,7 @@ export default function Home() {
           <img
             src={HERO_PHOTO}
             alt="Freshly poured residential driveway in South Maui"
+            className="hero-photo-zoom"
             fetchPriority="high"
             loading="eager"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
@@ -204,6 +205,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== NEIGHBORHOODS STRIP ===== */}
+      <section style={{ borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--background))', padding: '1.25rem 0', overflow: 'hidden' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))' }}>
+            Areas We Serve
+          </span>
+          {['Kihei', 'Wailea', 'Makena', 'Ma\'alaea', 'Kahului', 'Wailuku', 'Kula'].map((area) => (
+            <span
+              key={area}
+              style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.45)' }}
+            >
+              {area}
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* ===== SERVICES — clean 3x2 grid ===== */}
       <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', backgroundColor: 'hsl(var(--background))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -243,18 +261,19 @@ export default function Home() {
       </section>
 
       {/* ===== WHY CHOOSE — 2-col with checklist ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(3.5rem, 8vw, 6rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
+      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-2">
           {/* Left */}
           <div>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ The Difference</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '1.25rem' }}>
-              Why Maui Homeowners Call Burt
+              Know the Soil Before You Pour
             </h2>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
               Volcanic soil shifts differently than mainland dirt. Salt air corrodes poorly mixed concrete. Hillside sites need drainage engineered before the forms go up.
             </p>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, marginTop: '1rem' }}>
-              Burt has worked Maui soil for over 20 years. He knows where the clay pockets are in Kihei. He specs the rebar before the pour, not after.
+              Burt has worked Maui soil for over 20 years. He knows where the clay pockets sit in Kihei, which Wailea slopes hold water, and why a foundation in Ma'alaea needs different rebar spacing than one in Makena.
             </p>
           </div>
 
@@ -278,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* ===== TESTIMONIALS ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(3.5rem, 8vw, 6rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
+      <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           {/* Google badge */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
@@ -293,7 +312,7 @@ export default function Home() {
                 {[1,2,3,4,5].map(n => <Star key={n} size={14} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />)}
               </div>
               <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem', fontWeight: 600, color: 'hsl(var(--foreground))' }}>
-                5.0 on Google
+                5.0 from 47 Reviews
               </span>
             </div>
           </div>
