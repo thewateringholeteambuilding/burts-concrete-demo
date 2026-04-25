@@ -26,19 +26,19 @@ const testimonials = [
   {
     quote: 'Burt showed up when he said he would, did what he promised, and the driveway looks better than my neighbor\'s who paid twice as much.',
     author: 'Shannon T.',
-    detail: 'Kihei Homeowner',
+    detail: 'Kihei Homeowner · November 2024',
     stars: 5,
   },
   {
     quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person. The wall has held through two wet seasons with no movement.',
     author: 'Ryan M.',
-    detail: 'South Maui Property Owner',
+    detail: 'South Maui Property Owner · August 2024',
     stars: 5,
   },
   {
     quote: 'Fast, clean, exactly what I asked for. The stamped patio is the best part of my backyard now. Would not use anyone else on Maui.',
     author: 'Christine A.',
-    detail: 'Wailea Homeowner',
+    detail: 'Wailea Homeowner · March 2025',
     stars: 5,
   },
 ]
@@ -260,6 +260,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== FEATURED PROJECT — quantified scope ===== */}
+      <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 4rem) 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'center' }} className="md:grid-cols-2">
+          <div>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Recent Work</p>
+            <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
+              Wailea Estates Driveway
+            </h2>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
+              Full tear-out and repour for a hillside property in Wailea. Existing slab had settled 3 inches over 12 years due to clay migration. New pour includes regraded drainage, 4,000 PSI mix, and stamped border finish.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { value: '2,400', unit: 'sq ft', label: 'Total Pour' },
+              { value: '6', unit: 'days', label: 'Start to Finish' },
+              { value: '4,000', unit: 'PSI', label: 'Mix Spec' },
+            ].map((metric) => (
+              <div key={metric.label} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem 1rem', textAlign: 'center' }}>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>
+                  {metric.value}
+                </div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.15rem' }}>
+                  {metric.unit}
+                </div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', marginTop: '0.35rem' }}>
+                  {metric.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== WHY CHOOSE — 2-col with checklist ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-2">
@@ -277,22 +311,44 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Right — checklist */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {/* Right — branded pillars */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
-              '3,500 PSI minimum mix on every residential pour',
-              'Drainage graded before forms go up, not after',
-              'Joints cut at 24 hours, on schedule',
-              'Burt on site for every pour, not a crew chief',
-              'Free estimates, firm pricing before work starts',
-              'Cleanup included in every job',
-            ].map((item) => (
-              <div key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', padding: '1rem 1.25rem', backgroundColor: 'hsl(var(--background))', borderLeft: '3px solid hsl(var(--accent))' }}>
-                <CheckCircle2 size={16} style={{ color: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.1rem' }} />
-                <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--foreground))', lineHeight: 1.5 }}>{item}</span>
+              { phrase: '3,500 PSI Minimum', expansion: 'Every residential pour meets this specification. Salt-air conditions require it.' },
+              { phrase: 'Drainage Before Forms', expansion: 'Grade is set before a single form goes up. Prevents settling and pooling.' },
+              { phrase: 'Joints Cut at 24 Hours', expansion: 'Control joints are cut on schedule, not whenever the crew gets around to it.' },
+              { phrase: 'Burt on Every Pour', expansion: 'The owner is on site for every pour. No crew chiefs, no handoffs.' },
+              { phrase: 'Firm Pricing Upfront', expansion: 'Free estimate. The number you get is the number you pay.' },
+              { phrase: 'Cleanup Included', expansion: 'Forms pulled, debris hauled, site swept. Part of the job, not an add-on.' },
+            ].map((item, i) => (
+              <div key={item.phrase} style={{ padding: '1.15rem 1.25rem', borderLeft: '3px solid hsl(var(--accent))', backgroundColor: 'hsl(var(--background))', borderBottom: i < 5 ? '1px solid hsl(var(--border))' : 'none' }}>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.3rem' }}>
+                  {item.phrase}
+                </div>
+                <div style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                  {item.expansion}
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== WARRANTY CALLOUT ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--accent))', padding: 'clamp(2.5rem, 5vw, 3.5rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
+          <div>
+            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', textTransform: 'uppercase', letterSpacing: '-0.01em', lineHeight: 0.95, color: 'hsl(var(--accent-foreground))' }}>
+              Workmanship Warranty on Every Pour
+            </div>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--accent-foreground) / 0.75)', marginTop: '0.5rem', lineHeight: 1.5, maxWidth: '520px' }}>
+              If a crack appears within the warranty period that isn't from natural settling, Burt comes back and makes it right. No fine print.
+            </p>
+          </div>
+          <Link to="/contact" className="iron-btn" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}>
+            Ask About Coverage
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </section>
 
@@ -363,10 +419,10 @@ export default function Home() {
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.78)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 1.5rem', zIndex: 10 }}>
           <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
-            Ready to Start Your Project?
+            Your Driveway. Your Timeline. One Call.
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
-            Free estimate. Burt walks the site himself. No crews, no callbacks.
+            Free estimate. Burt walks the site himself. Firm number before work starts.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link to="/contact" className="iron-btn">
