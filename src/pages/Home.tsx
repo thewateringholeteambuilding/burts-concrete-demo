@@ -1,0 +1,366 @@
+import { Link } from 'react-router-dom'
+import { ArrowRight, Phone, CheckCircle2, Star } from 'lucide-react'
+
+// Confirmed Unsplash IDs from niche guide (2026-04-24)
+const HERO_PHOTO = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+const PROCESS_PHOTO = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80'
+const CTA_BAND_PHOTO = 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1600&q=80'
+
+const services = [
+  { name: 'Concrete Foundations', desc: 'Stem walls, grade beams, slab-on-grade. Seismic code compliant for Maui.' },
+  { name: 'Driveways & Parking', desc: 'Smooth residential and commercial driveway pours. Salt-air mix specs.' },
+  { name: 'Retaining Walls', desc: 'Hillside erosion control and grade separation for South Maui properties.' },
+  { name: 'Sidewalks & Walkways', desc: 'Flatwork cut and finished to spec. Joints at 24 hours, not guessed.' },
+  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes for patios and pool decks.' },
+  { name: 'Concrete Repair', desc: 'Spalling, cracking, and resurfacing. Most repairs done in a single visit.' },
+]
+
+const processSteps = [
+  { num: '01', title: 'Call or Text Burt', body: 'Reach out any day. Burt returns calls and texts directly, usually same day.' },
+  { num: '02', title: 'Site Walk', body: 'Burt visits your property, checks soil conditions, and gives you a firm number.' },
+  { num: '03', title: 'Mix & Forms', body: '3,500 PSI minimum mix selected for your application. Forms leveled and pinned.' },
+  { num: '04', title: 'Pour & Finish', body: 'Work done right the first time. Joints cut at 24 hours. Cleanup included.' },
+]
+
+const testimonials = [
+  {
+    quote: 'Burt showed up when he said he would, did what he promised, and the driveway looks better than my neighbor\'s who paid twice as much.',
+    author: 'Shannon T.',
+    detail: 'Kihei Homeowner',
+    stars: 5,
+  },
+  {
+    quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person. The wall has held through two wet seasons with no movement.',
+    author: 'Ryan M.',
+    detail: 'South Maui Property Owner',
+    stars: 5,
+  },
+  {
+    quote: 'Fast, clean, exactly what I asked for. The stamped patio is the best part of my backyard now. Would not use anyone else on Maui.',
+    author: 'Christine A.',
+    detail: 'Wailea Homeowner',
+    stars: 5,
+  },
+]
+
+export default function Home() {
+  return (
+    <>
+      {/* ===== HERO — split 2-col, finished driveway photo ===== */}
+      <section
+        aria-labelledby="hero-heading"
+        style={{
+          backgroundColor: 'hsl(var(--background))',
+          minHeight: '92vh',
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+        }}
+        className="md:grid-cols-2"
+      >
+        {/* Left col — copy */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          padding: 'clamp(2.5rem, 8vw, 5rem) clamp(1.5rem, 5vw, 4rem)',
+          borderRight: '1px solid hsl(var(--border))',
+        }}>
+          <p className="iron-label animate-fade-up" style={{ marginBottom: '1.5rem' }}>
+            § South Maui Concrete
+          </p>
+
+          <h1
+            id="hero-heading"
+            className="iron-display animate-fade-up-delay-1"
+            style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', marginBottom: '1.5rem', color: 'hsl(var(--foreground))' }}
+          >
+            Concrete Done<br />
+            <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
+          </h1>
+
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1.05rem', lineHeight: 1.65, color: 'hsl(var(--muted-foreground))', maxWidth: '420px', marginBottom: '2.5rem' }}>
+            Owner-operated out of Kihei. Burt handles the estimate, the pour, and the finish. No subcontractors. No surprises on the invoice.
+          </p>
+
+          <div className="animate-fade-up-delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+            <Link to="/contact" className="iron-btn">
+              Get a Free Quote
+              <ArrowRight size={14} />
+            </Link>
+            <a href="tel:+18088759085" className="iron-btn iron-btn--ghost">
+              <Phone size={14} />
+              (808) 875-9085
+            </a>
+          </div>
+
+          {/* Trust row */}
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            {['Licensed & Insured', 'Maui-Based Crew', 'Free Estimates'].map((t) => (
+              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <CheckCircle2 size={13} style={{ color: 'hsl(var(--accent))', flexShrink: 0 }} />
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.73rem', color: 'hsl(var(--muted-foreground))', textTransform: 'uppercase', letterSpacing: '0.12em' }}>{t}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right col — photo + trust badge */}
+        <div style={{ position: 'relative', overflow: 'hidden', minHeight: '480px' }}>
+          {/* Brass corner frame — top right */}
+          <div style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', zIndex: 10, width: '40px', height: '40px', borderTop: '3px solid hsl(var(--accent))', borderRight: '3px solid hsl(var(--accent))' }} />
+
+          <img
+            src={HERO_PHOTO}
+            alt="Freshly poured residential driveway in South Maui"
+            fetchPriority="high"
+            loading="eager"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+          />
+
+          {/* Dark overlay gradient */}
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, hsl(220 45% 7% / 0.65) 100%)' }} />
+
+          {/* Trust badge — bottom left */}
+          <div style={{
+            position: 'absolute',
+            bottom: '1.5rem',
+            left: '1.5rem',
+            backgroundColor: 'hsl(var(--accent))',
+            color: 'hsl(var(--accent-foreground))',
+            padding: '0.85rem 1.25rem',
+            zIndex: 10,
+          }}>
+            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.8rem', lineHeight: 1 }}>20+</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.18em', marginTop: '0.2rem' }}>Years on Maui</div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== HOW WE WORK — process steps (above services per brief) ===== */}
+      <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', position: 'relative', overflow: 'hidden' }}>
+        {/* Background photo with dark overlay */}
+        <img
+          src={PROCESS_PHOTO}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.1 }}
+        />
+        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.92)' }} />
+
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
+          <div style={{ marginBottom: '3rem' }}>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ The Process</p>
+            <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
+              How We Work
+            </h2>
+          </div>
+
+          {/* Timeline grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0' }}>
+            {processSteps.map((step, i) => (
+              <div
+                key={step.num}
+                style={{
+                  padding: '2rem 1.75rem',
+                  borderLeft: '1px solid hsl(var(--border))',
+                  borderBottom: '1px solid hsl(var(--border))',
+                  borderTop: i < 2 ? '1px solid hsl(var(--border))' : 'none',
+                  position: 'relative',
+                }}
+              >
+                {/* Brass top accent bar */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', backgroundColor: 'hsl(var(--accent))' }} />
+
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.2rem', color: 'hsl(var(--accent) / 0.25)', lineHeight: 1, marginBottom: '1rem' }}>
+                  {step.num}
+                </div>
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.6rem' }}>
+                  {step.title}
+                </h3>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
+                  {step.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== STATS STRIP ===== */}
+      <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
+          {[
+            { value: '20+', label: 'Years on Maui' },
+            { value: '340+', label: 'Projects Completed' },
+            { value: '100%', label: 'Licensed & Insured' },
+            { value: 'Kihei', label: 'South Maui Based' },
+          ].map((stat) => (
+            <div key={stat.label} className="iron-stat">
+              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.9rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>{stat.value}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))', marginTop: '0.3rem' }}>{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== SERVICES — clean 3x2 grid ===== */}
+      <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', backgroundColor: 'hsl(var(--background))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
+            <div>
+              <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
+                What We Pour
+              </h2>
+            </div>
+            <Link
+              to="/services"
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+            >
+              All Services <ArrowRight size={13} />
+            </Link>
+          </div>
+
+          {/* 3x2 clean grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1px', border: '1px solid hsl(var(--border))' }}>
+            {services.map((svc, i) => (
+              <div
+                key={svc.name}
+                className="iron-card"
+                style={{ padding: '1.75rem', borderWidth: 0, borderRight: i % 3 !== 2 ? '1px solid hsl(var(--border))' : 'none', borderBottom: i < 3 ? '1px solid hsl(var(--border))' : 'none' }}
+              >
+                <div style={{ width: '28px', height: '3px', backgroundColor: 'hsl(var(--accent))', marginBottom: '1.25rem' }} />
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.6rem', lineHeight: 1.2 }}>
+                  {svc.name}
+                </h3>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
+                  {svc.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY CHOOSE — 2-col with checklist ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(3.5rem, 8vw, 6rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-2">
+          {/* Left */}
+          <div>
+            <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '1.25rem' }}>
+              Why Maui Homeowners Call Burt
+            </h2>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
+              Volcanic soil shifts differently than mainland dirt. Salt air corrodes poorly mixed concrete. Hillside sites need drainage engineered before the forms go up.
+            </p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, marginTop: '1rem' }}>
+              Burt has worked Maui soil for over 20 years. He knows where the clay pockets are in Kihei. He specs the rebar before the pour, not after.
+            </p>
+          </div>
+
+          {/* Right — checklist */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {[
+              '3,500 PSI minimum mix on every residential pour',
+              'Drainage graded before forms go up, not after',
+              'Joints cut at 24 hours, on schedule',
+              'Burt on site for every pour, not a crew chief',
+              'Free estimates, firm pricing before work starts',
+              'Cleanup included in every job',
+            ].map((item) => (
+              <div key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', padding: '1rem 1.25rem', backgroundColor: 'hsl(var(--background))', borderLeft: '3px solid hsl(var(--accent))' }}>
+                <CheckCircle2 size={16} style={{ color: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.1rem' }} />
+                <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--foreground))', lineHeight: 1.5 }}>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TESTIMONIALS ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(3.5rem, 8vw, 6rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          {/* Google badge */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1.5rem', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-label="Google">
+                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+                <path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/>
+                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.163 6.656 3.58 9 3.58z"/>
+              </svg>
+              <div style={{ display: 'flex', gap: '2px' }}>
+                {[1,2,3,4,5].map(n => <Star key={n} size={14} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />)}
+              </div>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem', fontWeight: 600, color: 'hsl(var(--foreground))' }}>
+                5.0 on Google
+              </span>
+            </div>
+          </div>
+
+          {/* Cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            {testimonials.map((t) => (
+              <div
+                key={t.author}
+                style={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', padding: '1.75rem', position: 'relative', borderTop: '3px solid hsl(var(--accent))' }}
+              >
+                {/* Stars */}
+                <div style={{ display: 'flex', gap: '2px', marginBottom: '1rem' }}>
+                  {Array.from({ length: t.stars }).map((_, i) => (
+                    <Star key={i} size={13} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--foreground))', lineHeight: 1.7, marginBottom: '1.25rem', fontStyle: 'italic' }}>
+                  "{t.quote}"
+                </blockquote>
+
+                {/* Author */}
+                <div>
+                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground))' }}>
+                    {t.author}
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>
+                    {t.detail}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PRE-FOOTER CTA BAND ===== */}
+      <section style={{ position: 'relative', height: '400px', overflow: 'hidden' }} aria-label="Contact call to action">
+        <img
+          src={CTA_BAND_PHOTO}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.78)' }} />
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 1.5rem', zIndex: 10 }}>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
+            Ready to Start Your Project?
+          </h2>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
+            Free estimate. Burt walks the site himself. No crews, no callbacks.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Link to="/contact" className="iron-btn">
+              Get a Free Quote
+              <ArrowRight size={14} />
+            </Link>
+            <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ borderColor: 'hsl(var(--foreground) / 0.4)' }}>
+              <Phone size={14} />
+              (808) 875-9085
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

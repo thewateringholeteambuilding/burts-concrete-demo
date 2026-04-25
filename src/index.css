@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 220 45% 7%;
+    --foreground: 40 30% 92%;
+
+    --card: 220 40% 10%;
+    --card-foreground: 40 30% 92%;
+
+    --popover: 220 40% 10%;
+    --popover-foreground: 40 30% 92%;
+
+    --primary: 210 22% 88%;
+    --primary-foreground: 220 45% 7%;
+
+    --secondary: 220 38% 14%;
+    --secondary-foreground: 40 30% 92%;
+
+    --muted: 220 28% 16%;
+    --muted-foreground: 220 12% 62%;
+
+    --accent: 38 85% 55%;
+    --accent-foreground: 220 45% 7%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 28% 18%;
+    --input: 220 28% 18%;
+    --ring: 38 85% 55%;
+
+    --radius: 0px;
+
+    /* Iron Edge tokens */
+    --steel-deep: 220 45% 7%;
+    --steel-mid: 220 38% 14%;
+    --steel-light: 210 22% 88%;
+    --brass: 38 85% 55%;
+    --brass-dim: 38 55% 42%;
+    --rust: 15 72% 48%;
+    --concrete: 220 8% 52%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Archivo', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'ss02';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', 'Archivo Narrow', system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.9;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.85);
+    color: hsl(var(--background));
+  }
+}
+
+@layer components {
+  .iron-display {
+    font-family: 'Oswald', 'Archivo Narrow', system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.88;
+  }
+
+  .iron-label {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.68rem;
+    color: hsl(var(--accent));
+  }
+
+  .iron-photo {
+    position: relative;
+    overflow: hidden;
+    background-color: hsl(var(--steel-mid));
+  }
+  .iron-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      hsla(220, 45%, 5%, 0.25) 0%,
+      hsla(220, 45%, 5%, 0.55) 55%,
+      hsla(220, 45%, 5%, 0.92) 100%
+    );
+    pointer-events: none;
+  }
+
+  .iron-card {
+    position: relative;
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .iron-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 0 hsl(var(--accent));
+  }
+
+  .iron-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.75rem;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.72rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .iron-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 0 hsl(var(--foreground));
+  }
+  .iron-btn--ghost {
+    background-color: transparent;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+  }
+  .iron-btn--ghost:hover {
+    border-color: hsl(var(--accent));
+    color: hsl(var(--accent));
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 0 hsl(var(--accent));
+  }
+
+  .iron-rule {
+    height: 1px;
+    background-color: hsl(var(--border));
+    border: 0;
+  }
+  .iron-rule--brass {
+    height: 2px;
+    background-color: hsl(var(--accent));
+  }
+
+  .iron-stat {
+    border-left: 2px solid hsl(var(--accent));
+    padding-left: 1.25rem;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Oswald', 'Archivo Narrow', system-ui, sans-serif;
+  }
+  .font-heading {
+    font-family: 'Archivo', system-ui, sans-serif;
+  }
+  .font-sans-iron {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.08s both;
+  }
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.16s both;
+  }
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.24s both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .iron-btn:hover,
+  .iron-btn--ghost:hover,
+  .iron-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
