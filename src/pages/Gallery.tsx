@@ -51,11 +51,28 @@ export default function Gallery() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Our Work</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))' }}>
-            Project Gallery
+            Before the Forms. After the Cure.
           </h1>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', marginTop: '1rem', maxWidth: '550px', lineHeight: 1.65 }}>
-            Residential driveways, foundations, retaining walls, decorative patios, commercial slabs. All poured by Burt in South Maui.
+            347 projects across South Maui. Driveways, foundations, retaining walls, decorative patios, commercial slabs. All poured by Burt.
           </p>
+        </div>
+      </section>
+
+      {/* Portfolio metrics strip */}
+      <section style={{ borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--background))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem' }}>
+          {[
+            { value: '347', label: 'Projects' },
+            { value: '7', label: 'Maui Towns' },
+            { value: '5.0', label: 'Google Rating' },
+            { value: '20+', label: 'Years' },
+          ].map((stat) => (
+            <div key={stat.label} className="iron-stat">
+              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>{stat.value}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>{stat.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -37,7 +37,7 @@ export default function About() {
                 He picks up the phone. He returns texts same day. When he gives you a number, that's the number. No line-item surprises when the invoice arrives.
               </p>
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.97rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-                Over 340 projects completed across South Maui. Foundations, driveways, patios, retaining walls, sidewalks, decorative finishes. If it requires concrete, Burt has poured it on this island.
+                Over 347 projects completed across South Maui. Foundations, driveways, patios, retaining walls, sidewalks, decorative finishes. If it requires concrete, Burt has poured it on this island.
               </p>
             </div>
 

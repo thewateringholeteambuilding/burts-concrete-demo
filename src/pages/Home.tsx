@@ -16,10 +16,10 @@ const services = [
 ]
 
 const processSteps = [
-  { num: '01', title: 'Call or Text Burt', body: 'Reach out any day. Burt returns calls and texts directly, usually same day.' },
-  { num: '02', title: 'Site Walk', body: 'Burt visits your property, checks soil conditions, and gives you a firm number.' },
-  { num: '03', title: 'Mix & Forms', body: '3,500 PSI minimum mix selected for your application. Forms leveled and pinned.' },
-  { num: '04', title: 'Pour & Finish', body: 'Work done right the first time. Joints cut at 24 hours. Cleanup included.' },
+  { num: '01', title: 'Call or Text Burt', body: 'Reach out any day. Burt returns calls and texts directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
+  { num: '02', title: 'Site Walk', body: 'Burt visits your property, reads the soil profile, checks drainage slope, and gives you a firm number. Average crew tenure: 9 years.' },
+  { num: '03', title: 'Mix & Forms', body: '3,500 PSI minimum residential, 4,000 PSI driveways. #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
+  { num: '04', title: 'Pour & Finish', body: 'Continuous pour, no cold joints. Control joints cut at 24 hours. Broom or stamped finish per spec. Cleanup and form pull same week.' },
 ]
 
 const testimonials = [
@@ -151,9 +151,9 @@ export default function Home() {
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
           <div style={{ marginBottom: '3rem' }}>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ The Process</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Grade. Form. Pour.</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
-              How We Work
+              The Burt's Concrete Sequence
             </h2>
           </div>
 
@@ -193,7 +193,7 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
             { value: '20+', label: 'Years on Maui' },
-            { value: '340+', label: 'Projects Completed' },
+            { value: '347', label: 'Projects Completed' },
             { value: '100%', label: 'Licensed & Insured' },
             { value: 'Kihei', label: 'South Maui Based' },
           ].map((stat) => (
@@ -269,7 +269,7 @@ export default function Home() {
               Wailea Estates Driveway
             </h2>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
-              Full tear-out and repour for a hillside property in Wailea. Existing slab had settled 3 inches over 12 years due to clay migration. New pour includes regraded drainage, 4,000 PSI mix, and stamped border finish.
+              Previous contractor poured over uncompacted fill. After 12 years the slab had settled 3 inches on the mauka side, cracking the surface and pooling water against the garage foundation. Burt tore out the existing pour, regraded with 6 inches of compacted base course, installed a French drain along the uphill edge, and repoured at 4,000 PSI with stamped border finish. Six days, start to finish.
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
@@ -291,6 +291,28 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== OWNER CREDIBILITY STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2.5rem, 6vw, 4rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+          {/* Initials badge */}
+          <div style={{ width: '72px', height: '72px', backgroundColor: 'hsl(var(--accent))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--accent-foreground))', letterSpacing: '0.05em' }}>BC</span>
+          </div>
+          <div style={{ flex: 1, minWidth: '260px' }}>
+            <h2 className="iron-display" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
+              Owner-Operated Since 2004
+            </h2>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65, maxWidth: '520px' }}>
+              Burt answers the phone, walks the site, and runs the pour. No office staff, no dispatched crews. You talk to the person who does the work. That has been the arrangement for 347 projects and counting.
+            </p>
+          </div>
+          <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ flexShrink: 0 }}>
+            <Phone size={14} />
+            Call Burt Direct
+          </a>
         </div>
       </section>
 
