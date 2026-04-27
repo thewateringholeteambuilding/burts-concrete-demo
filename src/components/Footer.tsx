@@ -46,6 +46,32 @@ export default function Footer() {
             </nav>
           </div>
 
+          {/* Services — deep links */}
+          <div>
+            <p className="iron-label" style={{ marginBottom: '1rem' }}>Services</p>
+            <nav aria-label="Footer service links">
+              {[
+                { label: 'Foundations', href: '/services#foundations' },
+                { label: 'Driveways', href: '/services#driveways' },
+                { label: 'Retaining Walls', href: '/services#retaining-walls' },
+                { label: 'Sidewalks', href: '/services#sidewalks' },
+                { label: 'Decorative', href: '/services#decorative' },
+                { label: 'Slabs', href: '/services#slabs' },
+                { label: 'Repair', href: '/services#repair' },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  style={{ display: 'block', fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textDecoration: 'none', marginBottom: '0.5rem', transition: 'color 0.2s' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'hsl(var(--accent))')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'hsl(var(--muted-foreground))')}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
           {/* Contact */}
           <div>
             <p className="iron-label" style={{ marginBottom: '1rem' }}>Contact</p>

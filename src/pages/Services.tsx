@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
-const SERVICES_HEADER_PHOTO = 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=1600&q=80'
+const SERVICES_HEADER_PHOTO = 'https://images.unsplash.com/photo-1640101086894-7d70c3e70179?auto=format&fit=crop&w=1600&q=80'
 
 const services = [
   {
+    id: 'foundations',
     name: 'Concrete Foundations',
     desc: 'Stem walls, grade beams, and slab-on-grade construction for South Maui residential and commercial properties. Burt reads the soil before the forms go up. Kihei clay profiles are not the same as Central Maui. Seismic rebar placement per Hawaii code. Every foundation includes drainage engineered before the pour.',
     specs: ['Slab-on-grade', 'Stem wall foundations', 'Grade beams', 'Post-tension prep', 'HRS seismic compliance'],
-    photo: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    photo: 'https://images.unsplash.com/photo-1641698680673-edab78703c0b?auto=format&fit=crop&w=800&q=80',
     alt: 'Concrete foundation with rebar before pour',
   },
   {
+    id: 'driveways',
     name: 'Driveways & Parking Areas',
     desc: 'Residential driveways and commercial parking pads poured to last. Salt air from the Kihei coastline accelerates surface damage on under-mixed concrete. Burt specs 3,500 PSI minimum with proper water-cement ratio for coastal conditions. Joints cut at 24 hours to control cracking, not guessed at.',
     specs: ['Residential driveways', 'Commercial parking', 'Apron and approach work', 'Coastal mix spec', '3,500 PSI minimum'],
@@ -19,38 +21,43 @@ const services = [
     alt: 'Finished residential concrete driveway',
   },
   {
+    id: 'retaining-walls',
     name: 'Retaining Walls',
     desc: 'Hillside properties in Kihei and Wailea deal with erosion and grade change year after year. A concrete retaining wall done right solves the problem permanently. Burt designs for the load: soil type, slope angle, and drainage behind the wall are spec\'d before concrete is ordered. No guessing.',
     specs: ['Gravity walls', 'Cantilever walls', 'Drainage behind-wall', 'Hillside erosion control', 'Grade separation'],
-    photo: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
+    photo: 'https://images.unsplash.com/photo-1685464197603-787dabbdecbd?auto=format&fit=crop&w=800&q=80',
     alt: 'Concrete retaining wall on a hillside property',
   },
   {
+    id: 'sidewalks',
     name: 'Sidewalks & Walkways',
     desc: 'Flatwork is where the details show. Burt hand-tools the edges, checks level every 8 feet, and cuts control joints on schedule. Sidewalks that look clean and stay flat for years, not seasons.',
     specs: ['Residential walkways', 'Commercial sidewalks', 'Hand-tooled edges', 'ADA-compliant grades', 'Broom or smooth finish'],
-    photo: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=800&q=80',
+    photo: 'https://images.unsplash.com/photo-1673865641469-34498379d8af?auto=format&fit=crop&w=800&q=80',
     alt: 'Clean concrete sidewalk with tooled edges',
   },
   {
+    id: 'decorative',
     name: 'Decorative Concrete',
     desc: 'Stamped patterns, acid stains, and polished finishes for patios, pool decks, and interior floors. Burt has done decorative work in Wailea resort properties and Kihei private residences. Pattern and color consultation included with the estimate.',
     specs: ['Stamped concrete', 'Acid stain', 'Polished floors', 'Pool deck finishes', 'Color integral and overlay'],
-    photo: 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=800&q=80',
+    photo: 'https://images.unsplash.com/photo-1640101086894-7d70c3e70179?auto=format&fit=crop&w=800&q=80',
     alt: 'Stamped decorative concrete patio',
   },
   {
+    id: 'slabs',
     name: 'Concrete Slabs',
     desc: 'General-purpose slabs for garages, sheds, equipment pads, lanai floors, and utility areas. Gravel base compacted and leveled before forms go in. Vapor barrier included where moisture is a concern.',
     specs: ['Garage slabs', 'Shed and equipment pads', 'Lanai floors', 'Utility pads', 'Vapor barrier option'],
-    photo: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80',
+    photo: 'https://images.unsplash.com/photo-1673978483230-b116c3969ffb?auto=format&fit=crop&w=800&q=80',
     alt: 'Freshly poured commercial concrete slab',
   },
   {
+    id: 'repair',
     name: 'Concrete Repair & Resurfacing',
     desc: 'Spalling, scaling, and surface cracking from Maui\'s UV and salt exposure. Burt evaluates whether repair or replacement is the honest answer, then gives you both prices. Most surface repairs are done in a single visit.',
     specs: ['Spall and crack repair', 'Overlay resurfacing', 'Surface sealing', 'Joint repair', 'Single-visit turnaround'],
-    photo: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80',
+    photo: 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=800&q=80',
     alt: 'Concrete repair and resurfacing work',
   },
 ]
@@ -69,18 +76,65 @@ export default function Services() {
         />
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.82)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 clamp(1.5rem, 5vw, 4rem)', zIndex: 10 }}>
-          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ What We Do</p>
+          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>What We Do</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))', maxWidth: '700px' }}>
             Concrete Services
           </h1>
         </div>
       </section>
 
-      {/* Services — alternating article layout */}
+      {/* Sticky service quick-nav */}
+      <nav
+        aria-label="Jump to service"
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 20,
+          backgroundColor: 'hsl(var(--card))',
+          borderBottom: '1px solid hsl(var(--border))',
+          padding: '0.75rem 1.5rem',
+          overflowX: 'auto',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '0.5rem', flexWrap: 'nowrap' }}>
+          {services.map((svc) => (
+            <a
+              key={svc.id}
+              href={`#${svc.id}`}
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.68rem',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                color: 'hsl(var(--foreground))',
+                textDecoration: 'none',
+                padding: '0.4rem 0.85rem',
+                border: '1px solid hsl(var(--accent) / 0.4)',
+                whiteSpace: 'nowrap',
+                transition: 'border-color 0.2s, color 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'hsl(42 54% 54%)'
+                e.currentTarget.style.color = 'hsl(42 54% 54%)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'hsl(42 54% 54% / 0.4)'
+                e.currentTarget.style.color = 'hsl(35 35% 93%)'
+              }}
+            >
+              {svc.name.replace('Concrete ', '').replace(' & Resurfacing', '')}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      {/* Services, alternating article layout */}
       <section style={{ backgroundColor: 'hsl(var(--background))' }}>
         {services.map((svc, i) => (
           <article
             key={svc.name}
+            id={svc.id}
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr',
@@ -88,7 +142,7 @@ export default function Services() {
             }}
             className="md:grid-cols-2"
           >
-            {/* Photo — alternates left/right */}
+            {/* Photo, alternates left/right */}
             <div
               style={{
                 order: i % 2 === 0 ? 2 : 1,
@@ -157,10 +211,10 @@ export default function Services() {
       {/* Bottom CTA */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem', textAlign: 'center' }}>
         <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
-          Have a Project in Mind?
+          Your Slab. Your Timeline. One Crew.
         </h2>
         <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.97rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, maxWidth: '500px', margin: '0 auto 2rem' }}>
-          Free site walk and estimate. Burt gives you a real number before work starts.
+          Driveway replacement, new foundation, retaining wall, or commercial slab. Free site walk and a firm number before work starts.
         </p>
         <Link to="/contact" className="iron-btn">
           Request a Free Estimate

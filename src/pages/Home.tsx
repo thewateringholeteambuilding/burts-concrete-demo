@@ -1,18 +1,19 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Phone, CheckCircle2, Star } from 'lucide-react'
+import { ArrowRight, Phone, CheckCircle2, Star, ChevronDown } from 'lucide-react'
 
 // Confirmed Unsplash IDs from niche guide (2026-04-24)
 const HERO_PHOTO = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
-const PROCESS_PHOTO = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80'
-const CTA_BAND_PHOTO = 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1600&q=80'
+const PROCESS_PHOTO = 'https://images.unsplash.com/photo-1685464196339-46a985b2049b?auto=format&fit=crop&w=900&q=80'
+const CTA_BAND_PHOTO = 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=1600&q=80'
 
 const services = [
-  { name: 'Concrete Foundations', desc: 'Stem walls, grade beams, slab-on-grade. Seismic code compliant for Maui.' },
-  { name: 'Driveways & Parking', desc: 'Smooth residential and commercial driveway pours. Salt-air mix specs.' },
-  { name: 'Retaining Walls', desc: 'Hillside erosion control and grade separation for South Maui properties.' },
-  { name: 'Sidewalks & Walkways', desc: 'Flatwork cut and finished to spec. Joints at 24 hours, not guessed.' },
-  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes for patios and pool decks.' },
-  { name: 'Concrete Repair', desc: 'Spalling, cracking, and resurfacing. Most repairs done in a single visit.' },
+  { name: 'Concrete Foundations', desc: 'Stem walls, grade beams, slab-on-grade. Seismic code compliant for Maui.', idealFor: 'New builds, additions, ADU projects' },
+  { name: 'Driveways & Parking', desc: 'Smooth residential and commercial driveway pours. Salt-air mix specs.', idealFor: 'Homeowners, vacation rental owners' },
+  { name: 'Retaining Walls', desc: 'Hillside erosion control and grade separation for South Maui properties.', idealFor: 'Hillside lots, erosion-prone properties' },
+  { name: 'Sidewalks & Walkways', desc: 'Flatwork cut and finished to spec. Joints at 24 hours, not guessed.', idealFor: 'Commercial properties, HOA common areas' },
+  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes for patios and pool decks.', idealFor: 'Pool decks, lanai floors, entryways' },
+  { name: 'Concrete Repair', desc: 'Spalling, cracking, and resurfacing. Most repairs done in a single visit.', idealFor: 'Aging driveways, salt-damaged surfaces' },
 ]
 
 const processSteps = [
@@ -43,10 +44,100 @@ const testimonials = [
   },
 ]
 
+const faqs = [
+  {
+    q: 'How long does concrete take to cure in Maui\'s climate?',
+    a: 'Initial set happens in 24-48 hours, but full cure takes 28 days. Maui\'s heat accelerates early curing, which means timing is more critical here than on the mainland. Burt adjusts water-cement ratios for ambient temperature: cooler mornings in Kula vs. midday Kihei sun can mean different mix specs on the same job.',
+  },
+  {
+    q: 'How often should I reseal my concrete in a coastal area?',
+    a: 'Every 2-3 years for properties within a mile of the coast (Kihei, Wailea, Makena). Upcountry properties in Kula or Pukalani can go 4-5 years between applications. Salt spray, UV exposure, and volcanic soil acidity all affect sealer longevity. Burt recommends penetrating sealers over film-forming types for coastal driveways.',
+  },
+  {
+    q: 'Do I need a permit for a concrete driveway on Maui?',
+    a: 'Any slab over 200 square feet or any retaining wall over 4 feet in height requires a Maui County building permit. Burt handles the permit application process and coordinates with county inspectors when required. Typical permit turnaround is 2-4 weeks depending on scope.',
+  },
+  {
+    q: 'What PSI should residential concrete be on Maui?',
+    a: 'Burt specs 3,500 PSI minimum for residential flatwork and 4,000 PSI for driveways and any surface exposed to vehicle traffic. Coastal properties get higher-performance mix to resist chloride penetration from salt spray. Interior slabs in protected areas can use standard 3,000 PSI.',
+  },
+  {
+    q: 'Can you pour concrete on a hillside lot in South Maui?',
+    a: 'Yes, but it requires specific engineering. Hillside pours need retaining structures, proper drainage behind walls, and compacted fill verified to at least 95% modified Proctor. Burt has poured on slopes across Kihei and Wailea for over 20 years and knows which soil profiles hold and which ones need additional reinforcement.',
+  },
+]
+
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  return (
+    <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
+        <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Common Questions</p>
+        <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '2.5rem' }}>
+          Before You Pour
+        </h2>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i
+            return (
+              <div
+                key={i}
+                style={{ borderBottom: '1px solid hsl(var(--border))' }}
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    padding: '1.25rem 0',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                >
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.03em', color: 'hsl(var(--foreground))' }}>
+                    {faq.q}
+                  </span>
+                  <ChevronDown
+                    size={18}
+                    style={{
+                      color: 'hsl(var(--accent))',
+                      flexShrink: 0,
+                      transition: 'transform 0.25s ease',
+                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    }}
+                  />
+                </button>
+                <div
+                  style={{
+                    maxHeight: isOpen ? '300px' : '0',
+                    overflow: 'hidden',
+                    transition: 'max-height 0.3s ease',
+                  }}
+                >
+                  <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, paddingBottom: '1.25rem' }}>
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function Home() {
   return (
     <>
-      {/* ===== HERO — split 2-col, finished driveway photo ===== */}
+      {/* ===== HERO, split 2-col, finished driveway photo ===== */}
       <section
         aria-labelledby="hero-heading"
         style={{
@@ -57,7 +148,7 @@ export default function Home() {
         }}
         className="md:grid-cols-2"
       >
-        {/* Left col — copy */}
+        {/* Left col, copy */}
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -66,7 +157,7 @@ export default function Home() {
           borderRight: '1px solid hsl(var(--border))',
         }}>
           <p className="iron-label animate-fade-up" style={{ marginBottom: '1.5rem' }}>
-            § South Maui Concrete
+            South Maui Concrete
           </p>
 
           <h1
@@ -104,9 +195,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right col — photo + trust badge */}
+        {/* Right col, photo + trust badge */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: '480px' }}>
-          {/* Brass corner frame — top right */}
+          {/* Brass corner frame, top right */}
           <div style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', zIndex: 10, width: '40px', height: '40px', borderTop: '3px solid hsl(var(--accent))', borderRight: '3px solid hsl(var(--accent))' }} />
 
           <img
@@ -121,7 +212,7 @@ export default function Home() {
           {/* Dark overlay gradient */}
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, hsl(220 45% 7% / 0.65) 100%)' }} />
 
-          {/* Trust badge — bottom left */}
+          {/* Trust badge, bottom left */}
           <div style={{
             position: 'absolute',
             bottom: '1.5rem',
@@ -137,7 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== HOW WE WORK — process steps (above services per brief) ===== */}
+      {/* ===== HOW WE WORK, process steps (above services per brief) ===== */}
       <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', position: 'relative', overflow: 'hidden' }}>
         {/* Background photo with dark overlay */}
         <img
@@ -151,7 +242,7 @@ export default function Home() {
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
           <div style={{ marginBottom: '3rem' }}>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Grade. Form. Pour.</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Grade. Form. Pour.</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
               The Burt's Concrete Sequence
             </h2>
@@ -222,7 +313,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== SERVICES — clean 3x2 grid ===== */}
+      {/* ===== SERVICES, clean 3x2 grid ===== */}
       <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', backgroundColor: 'hsl(var(--background))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
@@ -254,17 +345,20 @@ export default function Home() {
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
                   {svc.desc}
                 </p>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.75rem' }}>
+                  Ideal for: {svc.idealFor}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== FEATURED PROJECT — quantified scope ===== */}
+      {/* ===== FEATURED PROJECT, quantified scope ===== */}
       <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 4rem) 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'center' }} className="md:grid-cols-2">
           <div>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Recent Work</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Recent Work</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
               Wailea Estates Driveway
             </h2>
@@ -316,12 +410,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE — 2-col with checklist ===== */}
+      {/* ===== WHY CHOOSE, 2-col with checklist ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ The Difference</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>The Difference</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '1.25rem' }}>
               Know the Soil Before You Pour
             </h2>
@@ -333,7 +427,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Right — branded pillars */}
+          {/* Right, branded pillars */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
               { phrase: '3,500 PSI Minimum', expansion: 'Every residential pour meets this specification. Salt-air conditions require it.' },
@@ -428,6 +522,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ===== FAQ ===== */}
+      <FAQSection />
 
       {/* ===== PRE-FOOTER CTA BAND ===== */}
       <section style={{ position: 'relative', height: '400px', overflow: 'hidden' }} aria-label="Contact call to action">
