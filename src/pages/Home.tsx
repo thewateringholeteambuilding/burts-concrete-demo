@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Phone, CheckCircle2, Star, ChevronDown } from 'lucide-react'
+import { ArrowRight, Phone, CheckCircle2, Star, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 
 // Confirmed Unsplash IDs from niche guide (2026-04-24)
 const HERO_PHOTO = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
@@ -66,6 +66,86 @@ const faqs = [
     a: 'Yes, but it requires specific engineering. Hillside pours need retaining structures, proper drainage behind walls, and compacted fill verified to at least 95% modified Proctor. Burt has poured on slopes across Kihei and Wailea for over 20 years and knows which soil profiles hold and which ones need additional reinforcement.',
   },
 ]
+
+function TestimonialSpotlight() {
+  const [activeIdx, setActiveIdx] = useState(0)
+  const t = testimonials[activeIdx]
+
+  return (
+    <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
+        {/* Google badge */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1.5rem', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-label="Google">
+              <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+              <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+              <path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/>
+              <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.163 6.656 3.58 9 3.58z"/>
+            </svg>
+            <div style={{ display: 'flex', gap: '2px' }}>
+              {[1,2,3,4,5].map(n => <Star key={n} size={14} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />)}
+            </div>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem', fontWeight: 600, color: 'hsl(var(--foreground))' }}>
+              5.0 from 47 Reviews
+            </span>
+          </div>
+        </div>
+
+        {/* Spotlight quote */}
+        <div style={{ textAlign: 'center', minHeight: '200px' }}>
+          <div style={{ display: 'flex', gap: '2px', justifyContent: 'center', marginBottom: '1.5rem' }}>
+            {Array.from({ length: t.stars }).map((_, i) => (
+              <Star key={i} size={16} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />
+            ))}
+          </div>
+
+          <blockquote style={{ fontFamily: 'Archivo, sans-serif', fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', color: 'hsl(var(--foreground))', lineHeight: 1.75, marginBottom: '1.75rem', fontStyle: 'italic', maxWidth: '640px', margin: '0 auto 1.75rem' }}>
+            &ldquo;{t.quote}&rdquo;
+          </blockquote>
+
+          <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground))' }}>
+            {t.author}
+          </div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.3rem' }}>
+            {t.detail}
+          </div>
+        </div>
+
+        {/* Nav */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.5rem', marginTop: '2.5rem' }}>
+          <button
+            onClick={() => setActiveIdx((activeIdx - 1 + testimonials.length) % testimonials.length)}
+            style={{ background: 'none', border: '1px solid hsl(var(--border))', cursor: 'pointer', color: 'hsl(var(--foreground))', padding: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            aria-label="Previous review"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          {/* Dots */}
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                style={{ width: i === activeIdx ? '24px' : '8px', height: '8px', backgroundColor: i === activeIdx ? 'hsl(var(--accent))' : 'hsl(var(--border))', border: 'none', cursor: 'pointer', transition: 'width 0.25s ease, background-color 0.25s ease' }}
+                aria-label={`Review ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => setActiveIdx((activeIdx + 1) % testimonials.length)}
+            style={{ background: 'none', border: '1px solid hsl(var(--border))', cursor: 'pointer', color: 'hsl(var(--foreground))', padding: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            aria-label="Next review"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -156,14 +236,14 @@ export default function Home() {
           padding: 'clamp(2.5rem, 8vw, 5rem) clamp(1.5rem, 5vw, 4rem)',
           borderRight: '1px solid hsl(var(--border))',
         }}>
-          <p className="iron-label animate-fade-up" style={{ marginBottom: '1.5rem' }}>
-            South Maui Concrete
+          <p className="iron-label animate-fade-up" style={{ marginBottom: '1.75rem', fontSize: '0.75rem' }}>
+            South Maui Concrete · Est. 2004
           </p>
 
           <h1
             id="hero-heading"
             className="iron-display animate-fade-up-delay-1"
-            style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', marginBottom: '1.5rem', color: 'hsl(var(--foreground))' }}
+            style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', marginBottom: '1.75rem', color: 'hsl(var(--foreground))' }}
           >
             Concrete Done<br />
             <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
@@ -313,6 +393,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== RECENT ACTIVITY STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '2rem', flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', flexShrink: 0, paddingTop: '0.15rem' }}>
+              Recent Jobs
+            </span>
+            <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
+              {[
+                { date: 'Apr 2025', job: 'Completed driveway tear-out and repour, Wailea Ekolu' },
+                { date: 'Mar 2025', job: 'Stamped patio and pool deck, Makena residence' },
+                { date: 'Jan 2025', job: 'Retaining wall and French drain, Kihei hillside lot' },
+              ].map((entry) => (
+                <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground) / 0.45)', flexShrink: 0 }}>
+                    {entry.date}
+                  </span>
+                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
+                    {entry.job}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ===== SERVICES, clean 3x2 grid ===== */}
       <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', backgroundColor: 'hsl(var(--background))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -335,17 +442,22 @@ export default function Home() {
             {services.map((svc, i) => (
               <div
                 key={svc.name}
-                className="iron-card"
+                className="iron-card service-card-hover"
                 style={{ padding: '1.75rem', borderWidth: 0, borderRight: i % 3 !== 2 ? '1px solid hsl(var(--border))' : 'none', borderBottom: i < 3 ? '1px solid hsl(var(--border))' : 'none' }}
               >
-                <div style={{ width: '28px', height: '3px', backgroundColor: 'hsl(var(--accent))', marginBottom: '1.25rem' }} />
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--accent) / 0.2)', lineHeight: 1 }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div style={{ width: '20px', height: '2px', backgroundColor: 'hsl(var(--accent))' }} />
+                </div>
                 <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.6rem', lineHeight: 1.2 }}>
                   {svc.name}
                 </h3>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
                   {svc.desc}
                 </p>
-                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.75rem' }}>
+                <p className="service-ideal" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.75rem', opacity: 0, maxHeight: 0, overflow: 'hidden', transition: 'opacity 0.25s ease, max-height 0.25s ease' }}>
                   Ideal for: {svc.idealFor}
                 </p>
               </div>
@@ -358,12 +470,15 @@ export default function Home() {
       <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 4rem) 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'center' }} className="md:grid-cols-2">
           <div>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Recent Work</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Recent Work · Wailea Ekolu Village</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
-              Wailea Estates Driveway
+              Driveway Tear-Out &amp; Repour
             </h2>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+              The original contractor poured over uncompacted fill in 2012. Twelve years later the slab had settled 3 inches on the mauka side, cracking the surface and pooling water against the garage foundation.
+            </p>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
-              Previous contractor poured over uncompacted fill. After 12 years the slab had settled 3 inches on the mauka side, cracking the surface and pooling water against the garage foundation. Burt tore out the existing pour, regraded with 6 inches of compacted base course, installed a French drain along the uphill edge, and repoured at 4,000 PSI with stamped border finish. Six days, start to finish.
+              Burt tore out the existing pour, regraded with 6 inches of compacted base course, installed a French drain along the uphill edge, and repoured at 4,000 PSI with stamped border finish. Six days, start to finish. Homeowner moved the cars back onto the slab on day eight.
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
@@ -468,60 +583,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== TESTIMONIALS ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
-          {/* Google badge */}
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1.5rem', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
-              <svg width="18" height="18" viewBox="0 0 18 18" aria-label="Google">
-                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
-                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
-                <path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/>
-                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.163 6.656 3.58 9 3.58z"/>
-              </svg>
-              <div style={{ display: 'flex', gap: '2px' }}>
-                {[1,2,3,4,5].map(n => <Star key={n} size={14} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />)}
-              </div>
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem', fontWeight: 600, color: 'hsl(var(--foreground))' }}>
-                5.0 from 47 Reviews
-              </span>
-            </div>
-          </div>
-
-          {/* Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            {testimonials.map((t) => (
-              <div
-                key={t.author}
-                style={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', padding: '1.75rem', position: 'relative', borderTop: '3px solid hsl(var(--accent))' }}
-              >
-                {/* Stars */}
-                <div style={{ display: 'flex', gap: '2px', marginBottom: '1rem' }}>
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} size={13} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <blockquote style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--foreground))', lineHeight: 1.7, marginBottom: '1.25rem', fontStyle: 'italic' }}>
-                  "{t.quote}"
-                </blockquote>
-
-                {/* Author */}
-                <div>
-                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground))' }}>
-                    {t.author}
-                  </div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>
-                    {t.detail}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== TESTIMONIALS — spotlight carousel ===== */}
+      <TestimonialSpotlight />
 
       {/* ===== FAQ ===== */}
       <FAQSection />

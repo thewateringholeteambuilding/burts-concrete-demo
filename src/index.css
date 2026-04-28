@@ -1,45 +1,50 @@
 @import "tailwindcss";
 
 @layer base {
+  /* ── Neo-Brutal × Noir-Gold Design Tokens ────────────────────────────
+     Style: neo-brutal (Space Grotesk display, hard-edge offset shadows)
+     Palette: noir-gold (deep black bg, cream text, warm gold accent)
+     Swapped 2026-04-26 from industrial × iron-brass to diversify cohort.
+     Token names retained so existing components don't break. */
   :root {
-    --background: 220 45% 7%;
-    --foreground: 40 30% 92%;
+    --background: 0 0% 4%;            /* deep black #0a0a0a */
+    --foreground: 35 35% 93%;         /* cream #f5f0e8 */
 
-    --card: 220 40% 10%;
-    --card-foreground: 40 30% 92%;
+    --card: 0 0% 7%;                  /* surface #111 */
+    --card-foreground: 35 35% 93%;
 
-    --popover: 220 40% 10%;
-    --popover-foreground: 40 30% 92%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 35 35% 93%;
 
-    --primary: 210 22% 88%;
-    --primary-foreground: 220 45% 7%;
+    --primary: 35 35% 93%;            /* cream */
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 220 38% 14%;
-    --secondary-foreground: 40 30% 92%;
+    --secondary: 0 0% 10%;            /* raised #1a1a1a */
+    --secondary-foreground: 35 35% 93%;
 
-    --muted: 220 28% 16%;
-    --muted-foreground: 220 12% 62%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 42 14% 57%;   /* muted bone */
 
-    --accent: 38 85% 55%;
-    --accent-foreground: 220 45% 7%;
+    --accent: 42 54% 54%;             /* warm gold #c9a84c */
+    --accent-foreground: 0 0% 4%;
 
-    --destructive: 0 84% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 35 35% 93%;
 
-    --border: 220 28% 18%;
-    --input: 220 28% 18%;
-    --ring: 38 85% 55%;
+    --border: 42 54% 54% / 0.18;      /* gold-tinted hairline */
+    --input: 0 0% 12%;
+    --ring: 42 54% 54%;
 
     --radius: 0px;
 
-    /* Iron Edge tokens */
-    --steel-deep: 220 45% 7%;
-    --steel-mid: 220 38% 14%;
-    --steel-light: 210 22% 88%;
-    --brass: 38 85% 55%;
-    --brass-dim: 38 55% 42%;
-    --rust: 15 72% 48%;
-    --concrete: 220 8% 52%;
+    /* Legacy "Iron Edge" tokens — repointed to noir-gold values */
+    --steel-deep: 0 0% 4%;
+    --steel-mid: 0 0% 10%;
+    --steel-light: 35 35% 93%;
+    --brass: 42 54% 54%;              /* now warm gold */
+    --brass-dim: 42 50% 42%;
+    --rust: 30 50% 38%;
+    --concrete: 42 14% 57%;
   }
 
   * {
@@ -50,7 +55,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Archivo', system-ui, sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
     font-feature-settings: 'ss01', 'ss02';
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -58,11 +63,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', 'Archivo Narrow', system-ui, sans-serif;
-    font-weight: 600;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: -0.01em;
-    line-height: 0.9;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
   }
 
   ::selection {
@@ -214,6 +219,11 @@
 
 .hero-photo-zoom {
   animation: heroZoom 12s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.service-card-hover:hover .service-ideal {
+  opacity: 1 !important;
+  max-height: 3rem !important;
 }
 
 html {

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://burts-concrete-demo.thewateringhole.com/sitemap.xml

@@ -35,8 +35,13 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const honeypot = (e.currentTarget as HTMLFormElement).elements.namedItem("company_website") as HTMLInputElement | null;
+    if (honeypot && honeypot.value.trim() !== "") {
+      setSubmitted(true); // silent success for bots
+      return;
+    }
     setSubmitted(true)
   }
 
@@ -69,7 +74,7 @@ export default function Contact() {
       {/* Page header */}
       <section style={{ position: 'relative', height: '300px', overflow: 'hidden' }}>
         <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80"
+          src="https://images.unsplash.com/photo-1641698680673-edab78703c0b?auto=format&fit=crop&w=1600&q=80"
           alt="Concrete foundation work, South Maui"
           fetchPriority="high"
           loading="eager"
@@ -77,7 +82,7 @@ export default function Contact() {
         />
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.82)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 clamp(1.5rem, 5vw, 4rem)', zIndex: 10 }}>
-          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Get in Touch</p>
+          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Get in Touch</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))' }}>
             Contact Burt's Concrete
           </h1>
@@ -88,7 +93,7 @@ export default function Contact() {
       <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(3rem, 8vw, 6rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '4rem' }} className="md:grid-cols-2">
 
-          {/* Left — contact info */}
+          {/* Left, contact info */}
           <div>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '2rem' }}>
               Burt Picks Up the Phone
@@ -156,7 +161,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — form */}
+          {/* Right, form */}
           <div style={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', padding: 'clamp(1.75rem, 4vw, 2.5rem)', borderTop: '3px solid hsl(var(--accent))' }}>
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
@@ -180,6 +185,10 @@ export default function Contact() {
                 </p>
 
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+                    <label htmlFor="company_website">Leave this field empty</label>
+                    <input type="text" id="company_website" name="company_website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                  </div>
                   <div>
                     <label htmlFor="name" style={labelStyle}>Your Name</label>
                     <input

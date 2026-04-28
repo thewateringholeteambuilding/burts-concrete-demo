@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Phone } from 'lucide-react'
 
-const ABOUT_PHOTO = 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80'
+const ABOUT_PHOTO = 'https://images.unsplash.com/photo-1685464197603-787dabbdecbd?auto=format&fit=crop&w=900&q=80'
 
 export default function About() {
   return (
@@ -9,7 +9,7 @@ export default function About() {
       {/* Page header */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: '4rem 1.5rem 3rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Our Story</p>
+          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Story</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))' }}>
             About Burt's Concrete
           </h1>
@@ -55,7 +55,7 @@ export default function About() {
 
           {/* Photo */}
           <div style={{ position: 'relative', minHeight: '420px' }}>
-            {/* Brass corner — top left */}
+            {/* Brass corner, top left */}
             <div style={{ position: 'absolute', top: '-12px', left: '-12px', width: '36px', height: '36px', borderTop: '3px solid hsl(var(--accent))', borderLeft: '3px solid hsl(var(--accent))', zIndex: 5 }} />
 
             <img

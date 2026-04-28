@@ -6,37 +6,37 @@ const galleryItems = [
     wide: true,
   },
   {
-    photo: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80',
+    photo: 'https://images.unsplash.com/photo-1641698680673-edab78703c0b?auto=format&fit=crop&w=700&q=80',
     caption: 'Foundation rebar and forms, pre-pour',
     alt: 'Concrete foundation with rebar placement before pour',
     wide: false,
   },
   {
-    photo: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=700&q=80',
+    photo: 'https://images.unsplash.com/photo-1685464197603-787dabbdecbd?auto=format&fit=crop&w=700&q=80',
     caption: 'Retaining wall, hillside property',
     alt: 'Concrete retaining wall on a South Maui hillside property',
     wide: false,
   },
   {
-    photo: 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=900&q=80',
+    photo: 'https://images.unsplash.com/photo-1640101086894-7d70c3e70179?auto=format&fit=crop&w=900&q=80',
     caption: 'Stamped patio, Wailea residence',
     alt: 'Stamped decorative concrete patio at a Wailea residence',
     wide: true,
   },
   {
-    photo: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=700&q=80',
+    photo: 'https://images.unsplash.com/photo-1673865641469-34498379d8af?auto=format&fit=crop&w=700&q=80',
     caption: 'Flatwork sidewalk, commercial property',
     alt: 'Concrete flatwork sidewalk at a commercial property',
     wide: false,
   },
   {
-    photo: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=700&q=80',
+    photo: 'https://images.unsplash.com/photo-1673978483230-b116c3969ffb?auto=format&fit=crop&w=700&q=80',
     caption: 'Commercial slab, Kihei',
     alt: 'Large commercial concrete slab in Kihei',
     wide: false,
   },
   {
-    photo: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80',
+    photo: 'https://images.unsplash.com/photo-1685464196339-46a985b2049b?auto=format&fit=crop&w=900&q=80',
     caption: 'Active pour, South Maui project',
     alt: 'Concrete pour in progress at a South Maui job site',
     wide: true,
@@ -49,7 +49,7 @@ export default function Gallery() {
       {/* Page header */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: '4rem 1.5rem 3rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>§ Our Work</p>
+          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Work</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))' }}>
             Before the Forms. After the Cure.
           </h1>

@@ -4,14 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Burt's Concrete | Kihei, Maui Concrete Contractor</title>
-    <meta name="description" content="Burt's Concrete serves South Maui with residential and commercial concrete work. Driveways, foundations, patios, retaining walls, and decorative concrete. Call (808) 875-9085." />
+    <title>Burt's Concrete | Kihei Maui Concrete Contractor</title>
+    <meta name="description" content="Burt's Concrete serves South Maui with residential and commercial concrete work. Driveways, foundations, patios, retaining walls, decorative concrete. Call (808) 875-9085." />
 
-    <!-- Preload critical fonts -->
+    <!-- Google Search Console verification, replace placeholder with real token at deploy -->
+    <meta name="google-site-verification" content="__SEARCH_CONSOLE_TOKEN__" />
+
+    <!-- Theme color (mobile address bar), matches noir-gold palette -->
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Burt's Concrete" />
+    <meta property="og:title" content="Burt's Concrete | Kihei Maui Concrete Contractor" />
+    <meta property="og:description" content="South Maui concrete contractor. Driveways, foundations, patios, retaining walls, decorative concrete." />
+    <meta property="og:url" content="https://burts-concrete-demo.thewateringhole.com" />
+    <meta property="og:image" content="https://burts-concrete-demo.thewateringhole.com/og-image.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Burt's Concrete | South Maui" />
+    <meta name="twitter:description" content="South Maui concrete contractor. Heavy work, done right." />
+    <meta name="twitter:image" content="https://burts-concrete-demo.thewateringhole.com/og-image.jpg" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Preload critical fonts (neo-brutal style) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -22,7 +46,19 @@
       href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
     />
 
-    <!-- JSON-LD LocalBusiness schema -->
+    <!-- JSON-LD: Organization (brand-mention SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Burt's Concrete",
+      "url": "https://burts-concrete-demo.thewateringhole.com",
+      "logo": "https://burts-concrete-demo.thewateringhole.com/favicon.svg",
+      "sameAs": []
+    }
+    </script>
+
+    <!-- JSON-LD LocalBusiness Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,7 +79,7 @@
         "latitude": 20.7644,
         "longitude": -156.4450
       },
-      "url": "https://burts-concrete-demo.pages.dev",
+      "url": "https://burts-concrete-demo.thewateringhole.com",
       "areaServed": {
         "@type": "Place",
         "name": "Maui, Hawaii"
@@ -54,6 +90,15 @@
         "https://maps.google.com/?cid=11379102504981932162"
       ]
     }
+    </script>
+
+    <!-- GA4 placeholder, replace G-XXXXXXXXXX with real Measurement ID at deploy -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
     </script>
   </head>
   <body>
