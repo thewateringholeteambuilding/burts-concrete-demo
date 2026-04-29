@@ -20,6 +20,16 @@ const serviceOptions = [
   'Other / Not Sure',
 ]
 
+const serviceHints: Record<string, string> = {
+  'Concrete Foundation': 'Helpful to mention: building type (house, ADU, addition), approximate footprint in sq ft, whether you have engineered plans.',
+  'Driveway or Parking': 'Helpful to mention: approximate length and width, current surface (dirt, old concrete, asphalt), vehicle types using it daily.',
+  'Retaining Wall': 'Helpful to mention: wall height needed, slope grade if known, whether water pools behind the area after rain.',
+  'Sidewalk or Walkway': 'Helpful to mention: total linear feet, desired width, whether ADA compliance is needed.',
+  'Decorative Concrete': 'Helpful to mention: finish type (stamped, stained, polished), area in sq ft, any color or pattern references.',
+  'Concrete Slab': 'Helpful to mention: intended use (garage, workshop, lanai), approximate dimensions, whether plumbing runs underneath.',
+  'Concrete Repair': 'Helpful to mention: type of damage (cracking, spalling, settling), approximate area affected, age of existing concrete.',
+}
+
 export default function Contact() {
   const [form, setForm] = useState<FormState>({
     name: '',
@@ -84,7 +94,7 @@ export default function Contact() {
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 clamp(1.5rem, 5vw, 4rem)', zIndex: 10 }}>
           <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Get in Touch</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))' }}>
-            Contact Burt's Concrete
+            The Ground Under Everything
           </h1>
         </div>
       </section>
@@ -245,6 +255,20 @@ export default function Contact() {
                         <option key={opt} value={opt}>{opt}</option>
                       ))}
                     </select>
+                    {form.service && serviceHints[form.service] && (
+                      <p style={{
+                        fontFamily: 'Archivo, sans-serif',
+                        fontSize: '0.75rem',
+                        color: 'hsl(var(--accent))',
+                        marginTop: '0.5rem',
+                        lineHeight: 1.5,
+                        padding: '0.5rem 0.75rem',
+                        backgroundColor: 'hsl(var(--accent) / 0.08)',
+                        border: '1px solid hsl(var(--accent) / 0.15)',
+                      }}>
+                        {serviceHints[form.service]}
+                      </p>
+                    )}
                   </div>
 
                   <div>

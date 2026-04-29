@@ -19,7 +19,7 @@ const services = [
 const processSteps = [
   { num: '01', title: 'Call or Text Burt', body: 'Reach out any day. Burt returns calls and texts directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
   { num: '02', title: 'Site Walk', body: 'Burt visits your property, reads the soil profile, checks drainage slope, and gives you a firm number. Average crew tenure: 9 years.' },
-  { num: '03', title: 'Mix & Forms', body: '3,500 PSI minimum residential, 4,000 PSI driveways. #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
+  { num: '03', title: 'Mix & Forms', body: '3,500 PSI minimum residential, 4,000 PSI driveways. Hawaiian Cement or HC&D batch plant. #4 rebar at 12-inch centers. Simpson Strong-Tie anchors. Forms leveled and pinned to engineered grade.' },
   { num: '04', title: 'Pour & Finish', body: 'Continuous pour, no cold joints. Control joints cut at 24 hours. Broom or stamped finish per spec. Cleanup and form pull same week.' },
 ]
 
@@ -365,7 +365,7 @@ export default function Home() {
           {[
             { value: '20+', label: 'Years on Maui' },
             { value: '347', label: 'Projects Completed' },
-            { value: '100%', label: 'Licensed & Insured' },
+            { value: '52K+', label: 'Sq Ft Poured' },
             { value: 'Kihei', label: 'South Maui Based' },
           ].map((stat) => (
             <div key={stat.label} className="iron-stat">
@@ -515,7 +515,7 @@ export default function Home() {
               Owner-Operated Since 2004
             </h2>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65, maxWidth: '520px' }}>
-              Burt answers the phone, walks the site, and runs the pour. No office staff, no dispatched crews. You talk to the person who does the work. That has been the arrangement for 347 projects and counting.
+              I answer the phone, walk the site, and run the pour. No office staff, no dispatched crews. You talk to the person who does the work. That has been the arrangement for 347 projects and counting.
             </p>
           </div>
           <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ flexShrink: 0 }}>
@@ -580,6 +580,32 @@ export default function Home() {
             Ask About Coverage
             <ArrowRight size={14} />
           </Link>
+        </div>
+      </section>
+
+      {/* ===== JOBSITE RESPONSIBILITY STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginBottom: '1.5rem', textAlign: 'center' }}>
+            On Every Jobsite
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { title: 'Storm Drain Protection', desc: 'Inlet barriers placed before work starts. No runoff enters the county storm system.' },
+              { title: 'Washout Containment', desc: 'Concrete washout stays on site in lined containment. Cleaned and hauled after every pour.' },
+              { title: 'Local Materials', desc: 'Hawaiian Cement and HC&D batch plants. Aggregate sourced on-island when available.' },
+              { title: 'Clean Handoff', desc: 'Forms pulled, site swept, debris hauled same week. Your property looks better than we found it.' },
+            ].map((item) => (
+              <div key={item.title} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.4rem' }}>
+                  {item.title}
+                </h3>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.8rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

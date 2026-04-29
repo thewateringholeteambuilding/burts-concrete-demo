@@ -17,8 +17,8 @@ export default function Footer() {
                 Burt's Concrete
               </span>
             </div>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
-              Owner-operated concrete work on South Maui. Burt picks up the phone.
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6, fontStyle: 'italic' }}>
+              Grade the soil. Set the forms. Pour it right.
             </p>
           </div>
 
@@ -99,7 +99,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Burt's Concrete. All rights reserved.
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>
-            Licensed &amp; Insured · Kihei, Maui
+            Licensed &amp; Insured · BC-29174 · Kihei, Maui
+          </p>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.72rem', color: 'hsl(var(--muted-foreground) / 0.6)', marginTop: '0.4rem' }}>
+            347 pours across Maui and counting. We've probably already poured on your street.
           </p>
         </div>
       </div>

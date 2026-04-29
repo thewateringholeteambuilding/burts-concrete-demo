@@ -28,16 +28,16 @@ export default function About() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.97rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-                Burt started pouring concrete on Maui in the early 2000s, working jobs from Kihei to Wailea to Makena. He learned the soil. Volcanic profiles, salt air, hillside drainage, the way the sun bakes an east-facing slab differently in Kihei than it does in Kahului.
+                I started pouring concrete on Maui in the early 2000s, working jobs from Kihei to Wailea to Makena. I learned the soil. Volcanic profiles, salt air, hillside drainage, the way the sun bakes an east-facing slab differently in Kihei than it does in Kahului.
               </p>
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.97rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-                Eventually he went out on his own. Burt's Concrete has been owner-operated since day one. That means Burt is on site for every pour. Not a foreman. Not a crew that shows up with his company truck. Burt.
+                Eventually I went out on my own. Burt's Concrete has been owner-operated since day one. I'm on site for every pour. Not a foreman. Not a crew that shows up with my company truck. Me.
               </p>
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.97rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-                He picks up the phone. He returns texts same day. When he gives you a number, that's the number. No line-item surprises when the invoice arrives.
+                I pick up the phone. I return texts same day. When I give you a number, that's the number. No line-item surprises when the invoice arrives.
               </p>
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.97rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-                Over 347 projects completed across South Maui. Foundations, driveways, patios, retaining walls, sidewalks, decorative finishes. If it requires concrete, Burt has poured it on this island.
+                347 projects completed across South Maui. Foundations, driveways, patios, retaining walls, sidewalks, decorative finishes. If it requires concrete, I've poured it on this island.
               </p>
             </div>
 
