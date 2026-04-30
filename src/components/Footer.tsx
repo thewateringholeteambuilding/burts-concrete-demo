@@ -99,7 +99,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Burt's Concrete. All rights reserved.
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>
-            Licensed &amp; Insured · BC-29174 · Kihei, Maui
+            Licensed &amp; Insured · <span style={{ borderBottom: '1px solid hsl(var(--accent) / 0.4)', cursor: 'default' }} title="Hawaii DCCA Contractor License">BC-29174</span> · Kihei, Maui
           </p>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.72rem', color: 'hsl(var(--muted-foreground) / 0.6)', marginTop: '0.4rem' }}>
             347 pours across Maui and counting. We've probably already poured on your street.

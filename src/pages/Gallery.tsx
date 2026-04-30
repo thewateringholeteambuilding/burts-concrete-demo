@@ -1,43 +1,50 @@
 const galleryItems = [
   {
     photo: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
-    caption: 'Residential driveway, Kihei',
+    tag: 'Driveway',
+    caption: '1,800 sq ft residential repour, Kihei',
     alt: 'Finished residential concrete driveway in Kihei South Maui',
     wide: true,
   },
   {
     photo: 'https://images.unsplash.com/photo-1641698680673-edab78703c0b?auto=format&fit=crop&w=700&q=80',
-    caption: 'Foundation rebar and forms, pre-pour',
+    tag: 'Foundation',
+    caption: 'Stem wall + grade beam, Wailea ADU',
     alt: 'Concrete foundation with rebar placement before pour',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1685464197603-787dabbdecbd?auto=format&fit=crop&w=700&q=80',
-    caption: 'Retaining wall, hillside property',
+    tag: 'Retaining Wall',
+    caption: '6-ft cantilever wall, Kihei hillside',
     alt: 'Concrete retaining wall on a South Maui hillside property',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1640101086894-7d70c3e70179?auto=format&fit=crop&w=900&q=80',
-    caption: 'Stamped patio, Wailea residence',
+    tag: 'Decorative',
+    caption: 'Stamped patio + pool deck, Wailea residence',
     alt: 'Stamped decorative concrete patio at a Wailea residence',
     wide: true,
   },
   {
     photo: 'https://images.unsplash.com/photo-1673865641469-34498379d8af?auto=format&fit=crop&w=700&q=80',
-    caption: 'Flatwork sidewalk, commercial property',
+    tag: 'Flatwork',
+    caption: 'ADA-compliant sidewalk, commercial Kihei',
     alt: 'Concrete flatwork sidewalk at a commercial property',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1673978483230-b116c3969ffb?auto=format&fit=crop&w=700&q=80',
-    caption: 'Commercial slab, Kihei',
+    tag: 'Slab',
+    caption: '3,200 sq ft equipment slab, Kahului',
     alt: 'Large commercial concrete slab in Kihei',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1685464196339-46a985b2049b?auto=format&fit=crop&w=900&q=80',
-    caption: 'Active pour, South Maui project',
+    tag: 'In Progress',
+    caption: 'Continuous pour, South Maui residential',
     alt: 'Concrete pour in progress at a South Maui job site',
     wide: true,
   },
@@ -106,14 +113,33 @@ export default function Gallery() {
                   bottom: '1rem',
                   left: '1rem',
                   right: '1rem',
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '0.72rem',
-                  fontWeight: 500,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.15em',
-                  color: 'hsl(var(--foreground) / 0.85)',
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '0.6rem',
                 }}>
-                  {item.caption}
+                  <span style={{
+                    fontFamily: 'Oswald, sans-serif',
+                    fontSize: '0.62rem',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.12em',
+                    color: 'hsl(var(--accent))',
+                    backgroundColor: 'hsl(var(--background) / 0.85)',
+                    padding: '0.2rem 0.5rem',
+                    flexShrink: 0,
+                  }}>
+                    {item.tag}
+                  </span>
+                  <span style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.72rem',
+                    fontWeight: 500,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.12em',
+                    color: 'hsl(var(--foreground) / 0.85)',
+                  }}>
+                    {item.caption}
+                  </span>
                 </figcaption>
               </figure>
             ))}

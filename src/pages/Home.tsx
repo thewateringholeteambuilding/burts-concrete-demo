@@ -249,6 +249,10 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
           </h1>
 
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 500, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', marginBottom: '1.5rem' }}>
+            Built for Maui soil. Backed by 347 pours.
+          </p>
+
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1.05rem', lineHeight: 1.65, color: 'hsl(var(--muted-foreground))', maxWidth: '420px', marginBottom: '2.5rem' }}>
             Owner-operated out of Kihei. Burt handles the estimate, the pour, and the finish. No subcontractors. No surprises on the invoice.
           </p>

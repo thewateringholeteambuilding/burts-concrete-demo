@@ -7,6 +7,7 @@ const services = [
   {
     id: 'foundations',
     name: 'Concrete Foundations',
+    hook: 'The soil determines the slab.',
     desc: 'Stem walls, grade beams, and slab-on-grade construction for South Maui residential and commercial properties. Burt reads the soil before the forms go up. Kihei clay profiles are not the same as Central Maui. Seismic rebar placement per Hawaii code. Every foundation includes drainage engineered before the pour.',
     specs: ['Slab-on-grade', 'Stem wall foundations', 'Grade beams', 'Post-tension prep', 'HRS seismic compliance'],
     photo: 'https://images.unsplash.com/photo-1641698680673-edab78703c0b?auto=format&fit=crop&w=800&q=80',
@@ -15,7 +16,8 @@ const services = [
   {
     id: 'driveways',
     name: 'Driveways & Parking Areas',
-    desc: 'Residential driveways and commercial parking pads poured to last. Salt air from the Kihei coastline accelerates surface damage on under-mixed concrete. Burt specs 3,500 PSI minimum with proper water-cement ratio for coastal conditions. Joints cut at 24 hours to control cracking, not guessed at.',
+    hook: 'Salt air punishes weak concrete.',
+    desc: 'Residential driveways and commercial parking pads poured to last. The Kihei coastline accelerates surface damage on under-mixed concrete. Burt specs 3,500 PSI minimum with proper water-cement ratio for coastal conditions. Joints cut at 24 hours to control cracking, not guessed at.',
     specs: ['Residential driveways', 'Commercial parking', 'Apron and approach work', 'Coastal mix spec', '3,500 PSI minimum'],
     photo: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
     alt: 'Finished residential concrete driveway',
@@ -23,7 +25,8 @@ const services = [
   {
     id: 'retaining-walls',
     name: 'Retaining Walls',
-    desc: 'Hillside properties in Kihei and Wailea deal with erosion and grade change year after year. A concrete retaining wall done right solves the problem permanently. Burt designs for the load: soil type, slope angle, and drainage behind the wall are spec\'d before concrete is ordered. No guessing.',
+    hook: 'Grade change is permanent. The fix should be too.',
+    desc: 'Hillside properties in Kihei and Wailea deal with erosion year after year. A concrete retaining wall done right solves the problem permanently. Burt designs for the load: soil type, slope angle, and drainage behind the wall are spec\'d before concrete is ordered.',
     specs: ['Gravity walls', 'Cantilever walls', 'Drainage behind-wall', 'Hillside erosion control', 'Grade separation'],
     photo: 'https://images.unsplash.com/photo-1685464197603-787dabbdecbd?auto=format&fit=crop&w=800&q=80',
     alt: 'Concrete retaining wall on a hillside property',
@@ -31,7 +34,8 @@ const services = [
   {
     id: 'sidewalks',
     name: 'Sidewalks & Walkways',
-    desc: 'Flatwork is where the details show. Burt hand-tools the edges, checks level every 8 feet, and cuts control joints on schedule. Sidewalks that look clean and stay flat for years, not seasons.',
+    hook: 'Flatwork is where the details show.',
+    desc: 'Burt hand-tools the edges, checks level every 8 feet, and cuts control joints on schedule. Sidewalks that look clean and stay flat for years, not seasons.',
     specs: ['Residential walkways', 'Commercial sidewalks', 'Hand-tooled edges', 'ADA-compliant grades', 'Broom or smooth finish'],
     photo: 'https://images.unsplash.com/photo-1673865641469-34498379d8af?auto=format&fit=crop&w=800&q=80',
     alt: 'Clean concrete sidewalk with tooled edges',
@@ -39,6 +43,7 @@ const services = [
   {
     id: 'decorative',
     name: 'Decorative Concrete',
+    hook: 'Function first, then finish.',
     desc: 'Stamped patterns, acid stains, and polished finishes for patios, pool decks, and interior floors. Burt has done decorative work in Wailea resort properties and Kihei private residences. Pattern and color consultation included with the estimate.',
     specs: ['Stamped concrete', 'Acid stain', 'Polished floors', 'Pool deck finishes', 'Color integral and overlay'],
     photo: 'https://images.unsplash.com/photo-1640101086894-7d70c3e70179?auto=format&fit=crop&w=800&q=80',
@@ -47,6 +52,7 @@ const services = [
   {
     id: 'slabs',
     name: 'Concrete Slabs',
+    hook: 'Compaction before concrete. Always.',
     desc: 'General-purpose slabs for garages, sheds, equipment pads, lanai floors, and utility areas. Gravel base compacted and leveled before forms go in. Vapor barrier included where moisture is a concern.',
     specs: ['Garage slabs', 'Shed and equipment pads', 'Lanai floors', 'Utility pads', 'Vapor barrier option'],
     photo: 'https://images.unsplash.com/photo-1673978483230-b116c3969ffb?auto=format&fit=crop&w=800&q=80',
@@ -55,7 +61,8 @@ const services = [
   {
     id: 'repair',
     name: 'Concrete Repair & Resurfacing',
-    desc: 'Spalling, scaling, and surface cracking from Maui\'s UV and salt exposure. Burt evaluates whether repair or replacement is the honest answer, then gives you both prices. Most surface repairs are done in a single visit.',
+    hook: 'Repair or replace. Burt gives you both prices.',
+    desc: 'Spalling, scaling, and surface cracking from Maui\'s UV and salt exposure. Burt evaluates whether repair or replacement is the honest answer, then quotes both options. Most surface repairs are done in a single visit.',
     specs: ['Spall and crack repair', 'Overlay resurfacing', 'Surface sealing', 'Joint repair', 'Single-visit turnaround'],
     photo: 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=800&q=80',
     alt: 'Concrete repair and resurfacing work',
@@ -177,9 +184,13 @@ export default function Services() {
               {/* Brass accent bar */}
               <div style={{ width: '36px', height: '3px', backgroundColor: 'hsl(var(--accent))', marginBottom: '1.25rem' }} />
 
-              <h2 className="iron-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.25rem' }}>
+              <h2 className="iron-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.75rem' }}>
                 {svc.name}
               </h2>
+
+              <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 500, fontSize: '0.88rem', color: 'hsl(var(--accent))', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '1rem', lineHeight: 1.4 }}>
+                {svc.hook}
+              </p>
 
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.93rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75, marginBottom: '1.75rem' }}>
                 {svc.desc}

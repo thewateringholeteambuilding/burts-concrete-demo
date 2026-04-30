@@ -71,38 +71,39 @@ export default function About() {
       {/* Values / differentiators */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>Who Calls Burt</p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '3rem', textAlign: 'center' }}>
-            What You Get When You Call Burt
+            Every Project Starts With a Conversation
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
               {
-                title: 'The Owner on Site',
-                body: 'Every job, every pour. Burt does not dispatch a crew. You meet him at the estimate and he is there when the concrete truck arrives.',
+                type: 'Homeowners',
+                scenario: 'Driveway cracking after 8 years. Need it torn out and repoured before listing the house. Want a firm price and a crew that shows up on the scheduled day.',
               },
               {
-                title: 'Firm Estimates',
-                body: 'You get a price before we start. The invoice matches it. Unexpected site conditions get discussed before work resumes, not billed after.',
+                type: 'Vacation Rental Owners',
+                scenario: 'Lanai and pool deck need resurfacing between bookings. Tight timeline, clean handoff, and zero guest disruption. Burt has done 30+ rental properties in Wailea alone.',
               },
               {
-                title: 'Maui Mix Specs',
-                body: '3,500 PSI minimum on residential work. Air-entrainment adjusted for tropical humidity. Rebar and drainage spec before forms go in.',
+                type: 'General Contractors',
+                scenario: 'Foundation sub who answers the phone and delivers on the schedule. Burt coordinates with your framing timeline and pulls his own permits when needed.',
               },
               {
-                title: 'Same-Day Response',
-                body: 'Call or text (808) 875-9085. Burt returns messages same day. Estimates are typically scheduled within the week.',
+                type: 'Commercial Properties',
+                scenario: 'Parking lot expansion, loading dock slab, or ADA sidewalk compliance. Permits, traffic management plan, and weekend pours to minimize business disruption.',
               },
             ].map((item) => (
               <div
-                key={item.title}
-                style={{ padding: '1.75rem', backgroundColor: 'hsl(var(--background))', borderTop: '3px solid hsl(var(--accent))' }}
+                key={item.type}
+                style={{ padding: '1.75rem', backgroundColor: 'hsl(var(--background))' }}
               >
-                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.75rem' }}>
-                  {item.title}
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent))', marginBottom: '0.75rem' }}>
+                  {item.type}
                 </h3>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
-                  {item.body}
+                  {item.scenario}
                 </p>
               </div>
             ))}
