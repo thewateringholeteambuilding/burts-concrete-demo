@@ -74,6 +74,8 @@ function TestimonialSpotlight() {
   return (
     <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
+        <p className="iron-label" style={{ marginBottom: '2rem', textAlign: 'center' }}>Client Reviews</p>
+
         {/* Google badge */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1.5rem', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
@@ -327,9 +329,12 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
           <div style={{ marginBottom: '3rem' }}>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Grade. Form. Pour.</p>
-            <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
+            <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
               The Burt's Concrete Sequence
             </h2>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', fontStyle: 'italic' }}>
+              Grade the soil. Set the forms. Pour it right.
+            </p>
           </div>
 
           {/* Timeline grid */}
@@ -406,11 +411,14 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
               {[
-                { date: 'Apr 2025', job: 'Completed driveway tear-out and repour, Wailea Ekolu' },
-                { date: 'Mar 2025', job: 'Stamped patio and pool deck, Makena residence' },
-                { date: 'Jan 2025', job: 'Retaining wall and French drain, Kihei hillside lot' },
+                { ref: 'BC-347', date: 'Apr 2025', job: 'Completed driveway tear-out and repour, Wailea Ekolu' },
+                { ref: 'BC-344', date: 'Mar 2025', job: 'Stamped patio and pool deck, Makena residence' },
+                { ref: 'BC-341', date: 'Jan 2025', job: 'Retaining wall and French drain, Kihei hillside lot' },
               ].map((entry) => (
-                <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                <div key={entry.ref} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0 }}>
+                    {entry.ref}
+                  </span>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground) / 0.45)', flexShrink: 0 }}>
                     {entry.date}
                   </span>
@@ -429,6 +437,7 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
             <div>
+              <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Services</p>
               <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
                 What We Pour
               </h2>
@@ -573,6 +582,9 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--accent))', padding: 'clamp(2.5rem, 5vw, 3.5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
           <div>
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent-foreground) / 0.6)', marginBottom: '0.75rem' }}>
+              Grade the soil. Set the forms. Pour it right.
+            </p>
             <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', textTransform: 'uppercase', letterSpacing: '-0.01em', lineHeight: 0.95, color: 'hsl(var(--accent-foreground))' }}>
               Workmanship Warranty on Every Pour
             </div>
@@ -590,9 +602,7 @@ export default function Home() {
       {/* ===== JOBSITE RESPONSIBILITY STRIP ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginBottom: '1.5rem', textAlign: 'center' }}>
-            On Every Jobsite
-          </p>
+          <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>On Every Jobsite</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
               { title: 'Storm Drain Protection', desc: 'Inlet barriers placed before work starts. No runoff enters the county storm system.' },

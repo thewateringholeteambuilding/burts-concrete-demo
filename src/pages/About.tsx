@@ -111,6 +111,75 @@ export default function About() {
         </div>
       </section>
 
+      {/* Seasonal booking awareness */}
+      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 0', backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>Booking Calendar</p>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '3rem', textAlign: 'center' }}>
+            When to Book Your Pour
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              {
+                season: 'Winter',
+                months: 'Dec - Feb',
+                demand: 'Moderate',
+                leadTime: '2-3 weeks',
+                note: 'Cooler mornings mean slower early cure. Best for foundations and covered slabs. Rain delays possible on exposed pours.',
+              },
+              {
+                season: 'Spring',
+                months: 'Mar - May',
+                demand: 'High',
+                leadTime: '3-4 weeks',
+                note: 'Peak booking season. Vacation rental owners schedule between guest stays. Book early for driveway and patio work.',
+              },
+              {
+                season: 'Summer',
+                months: 'Jun - Aug',
+                demand: 'Highest',
+                leadTime: '4-6 weeks',
+                note: 'Maui heat accelerates curing. Pours start at dawn to avoid midday set. Schedule fills fast. Book by mid-May.',
+              },
+              {
+                season: 'Fall',
+                months: 'Sep - Nov',
+                demand: 'Moderate',
+                leadTime: '2-3 weeks',
+                note: 'Ideal pour weather. Consistent temps, lower humidity. Best window for decorative finishes and stamped work.',
+              },
+            ].map((q) => (
+              <div key={q.season} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.75rem' }}>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.25rem' }}>
+                  {q.season}
+                </div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--muted-foreground))', marginBottom: '1rem' }}>
+                  {q.months}
+                </div>
+                <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1rem' }}>
+                  <div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--muted-foreground))' }}>Demand</div>
+                    <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.85rem', color: 'hsl(var(--accent))' }}>{q.demand}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--muted-foreground))' }}>Lead Time</div>
+                    <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.85rem', color: 'hsl(var(--foreground))' }}>{q.leadTime}</div>
+                  </div>
+                </div>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                  {q.note}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', marginTop: '1.5rem', fontStyle: 'italic' }}>
+            Grade the soil. Set the forms. Pour it right.
+          </p>
+        </div>
+      </section>
+
       {/* Service area */}
       <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 0', backgroundColor: 'hsl(var(--background))' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 1.5rem', textAlign: 'center' }}>

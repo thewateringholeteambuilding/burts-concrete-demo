@@ -6,6 +6,7 @@ interface FormState {
   phone: string
   email: string
   service: string
+  customerType: string
   message: string
 }
 
@@ -36,6 +37,7 @@ export default function Contact() {
     phone: '',
     email: '',
     service: '',
+    customerType: '',
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
@@ -269,6 +271,48 @@ export default function Contact() {
                         {serviceHints[form.service]}
                       </p>
                     )}
+                  </div>
+
+                  <div>
+                    <p style={labelStyle}>Have we worked together before?</p>
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                      {['First time', 'Returning client', 'Referral'].map((opt) => (
+                        <label
+                          key={opt}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.4rem',
+                            cursor: 'pointer',
+                            fontFamily: 'Archivo, sans-serif',
+                            fontSize: '0.85rem',
+                            color: form.customerType === opt ? 'hsl(var(--foreground))' : 'hsl(var(--muted-foreground))',
+                            padding: '0.5rem 0.85rem',
+                            border: `1px solid ${form.customerType === opt ? 'hsl(var(--accent))' : 'hsl(var(--border))'}`,
+                            backgroundColor: form.customerType === opt ? 'hsl(var(--accent) / 0.08)' : 'transparent',
+                            transition: 'border-color 0.2s, background-color 0.2s',
+                          }}
+                        >
+                          <input
+                            type="radio"
+                            name="customerType"
+                            value={opt}
+                            checked={form.customerType === opt}
+                            onChange={handleChange}
+                            style={{ display: 'none' }}
+                          />
+                          <span style={{
+                            width: '10px',
+                            height: '10px',
+                            border: `2px solid ${form.customerType === opt ? 'hsl(var(--accent))' : 'hsl(var(--border))'}`,
+                            backgroundColor: form.customerType === opt ? 'hsl(var(--accent))' : 'transparent',
+                            flexShrink: 0,
+                            transition: 'border-color 0.2s, background-color 0.2s',
+                          }} />
+                          {opt}
+                        </label>
+                      ))}
+                    </div>
                   </div>
 
                   <div>
