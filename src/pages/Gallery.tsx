@@ -1,56 +1,66 @@
+import { useState } from 'react'
+
 const galleryItems = [
   {
     photo: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
     tag: 'Driveway',
-    caption: '1,800 sq ft residential repour, Kihei',
+    caption: '1,800 sq ft repour, Kihei · Removed failed 2012 slab that had settled 3 inches',
     alt: 'Finished residential concrete driveway in Kihei South Maui',
     wide: true,
   },
   {
     photo: 'https://images.unsplash.com/photo-1641698680673-edab78703c0b?auto=format&fit=crop&w=700&q=80',
     tag: 'Foundation',
-    caption: 'Stem wall + grade beam, Wailea ADU',
+    caption: 'Stem wall + grade beam, Wailea ADU · Clay pocket required 18-inch over-excavation',
     alt: 'Concrete foundation with rebar placement before pour',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1685464197603-787dabbdecbd?auto=format&fit=crop&w=700&q=80',
     tag: 'Retaining Wall',
-    caption: '6-ft cantilever wall, Kihei hillside',
+    caption: '6-ft cantilever wall, Kihei hillside · Drainage added behind wall after neighbor runoff issue',
     alt: 'Concrete retaining wall on a South Maui hillside property',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1640101086894-7d70c3e70179?auto=format&fit=crop&w=900&q=80',
     tag: 'Decorative',
-    caption: 'Stamped patio + pool deck, Wailea residence',
+    caption: 'Stamped patio + pool deck, Wailea · Poured between guest bookings, 4-day window',
     alt: 'Stamped decorative concrete patio at a Wailea residence',
     wide: true,
   },
   {
     photo: 'https://images.unsplash.com/photo-1673865641469-34498379d8af?auto=format&fit=crop&w=700&q=80',
     tag: 'Flatwork',
-    caption: 'ADA-compliant sidewalk, commercial Kihei',
+    caption: 'ADA sidewalk, commercial Kihei · Tight access between two buildings, hand-wheeled mix',
     alt: 'Concrete flatwork sidewalk at a commercial property',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1673978483230-b116c3969ffb?auto=format&fit=crop&w=700&q=80',
     tag: 'Slab',
-    caption: '3,200 sq ft equipment slab, Kahului',
-    alt: 'Large commercial concrete slab in Kihei',
+    caption: '3,200 sq ft equipment slab, Kahului · Weekend pour to avoid disrupting warehouse ops',
+    alt: 'Large commercial concrete slab in Kahului',
     wide: false,
   },
   {
     photo: 'https://images.unsplash.com/photo-1685464196339-46a985b2049b?auto=format&fit=crop&w=900&q=80',
     tag: 'In Progress',
-    caption: 'Continuous pour, South Maui residential',
+    caption: 'Continuous pour, South Maui · Dawn start to beat midday heat on exposed coastal lot',
     alt: 'Concrete pour in progress at a South Maui job site',
     wide: true,
   },
 ]
 
+const filterTags = ['All', ...Array.from(new Set(galleryItems.map((item) => item.tag)))]
+
 export default function Gallery() {
+  const [activeFilter, setActiveFilter] = useState('All')
+
+  const filteredItems = activeFilter === 'All'
+    ? galleryItems
+    : galleryItems.filter((item) => item.tag === activeFilter)
+
   return (
     <>
       {/* Page header */}
@@ -83,11 +93,39 @@ export default function Gallery() {
         </div>
       </section>
 
+      {/* Filter pills */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1rem 1.5rem', overflowX: 'auto' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '0.5rem', flexWrap: 'nowrap' }}>
+          {filterTags.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => setActiveFilter(tag)}
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.68rem',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                color: activeFilter === tag ? 'hsl(var(--accent-foreground))' : 'hsl(var(--foreground))',
+                backgroundColor: activeFilter === tag ? 'hsl(var(--accent))' : 'transparent',
+                border: `1px solid ${activeFilter === tag ? 'hsl(var(--accent))' : 'hsl(var(--border))'}`,
+                padding: '0.4rem 0.85rem',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                transition: 'background-color 0.2s, border-color 0.2s, color 0.2s',
+              }}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      </section>
+
       {/* Gallery grid */}
       <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', gridAutoRows: '280px' }}>
-            {galleryItems.map((item) => (
+            {filteredItems.map((item) => (
               <figure
                 key={item.caption}
                 style={{

@@ -328,7 +328,7 @@ export default function Home() {
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
           <div style={{ marginBottom: '3rem' }}>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Grade. Form. Pour.</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Grade. Form. Pour.&#8482;</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
               The Burt's Concrete Sequence
             </h2>
@@ -535,6 +535,31 @@ export default function Home() {
             <Phone size={14} />
             Call Burt Direct
           </a>
+        </div>
+      </section>
+
+      {/* ===== CREW RELIABILITY STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>The Crew</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { stat: '9 yrs', label: 'Average Tenure', detail: 'Same core crew since 2017. No revolving door of day-labor hires.' },
+              { stat: '4', label: 'Crew Members', detail: 'Small team, every person on site knows the spec. No standing around.' },
+              { stat: '6am', label: 'Typical Start', detail: 'Coastal pours start at dawn. Cooler temps mean better cure and fewer cracks.' },
+              { stat: '0', label: 'Subcontractors', detail: 'Burt does not sub out concrete work. The crew on site is the crew that stays.' },
+            ].map((item) => (
+              <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</div>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginTop: '0.35rem', marginBottom: '0.5rem' }}>
+                  {item.label}
+                </div>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.8rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

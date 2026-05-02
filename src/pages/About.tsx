@@ -11,8 +11,11 @@ export default function About() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Story</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))' }}>
-            About Burt's Concrete
+            The Contractor Who Picks Up the Phone
           </h1>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', marginTop: '1rem', maxWidth: '550px', lineHeight: 1.65 }}>
+            Most homeowners have called a contractor who never called back. Burt answers his own phone, walks your site himself, and gives you a number that doesn't change.
+          </p>
         </div>
       </section>
 
