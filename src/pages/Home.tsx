@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Phone, CheckCircle2, Star, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -216,7 +216,27 @@ function FAQSection() {
   )
 }
 
+function useInView() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect() } },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return { ref, visible }
+}
+
 export default function Home() {
+  const stats = useInView()
+
   return (
     <>
       {/* ===== HERO, split 2-col, finished driveway photo ===== */}
@@ -279,6 +299,16 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Owner voice pull-quote */}
+          <div className="animate-fade-up-delay-3" style={{ marginTop: '2rem', borderLeft: '2px solid hsl(var(--accent))', paddingLeft: '1rem' }}>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6, fontStyle: 'italic' }}>
+              "I've poured on every type of soil this island has. The mix that works in Kihei is not the mix that works in Kula."
+            </p>
+            <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.35rem', display: 'block' }}>
+              Burt, Owner
+            </span>
+          </div>
         </div>
 
         {/* Right col, photo + trust badge */}
@@ -325,6 +355,7 @@ export default function Home() {
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.1 }}
         />
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.92)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 20% 50%, hsl(42 54% 54% / 0.06) 0%, transparent 60%)', pointerEvents: 'none' }} />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
           <div style={{ marginBottom: '3rem' }}>
@@ -369,21 +400,36 @@ export default function Home() {
       </section>
 
       {/* ===== STATS STRIP ===== */}
-      <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+      <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
             { value: '20+', label: 'Years on Maui' },
             { value: '347', label: 'Projects Completed' },
             { value: '52K+', label: 'Sq Ft Poured' },
             { value: 'Kihei', label: 'South Maui Based' },
-          ].map((stat) => (
-            <div key={stat.label} className="iron-stat">
+          ].map((stat, i) => (
+            <div
+              key={stat.label}
+              className="iron-stat"
+              style={{
+                opacity: stats.visible ? 1 : 0,
+                transform: stats.visible ? 'translateY(0)' : 'translateY(16px)',
+                transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`,
+              }}
+            >
               <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.9rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>{stat.value}</div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))', marginTop: '0.3rem' }}>{stat.label}</div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* Branded divider */}
+      <div style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem 0' }}>
+        <div className="iron-divider">
+          <div className="iron-divider-mark">BC</div>
+        </div>
+      </div>
 
       {/* ===== NEIGHBORHOODS STRIP ===== */}
       <section style={{ borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--background))', padding: '1.25rem 0', overflow: 'hidden' }}>
@@ -478,6 +524,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Branded divider */}
+      <div style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem 0' }}>
+        <div className="iron-divider">
+          <div className="iron-divider-mark">BC</div>
+        </div>
+      </div>
 
       {/* ===== FEATURED PROJECT, quantified scope ===== */}
       <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
@@ -618,7 +671,7 @@ export default function Home() {
             </p>
           </div>
           <Link to="/contact" className="iron-btn" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}>
-            Ask About Coverage
+            Schedule a Site Walk
             <ArrowRight size={14} />
           </Link>
         </div>
@@ -673,7 +726,7 @@ export default function Home() {
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link to="/contact" className="iron-btn">
-              Get a Free Quote
+              Start Your Project
               <ArrowRight size={14} />
             </Link>
             <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ borderColor: 'hsl(var(--foreground) / 0.4)' }}>
