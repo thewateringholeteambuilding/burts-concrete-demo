@@ -25,19 +25,22 @@ const processSteps = [
 
 const testimonials = [
   {
-    quote: 'Burt showed up when he said he would, did what he promised, and the driveway looks better than my neighbor\'s who paid twice as much.',
+    headline: 'Showed up. Delivered.',
+    quote: 'Burt did exactly what he said he would. The driveway looks incredible.',
     author: 'Shannon T.',
     detail: 'Kihei Homeowner · November 2024',
     stars: 5,
   },
   {
-    quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person. The wall has held through two wet seasons with no movement.',
+    headline: 'The only one who came out',
+    quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. The wall has held through two winters with no movement and no drainage issues.',
     author: 'Ryan M.',
     detail: 'South Maui Property Owner · August 2024',
     stars: 5,
   },
   {
-    quote: 'Fast, clean, exactly what I asked for. The stamped patio is the best part of my backyard now. Would not use anyone else on Maui.',
+    headline: 'Best part of the backyard',
+    quote: 'Fast, clean, exactly what I asked for. The stamped patio turned out better than the sample. Would not use anyone else on Maui.',
     author: 'Christine A.',
     detail: 'Wailea Homeowner · March 2025',
     stars: 5,
@@ -96,11 +99,15 @@ function TestimonialSpotlight() {
 
         {/* Spotlight quote */}
         <div style={{ textAlign: 'center', minHeight: '200px' }}>
-          <div style={{ display: 'flex', gap: '2px', justifyContent: 'center', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', gap: '2px', justifyContent: 'center', marginBottom: '1rem' }}>
             {Array.from({ length: t.stars }).map((_, i) => (
               <Star key={i} size={16} fill="hsl(40 95% 56%)" color="hsl(40 95% 56%)" />
             ))}
           </div>
+
+          <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--accent))', marginBottom: '1.25rem' }}>
+            {t.headline}
+          </p>
 
           <blockquote style={{ fontFamily: 'Archivo, sans-serif', fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', color: 'hsl(var(--foreground))', lineHeight: 1.75, marginBottom: '1.75rem', fontStyle: 'italic', maxWidth: '640px', margin: '0 auto 1.75rem' }}>
             &ldquo;{t.quote}&rdquo;
@@ -345,7 +352,7 @@ export default function Home() {
       </section>
 
       {/* ===== HOW WE WORK, process steps (above services per brief) ===== */}
-      <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: 'clamp(4.5rem, 10vw, 8rem) 0', position: 'relative', overflow: 'hidden' }}>
         {/* Background photo with dark overlay */}
         <img
           src={PROCESS_PHOTO}
@@ -479,7 +486,7 @@ export default function Home() {
       </section>
 
       {/* ===== SERVICES, clean 3x2 grid ===== */}
-      <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) 0', backgroundColor: 'hsl(var(--background))' }}>
+      <section style={{ padding: 'clamp(4.5rem, 10vw, 8rem) 0', backgroundColor: 'hsl(var(--background))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
             <div>
@@ -534,6 +541,21 @@ export default function Home() {
 
       {/* ===== FEATURED PROJECT, quantified scope ===== */}
       <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+        {/* Project hero photo */}
+        <div style={{ position: 'relative', height: 'clamp(200px, 30vw, 320px)', overflow: 'hidden' }}>
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80"
+            alt="Completed driveway repour at Wailea Ekolu Village"
+            loading="lazy"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, hsl(220 40% 10% / 0.85) 100%)' }} />
+          <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.5rem', zIndex: 2 }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', backgroundColor: 'hsl(220 45% 7% / 0.8)', padding: '0.35rem 0.75rem' }}>
+              BC-347 · Completed Apr 2025
+            </span>
+          </div>
+        </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 4rem) 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'center' }} className="md:grid-cols-2">
           <div>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Recent Work · Wailea Ekolu Village</p>
