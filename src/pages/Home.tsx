@@ -162,7 +162,7 @@ function FAQSection() {
   return (
     <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Common Questions</p>
+        <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Before You Call</p>
         <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '2.5rem' }}>
           Before You Pour
         </h2>
@@ -413,6 +413,7 @@ export default function Home() {
             { value: '20+', label: 'Years on Maui' },
             { value: '347', label: 'Projects Completed' },
             { value: '52K+', label: 'Sq Ft Poured' },
+            { value: '0', label: 'Subcontractors' },
             { value: 'Kihei', label: 'South Maui Based' },
           ].map((stat, i) => (
             <div
@@ -501,6 +502,31 @@ export default function Home() {
             >
               All Services <ArrowRight size={13} />
             </Link>
+          </div>
+
+          {/* Quick-scan service pills */}
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+            {services.map((svc) => (
+              <span
+                key={svc.name}
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.62rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                  color: 'hsl(var(--muted-foreground))',
+                  padding: '0.4rem 0.85rem',
+                  border: '1px solid hsl(var(--border))',
+                  transition: 'color 0.2s, border-color 0.2s',
+                  cursor: 'default',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54%)'; e.currentTarget.style.borderColor = 'hsl(42 54% 54%)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'hsl(42 14% 57%)'; e.currentTarget.style.borderColor = 'hsl(42 54% 54% / 0.18)' }}
+              >
+                {svc.name}
+              </span>
+            ))}
           </div>
 
           {/* 3x2 clean grid */}
@@ -639,11 +665,11 @@ export default function Home() {
       </section>
 
       {/* ===== WHY CHOOSE, 2-col with checklist ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
+      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>The Difference</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Approach</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '1.25rem' }}>
               Know the Soil Before You Pour
             </h2>
@@ -700,7 +726,7 @@ export default function Home() {
       </section>
 
       {/* ===== JOBSITE RESPONSIBILITY STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>On Every Jobsite</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
