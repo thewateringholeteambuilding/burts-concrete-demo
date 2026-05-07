@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
@@ -70,6 +71,27 @@ const services = [
 ]
 
 export default function Services() {
+  const [activeId, setActiveId] = useState<string | null>(null)
+
+  useEffect(() => {
+    const ids = services.map((s) => s.id)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id)
+          }
+        }
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    )
+    for (const id of ids) {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    }
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <>
       {/* Page header with photo */}
@@ -87,6 +109,9 @@ export default function Services() {
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))', maxWidth: '700px' }}>
             Concrete Services
           </h1>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', lineHeight: 1.6, maxWidth: '520px', marginTop: '1rem' }}>
+            Every job starts with a site walk and a soil read. The mix, the rebar, the finish all follow from what the ground tells us.
+          </p>
         </div>
       </section>
 
@@ -104,35 +129,44 @@ export default function Services() {
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '0.5rem', flexWrap: 'nowrap' }}>
-          {services.map((svc) => (
-            <a
-              key={svc.id}
-              href={`#${svc.id}`}
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.68rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.12em',
-                color: 'hsl(var(--foreground))',
-                textDecoration: 'none',
-                padding: '0.4rem 0.85rem',
-                border: '1px solid hsl(var(--accent) / 0.4)',
-                whiteSpace: 'nowrap',
-                transition: 'border-color 0.2s, color 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'hsl(42 54% 54%)'
-                e.currentTarget.style.color = 'hsl(42 54% 54%)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'hsl(42 54% 54% / 0.4)'
-                e.currentTarget.style.color = 'hsl(35 35% 93%)'
-              }}
-            >
-              {svc.name.replace('Concrete ', '').replace(' & Resurfacing', '')}
-            </a>
-          ))}
+          {services.map((svc) => {
+            const isActive = activeId === svc.id
+            return (
+              <a
+                key={svc.id}
+                href={`#${svc.id}`}
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.68rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                  color: isActive ? 'hsl(var(--accent-foreground))' : 'hsl(var(--foreground))',
+                  textDecoration: 'none',
+                  padding: '0.4rem 0.85rem',
+                  border: '1px solid',
+                  borderColor: isActive ? 'hsl(var(--accent))' : 'hsl(var(--accent) / 0.4)',
+                  backgroundColor: isActive ? 'hsl(var(--accent))' : 'transparent',
+                  whiteSpace: 'nowrap',
+                  transition: 'border-color 0.25s, color 0.25s, background-color 0.25s',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.borderColor = 'hsl(42 54% 54%)'
+                    e.currentTarget.style.color = 'hsl(42 54% 54%)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.borderColor = 'hsl(42 54% 54% / 0.4)'
+                    e.currentTarget.style.color = 'hsl(35 35% 93%)'
+                  }
+                }}
+              >
+                {svc.name.replace('Concrete ', '').replace(' & Resurfacing', '')}
+              </a>
+            )
+          })}
         </div>
       </nav>
 

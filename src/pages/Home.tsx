@@ -565,6 +565,23 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ===== MATERIALS & PARTNERS STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
+            Materials &amp; Suppliers
+          </span>
+          {['Hawaiian Cement', 'HC&D', 'Simpson Strong-Tie', 'Quikrete', 'BASF MasterSeal'].map((partner) => (
+            <span
+              key={partner}
+              style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.4)' }}
+            >
+              {partner}
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* ===== FEATURED PROJECT, quantified scope ===== */}
       <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         {/* Project hero photo */}
