@@ -17,10 +17,10 @@ const services = [
 ]
 
 const processSteps = [
-  { num: '01', title: 'Call or Text Burt', body: 'Reach out any day. Burt returns calls and texts directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
-  { num: '02', title: 'Site Walk', body: 'Burt visits your property, reads the soil profile, checks drainage slope, and gives you a firm number. Average crew tenure: 9 years.' },
-  { num: '03', title: 'Mix & Forms', body: '3,500 PSI minimum residential, 4,000 PSI driveways. Hawaiian Cement or HC&D batch plant. #4 rebar at 12-inch centers. Simpson Strong-Tie anchors. Forms leveled and pinned to engineered grade.' },
-  { num: '04', title: 'Pour & Finish', body: 'Continuous pour, no cold joints. Control joints cut at 24 hours. Broom or stamped finish per spec. Cleanup and form pull same week.' },
+  { num: '01', title: 'Call or Text Burt', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
+  { num: '02', title: 'Site Walk', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. You get a firm number before he leaves your property.' },
+  { num: '03', title: 'Mix & Forms', body: 'No guesswork. 3,500 PSI minimum residential, 4,000 PSI driveways. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
+  { num: '04', title: 'Pour & Finish', body: 'One continuous pour. No cold joints, no seams. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
 ]
 
 const testimonials = [
@@ -29,6 +29,7 @@ const testimonials = [
     quote: 'Burt did exactly what he said he would. The driveway looks incredible.',
     author: 'Shannon T.',
     detail: 'Kihei Homeowner · November 2024',
+    project: 'Driveway Repour',
     stars: 5,
   },
   {
@@ -36,6 +37,7 @@ const testimonials = [
     quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. The wall has held through two winters with no movement and no drainage issues.',
     author: 'Ryan M.',
     detail: 'South Maui Property Owner · August 2024',
+    project: 'Retaining Wall',
     stars: 5,
   },
   {
@@ -43,6 +45,7 @@ const testimonials = [
     quote: 'Fast, clean, exactly what I asked for. The stamped patio turned out better than the sample. Would not use anyone else on Maui.',
     author: 'Christine A.',
     detail: 'Wailea Homeowner · March 2025',
+    project: 'Stamped Patio',
     stars: 5,
   },
 ]
@@ -113,6 +116,9 @@ function TestimonialSpotlight() {
             &ldquo;{t.quote}&rdquo;
           </blockquote>
 
+          <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', border: '1px solid hsl(var(--accent) / 0.3)', padding: '0.25rem 0.6rem', marginBottom: '0.75rem' }}>
+            {t.project}
+          </div>
           <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground))' }}>
             {t.author}
           </div>
@@ -279,7 +285,7 @@ export default function Home() {
           </h1>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 500, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', marginBottom: '1.5rem' }}>
-            Built for Maui soil. Backed by 347 pours.
+            Built for Maui soil. Same crew since 2017.
           </p>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1.05rem', lineHeight: 1.65, color: 'hsl(var(--muted-foreground))', maxWidth: '420px', marginBottom: '2.5rem' }}>
@@ -410,10 +416,10 @@ export default function Home() {
       <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
-            { value: '20+', label: 'Years on Maui' },
             { value: '347', label: 'Projects Completed' },
             { value: '52K+', label: 'Sq Ft Poured' },
-            { value: '0', label: 'Subcontractors' },
+            { value: '3,500', label: 'PSI Minimum' },
+            { value: '24hr', label: 'Joint Cuts' },
             { value: 'Kihei', label: 'South Maui Based' },
           ].map((stat, i) => (
             <div
@@ -606,10 +612,10 @@ export default function Home() {
               Driveway Tear-Out &amp; Repour
             </h2>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, marginBottom: '0.75rem' }}>
-              The original contractor poured over uncompacted fill in 2012. Twelve years later the slab had settled 3 inches on the mauka side, cracking the surface and pooling water against the garage foundation.
+              Water pooling against the garage foundation. The homeowner had called two contractors already. Neither wanted to touch a tear-out on a condo common area with shared drainage.
             </p>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
-              Burt tore out the existing pour, regraded with 6 inches of compacted base course, installed a French drain along the uphill edge, and repoured at 4,000 PSI with stamped border finish. Six days, start to finish. Homeowner moved the cars back onto the slab on day eight.
+              The original slab had settled 3 inches on the mauka side, poured over uncompacted fill in 2012. Burt tore it out, regraded with 6 inches of compacted base course, installed a French drain along the uphill edge, and repoured at 4,000 PSI with stamped border finish. Cars back on the slab by day eight.
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
@@ -646,7 +652,7 @@ export default function Home() {
               Owner-Operated Since 2004
             </h2>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65, maxWidth: '520px' }}>
-              I answer the phone, walk the site, and run the pour. No office staff, no dispatched crews. You talk to the person who does the work. That has been the arrangement for 347 projects and counting.
+              I answer the phone, walk the site, and run the pour. No office staff, no dispatched crews. You talk to the person who does the work. Same phone number for 22 years.
             </p>
           </div>
           <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ flexShrink: 0 }}>
@@ -783,11 +789,14 @@ export default function Home() {
         />
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.78)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 1.5rem', zIndex: 10 }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginBottom: '1rem' }}>
+            Salt air doesn't wait. Neither should you.
+          </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
-            Your Driveway. Your Timeline. One Call.
+            One Call. One Crew. Done Right.
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
-            Free estimate. Burt walks the site himself. Firm number before work starts.
+            Burt walks the site, reads the soil, and gives you a firm number. No office. No runaround.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link to="/contact" className="iron-btn">
