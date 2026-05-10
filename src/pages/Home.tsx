@@ -17,10 +17,10 @@ const services = [
 ]
 
 const processSteps = [
-  { num: '01', title: 'Call or Text Burt', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
-  { num: '02', title: 'Site Walk', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. You get a firm number before he leaves your property.' },
-  { num: '03', title: 'Mix & Forms', body: 'No guesswork. 3,500 PSI minimum residential, 4,000 PSI driveways. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
-  { num: '04', title: 'Pour & Finish', body: 'One continuous pour. No cold joints, no seams. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
+  { num: '01', title: 'Call or Text Burt', method: 'BC-Direct', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
+  { num: '02', title: 'Site Walk', method: 'BC-ReadGrade', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. You get a firm number before he leaves your property.' },
+  { num: '03', title: 'Mix & Forms', method: 'BC-SpecLock', body: 'No guesswork. 3,500 PSI minimum residential, 4,000 PSI driveways. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
+  { num: '04', title: 'Pour & Finish', method: 'BC-OnePour', body: 'One continuous pour. No cold joints, no seams. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
 ]
 
 const testimonials = [
@@ -376,8 +376,8 @@ export default function Home() {
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
               The Burt's Concrete Sequence
             </h2>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', fontStyle: 'italic' }}>
-              Grade the soil. Set the forms. Pour it right.
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', maxWidth: '440px' }}>
+              Owner-operated site preparation, forming, and finishing for residential and commercial concrete on Maui.
             </p>
           </div>
 
@@ -400,9 +400,12 @@ export default function Home() {
                 <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.2rem', color: 'hsl(var(--accent) / 0.25)', lineHeight: 1, marginBottom: '1rem' }}>
                   {step.num}
                 </div>
-                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.6rem' }}>
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem' }}>
                   {step.title}
                 </h3>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.6)', display: 'block', marginBottom: '0.6rem' }}>
+                  {step.method}
+                </span>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
                   {step.body}
                 </p>
@@ -748,26 +751,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== JOBSITE RESPONSIBILITY STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
-          <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>On Every Jobsite</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
-            {[
-              { title: 'Storm Drain Protection', desc: 'Inlet barriers placed before work starts. No runoff enters the county storm system.' },
-              { title: 'Washout Containment', desc: 'Concrete washout stays on site in lined containment. Cleaned and hauled after every pour.' },
-              { title: 'Local Materials', desc: 'Hawaiian Cement and HC&D batch plants. Aggregate sourced on-island when available.' },
-              { title: 'Clean Handoff', desc: 'Forms pulled, site swept, debris hauled same week. Your property looks better than we found it.' },
-            ].map((item) => (
-              <div key={item.title} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
-                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.4rem' }}>
-                  {item.title}
-                </h3>
-                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.8rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+      {/* ===== JOBSITE RESPONSIBILITY — editorial framing ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Site Responsibility</p>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.5rem' }}>
+            What happens to a jobsite after the truck leaves?
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
+              Storm drain inlets get barrier protection before the first mixer backs in. That's Maui County code, but it's also common sense when you live downstream of your own work.
+            </p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
+              Washout stays in lined containment. Cleaned and hauled after every pour. Materials come from Hawaiian Cement and HC&D batch plants, both on-island.
+            </p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
+              Forms get pulled, site gets swept, debris gets hauled. Same week. Not "when we get around to it." The crew lives in this community. Your neighbor's driveway is clean because ours was.
+            </p>
           </div>
         </div>
       </section>

@@ -11,10 +11,10 @@ export default function About() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Story</p>
           <h1 className="iron-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: 'hsl(var(--foreground))' }}>
-            The Contractor Who Picks Up the Phone
+            One Crew. One Number.
           </h1>
-          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', marginTop: '1rem', maxWidth: '550px', lineHeight: 1.65 }}>
-            Most homeowners have called a contractor who never called back. Burt answers his own phone, walks your site himself, and gives you a number that doesn't change.
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1.05rem', color: 'hsl(var(--muted-foreground))', marginTop: '1rem', maxWidth: '600px', lineHeight: 1.65 }}>
+            Owner-operated residential and commercial concrete contractor serving South Maui since 2004. Burt answers the phone, walks the site, runs the pour.
           </p>
         </div>
       </section>
@@ -40,7 +40,7 @@ export default function About() {
                 I pick up the phone. I return texts same day. When I give you a number, that's the number. No line-item surprises when the invoice arrives.
               </p>
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.97rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-                347 projects completed across South Maui. Foundations, driveways, patios, retaining walls, sidewalks, decorative finishes. If it requires concrete, I've poured it on this island.
+                52,847 square feet poured across South Maui since 2004. Foundations, driveways, patios, retaining walls, sidewalks, decorative finishes. The longest single pour was 3,200 square feet for a Wailea commercial lot in 2019. If it requires concrete, I've poured it on this island.
               </p>
             </div>
 
