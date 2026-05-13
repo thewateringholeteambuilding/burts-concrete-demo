@@ -45,7 +45,7 @@ const services = [
     id: 'decorative',
     name: 'Decorative Concrete',
     hook: 'Function first, then finish.',
-    desc: 'Stamped patterns, acid stains, and polished finishes for patios, pool decks, and interior floors. Burt has done decorative work in Wailea resort properties and Kihei private residences. Pattern and color consultation included with the estimate.',
+    desc: 'Stamped patterns, acid stains, and polished finishes for patios, pool decks, and interior floors. The look of natural flagstone or tile at a fraction of tear-out and replacement cost. Burt has done decorative work in Wailea resort properties and Kihei private residences. Pattern and color consultation included with the estimate.',
     specs: ['Stamped concrete', 'Acid stain', 'Polished floors', 'Pool deck finishes', 'Color integral and overlay'],
     photo: 'https://images.unsplash.com/photo-1640101086894-7d70c3e70179?auto=format&fit=crop&w=800&q=80',
     alt: 'Stamped decorative concrete patio',

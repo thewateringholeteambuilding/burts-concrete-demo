@@ -12,7 +12,7 @@ const services = [
   { name: 'Driveways & Parking', desc: 'Smooth residential and commercial driveway pours. Salt-air mix specs.', idealFor: 'Homeowners, vacation rental owners' },
   { name: 'Retaining Walls', desc: 'Hillside erosion control and grade separation for South Maui properties.', idealFor: 'Hillside lots, erosion-prone properties' },
   { name: 'Sidewalks & Walkways', desc: 'Flatwork cut and finished to spec. Joints at 24 hours, not guessed.', idealFor: 'Commercial properties, HOA common areas' },
-  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes for patios and pool decks.', idealFor: 'Pool decks, lanai floors, entryways' },
+  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes. The look of natural stone at a fraction of replacement cost.', idealFor: 'Pool decks, lanai floors, entryways' },
   { name: 'Concrete Repair', desc: 'Spalling, cracking, and resurfacing. Most repairs done in a single visit.', idealFor: 'Aging driveways, salt-damaged surfaces' },
 ]
 
@@ -513,8 +513,40 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Quick-scan service pills */}
+          {/* Application-based quick-scan chips — buyer searches by space, not technique */}
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--muted-foreground))', alignSelf: 'center', marginRight: '0.25rem' }}>
+              By Space
+            </span>
+            {['Driveways', 'Patios & Lanai', 'Pool Decks', 'Foundations', 'Hillside Lots', 'Garage Slabs'].map((app) => (
+              <Link
+                key={app}
+                to="/services"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.62rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                  color: 'hsl(var(--accent))',
+                  padding: '0.4rem 0.85rem',
+                  border: '1px solid hsl(var(--accent) / 0.3)',
+                  textDecoration: 'none',
+                  transition: 'background-color 0.2s, border-color 0.2s',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--accent) / 0.08)'; e.currentTarget.style.borderColor = 'hsl(42 54% 54%)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'hsl(42 54% 54% / 0.3)' }}
+              >
+                {app}
+              </Link>
+            ))}
+          </div>
+
+          {/* Service-type chips */}
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--muted-foreground))', alignSelf: 'center', marginRight: '0.25rem' }}>
+              By Service
+            </span>
             {services.map((svc) => (
               <span
                 key={svc.name}
@@ -671,10 +703,10 @@ export default function Home() {
           <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>The Crew</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
-              { stat: '9 yrs', label: 'Average Tenure', detail: 'Same core crew since 2017. No revolving door of day-labor hires.' },
-              { stat: '4', label: 'Crew Members', detail: 'Small team, every person on site knows the spec. No standing around.' },
-              { stat: '6am', label: 'Typical Start', detail: 'Coastal pours start at dawn. Cooler temps mean better cure and fewer cracks.' },
-              { stat: '0', label: 'Subcontractors', detail: 'Burt does not sub out concrete work. The crew on site is the crew that stays.' },
+              { stat: 'Burt', label: 'Owner / Lead', detail: 'On every pour since 2004. Reads grade, sets forms, runs the finish. License BC-29174.' },
+              { stat: 'Manu', label: 'Forming & Rebar', detail: 'With Burt since 2017. Ties rebar, sets string line, pulls forms same week.' },
+              { stat: 'Koa', label: 'Finish & Joints', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.' },
+              { stat: 'Jay', label: 'Site Prep & Cleanup', detail: 'Compaction, drainage, washout containment. Five years running the ground work.' },
             ].map((item) => (
               <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
                 <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</div>
