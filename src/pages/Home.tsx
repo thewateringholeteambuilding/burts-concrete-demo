@@ -18,33 +18,33 @@ const services = [
 
 const processSteps = [
   { num: '01', title: 'Call or Text Burt', method: 'BC-Direct', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
-  { num: '02', title: 'Site Walk', method: 'BC-ReadGrade', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. You get a firm number before he leaves your property.' },
-  { num: '03', title: 'Mix & Forms', method: 'BC-SpecLock', body: 'No guesswork. 3,500 PSI minimum residential, 4,000 PSI driveways. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
-  { num: '04', title: 'Pour & Finish', method: 'BC-OnePour', body: 'One continuous pour. No cold joints, no seams. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
+  { num: '02', title: 'Site Walk', method: 'BC-ReadGrade', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. Mainland contractors skip this step and pour on whatever is there. On Maui, that means cracking within two rainy seasons. You get a firm number before he leaves your property.' },
+  { num: '03', title: 'Mix & Forms', method: 'BC-SpecLock', body: 'Standard mainland residential is 2,500 PSI. Burt specs 3,500 PSI minimum, 4,000 PSI for driveways. The difference is salt-air resistance and load tolerance on volcanic substrate. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
+  { num: '04', title: 'Pour & Finish', method: 'BC-OnePour', body: 'One continuous pour. No cold joints, no seams. A cold joint is where one batch dries before the next is poured against it. It is the first place concrete cracks. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
 ]
 
 const testimonials = [
   {
     headline: 'Showed up. Delivered.',
     quote: 'Burt did exactly what he said he would. The driveway looks incredible.',
-    author: 'Shannon T.',
-    detail: 'Kihei Homeowner · November 2024',
+    author: 'Shannon Takemoto, Kihei',
+    detail: 'Homeowner · November 2024',
     project: 'Driveway Repour',
     stars: 5,
   },
   {
     headline: 'The only one who came out',
     quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. The wall has held through two winters with no movement and no drainage issues.',
-    author: 'Ryan M.',
-    detail: 'South Maui Property Owner · August 2024',
+    author: 'Ryan Medeiros, Makena',
+    detail: 'Property Owner · August 2024',
     project: 'Retaining Wall',
     stars: 5,
   },
   {
     headline: 'Best part of the backyard',
     quote: 'Fast, clean, exactly what I asked for. The stamped patio turned out better than the sample. Would not use anyone else on Maui.',
-    author: 'Christine A.',
-    detail: 'Wailea Homeowner · March 2025',
+    author: 'Christine Akana, Wailea',
+    detail: 'Homeowner · March 2025',
     project: 'Stamped Patio',
     stars: 5,
   },
@@ -703,13 +703,16 @@ export default function Home() {
           <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>The Crew</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
-              { stat: 'Burt', label: 'Owner / Lead', detail: 'On every pour since 2004. Reads grade, sets forms, runs the finish. License BC-29174.' },
-              { stat: 'Manu', label: 'Forming & Rebar', detail: 'With Burt since 2017. Ties rebar, sets string line, pulls forms same week.' },
-              { stat: 'Koa', label: 'Finish & Joints', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.' },
-              { stat: 'Jay', label: 'Site Prep & Cleanup', detail: 'Compaction, drainage, washout containment. Five years running the ground work.' },
+              { stat: 'Burt', label: 'Owner / Lead', projects: '347 projects', detail: 'On every pour since 2004. Reads grade, sets forms, runs the finish. License BC-29174.' },
+              { stat: 'Manu', label: 'Forming & Rebar', projects: '210+ pours', detail: 'With Burt since 2017. Ties rebar, sets string line, pulls forms same week.' },
+              { stat: 'Koa', label: 'Finish & Joints', projects: '180+ finishes', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.' },
+              { stat: 'Jay', label: 'Site Prep & Cleanup', projects: '140+ sites', detail: 'Compaction, drainage, washout containment. Five years running the ground work.' },
             ].map((item) => (
               <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
-                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</div>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.5)' }}>{item.projects}</span>
+                </div>
                 <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginTop: '0.35rem', marginBottom: '0.5rem' }}>
                   {item.label}
                 </div>
@@ -762,6 +765,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== NO-SURPRISES GUARANTEE STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', textAlign: 'center' }}>
+          {[
+            { point: 'No Subcontractors', detail: 'Burt and his crew do every pour. No dispatched labor.' },
+            { point: 'No Deposits', detail: 'You pay when the work is done and you are satisfied.' },
+            { point: 'No Change Orders', detail: 'The quote you get is the price you pay. Period.' },
+            { point: 'No Runaround', detail: 'One phone number. One person. Same guy for 22 years.' },
+          ].map((item) => (
+            <div key={item.point}>
+              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground))' }}>
+                {item.point}
+              </div>
+              <div style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5, marginTop: '0.3rem' }}>
+                {item.detail}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ===== WARRANTY CALLOUT ===== */}
       <section style={{ backgroundColor: 'hsl(var(--accent))', padding: 'clamp(2.5rem, 5vw, 3.5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
@@ -773,7 +797,7 @@ export default function Home() {
               Workmanship Warranty on Every Pour
             </div>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--accent-foreground) / 0.75)', marginTop: '0.5rem', lineHeight: 1.5, maxWidth: '520px' }}>
-              If a crack appears within the warranty period that isn't from natural settling, Burt comes back and makes it right. No fine print.
+              Cracked concrete is a trip hazard and a liability. Settling slabs pool water against your foundation. A $900 repair ignored becomes an $8,000 tear-out. If a defect appears within the warranty period, Burt comes back and makes it right. No fine print.
             </p>
           </div>
           <Link to="/contact" className="iron-btn" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}>
