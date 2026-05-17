@@ -358,7 +358,7 @@ export default function Home() {
       </section>
 
       {/* ===== HOW WE WORK, process steps (above services per brief) ===== */}
-      <section style={{ padding: 'clamp(4.5rem, 10vw, 8rem) 0', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: 'clamp(5.5rem, 12vw, 10rem) 0', position: 'relative', overflow: 'hidden' }}>
         {/* Background photo with dark overlay */}
         <img
           src={PROCESS_PHOTO}
@@ -372,7 +372,7 @@ export default function Home() {
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
           <div style={{ marginBottom: '3rem' }}>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Grade. Form. Pour.&#8482;</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Grade. Form. Pour.&#8482;</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
               The Burt's Concrete Sequence
             </h2>
@@ -474,9 +474,9 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
               {[
-                { ref: 'BC-347', date: 'Apr 2025', job: 'Completed driveway tear-out and repour, Wailea Ekolu' },
-                { ref: 'BC-344', date: 'Mar 2025', job: 'Stamped patio and pool deck, Makena residence' },
-                { ref: 'BC-341', date: 'Jan 2025', job: 'Retaining wall and French drain, Kihei hillside lot' },
+                { ref: 'BC-347', date: 'Apr 14, 2025', job: 'Completed driveway tear-out and repour, Wailea Ekolu' },
+                { ref: 'BC-344', date: 'Mar 3, 2025', job: 'Stamped patio and pool deck, Makena residence' },
+                { ref: 'BC-341', date: 'Jan 18, 2025', job: 'Retaining wall and French drain, Kihei hillside lot' },
               ].map((entry) => (
                 <div key={entry.ref} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0 }}>
@@ -500,7 +500,7 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
             <div>
-              <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Services</p>
+              <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Our Services</p>
               <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
                 What We Pour
               </h2>
@@ -642,7 +642,7 @@ export default function Home() {
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 4rem) 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'center' }} className="md:grid-cols-2">
           <div>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Recent Work · Wailea Ekolu Village</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Recent Work · Wailea Ekolu Village</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
               Driveway Tear-Out &amp; Repour
             </h2>
@@ -653,24 +653,74 @@ export default function Home() {
               The original slab had settled 3 inches on the mauka side, poured over uncompacted fill in 2012. Burt tore it out, regraded with 6 inches of compacted base course, installed a French drain along the uphill edge, and repoured at 4,000 PSI with stamped border finish. Cars back on the slab by day eight.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
-            {[
-              { value: '2,400', unit: 'sq ft', label: 'Total Pour' },
-              { value: '6', unit: 'days', label: 'Start to Finish' },
-              { value: '4,000', unit: 'PSI', label: 'Mix Spec' },
-            ].map((metric) => (
-              <div key={metric.label} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem 1rem', textAlign: 'center' }}>
-                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>
-                  {metric.value}
+          <div>
+            {/* Metrics row */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'hsl(var(--border))', marginBottom: '1px' }}>
+              {[
+                { value: '2,400', unit: 'sq ft', label: 'Total Pour' },
+                { value: '6', unit: 'days', label: 'Start to Finish' },
+                { value: '4,000', unit: 'PSI', label: 'Mix Spec' },
+              ].map((metric) => (
+                <div key={metric.label} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem 1rem', textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>
+                    {metric.value}
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.15rem' }}>
+                    {metric.unit}
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', marginTop: '0.35rem' }}>
+                    {metric.label}
+                  </div>
                 </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.15rem' }}>
-                  {metric.unit}
+              ))}
+            </div>
+            {/* Structured metadata — spec-sheet feel */}
+            <div style={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', padding: '1rem 1.25rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem 1.5rem' }}>
+              {[
+                { key: 'Client', val: 'Residential · Condo' },
+                { key: 'Method', val: 'BC-SpecLock 4000' },
+                { key: 'Crew', val: '4 (Burt, Manu, Koa, Jay)' },
+                { key: 'Finish', val: 'Stamped border + broom' },
+                { key: 'Drainage', val: 'French drain, mauka edge' },
+                { key: 'Permit', val: 'Maui County #SP-2025-041' },
+              ].map((item) => (
+                <div key={item.key} style={{ display: 'flex', gap: '0.4rem', alignItems: 'baseline' }}>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent) / 0.6)', flexShrink: 0 }}>
+                    {item.key}
+                  </span>
+                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))' }}>
+                    {item.val}
+                  </span>
                 </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', marginTop: '0.35rem' }}>
-                  {metric.label}
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PROJECT JOURNAL — dated micro-entries showing active business ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '2rem', flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', flexShrink: 0, paddingTop: '0.15rem' }}>
+              <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.25rem' }}>//</span>Field Notes
+            </span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              {[
+                { date: 'May 12', note: 'Poured 1,800 sf driveway extension in Ma\'alaea. 3,500 PSI, broom finish. Joints cut next morning.' },
+                { date: 'May 6', note: 'Site walk for retaining wall estimate, upper Kihei. Clay layer at 18 inches. Will need deeper footings than standard.' },
+                { date: 'Apr 28', note: 'Wailea Ekolu driveway curing on schedule. Homeowner driving on it by May 1.' },
+              ].map((entry) => (
+                <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground) / 0.4)', flexShrink: 0, minWidth: '52px' }}>
+                    {entry.date}
+                  </span>
+                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
+                    {entry.note}
+                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -726,11 +776,11 @@ export default function Home() {
       </section>
 
       {/* ===== WHY CHOOSE, 2-col with checklist ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0' }}>
+      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(5.5rem, 12vw, 10rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Our Approach</p>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Our Approach</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '1.25rem' }}>
               Know the Soil Before You Pour
             </h2>
@@ -810,7 +860,7 @@ export default function Home() {
       {/* ===== JOBSITE RESPONSIBILITY — editorial framing ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 1.5rem' }}>
-          <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Site Responsibility</p>
+          <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Site Responsibility</p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.5rem' }}>
             What happens to a jobsite after the truck leaves?
           </h2>
