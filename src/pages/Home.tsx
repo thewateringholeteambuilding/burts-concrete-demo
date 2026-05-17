@@ -169,7 +169,7 @@ function FAQSection() {
     <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
         <p className="iron-label" style={{ marginBottom: '0.75rem' }}>Before You Call</p>
-        <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '2.5rem' }}>
+        <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '2.5rem', textTransform: 'none' }}>
           Before You Pour
         </h2>
 
@@ -179,7 +179,12 @@ function FAQSection() {
             return (
               <div
                 key={i}
-                style={{ borderBottom: '1px solid hsl(var(--border))' }}
+                style={{
+                  borderBottom: '1px solid hsl(var(--border))',
+                  borderLeft: isOpen ? '3px solid hsl(var(--accent))' : '3px solid transparent',
+                  paddingLeft: isOpen ? '0.75rem' : '0.75rem',
+                  transition: 'border-color 0.25s ease',
+                }}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -303,12 +308,16 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Trust row */}
+          {/* Trust row — specific credentials, not generic labels */}
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            {['Licensed & Insured', 'Maui-Based Crew', 'Free Estimates'].map((t) => (
-              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            {[
+              { icon: true, text: 'License BC-29174' },
+              { icon: true, text: 'Insured to $2M' },
+              { icon: true, text: 'Est. 2004, Kihei' },
+            ].map((t) => (
+              <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <CheckCircle2 size={13} style={{ color: 'hsl(var(--accent))', flexShrink: 0 }} />
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.73rem', color: 'hsl(var(--muted-foreground))', textTransform: 'uppercase', letterSpacing: '0.12em' }}>{t}</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.73rem', color: 'hsl(var(--muted-foreground))', textTransform: 'uppercase', letterSpacing: '0.12em' }}>{t.text}</span>
               </div>
             ))}
           </div>
@@ -753,12 +762,12 @@ export default function Home() {
           <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>The Crew</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
-              { stat: 'Burt', label: 'Owner / Lead', projects: '347 projects', detail: 'On every pour since 2004. Reads grade, sets forms, runs the finish. License BC-29174.' },
-              { stat: 'Manu', label: 'Forming & Rebar', projects: '210+ pours', detail: 'With Burt since 2017. Ties rebar, sets string line, pulls forms same week.' },
-              { stat: 'Koa', label: 'Finish & Joints', projects: '180+ finishes', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.' },
-              { stat: 'Jay', label: 'Site Prep & Cleanup', projects: '140+ sites', detail: 'Compaction, drainage, washout containment. Five years running the ground work.' },
+              { stat: 'Burt', label: 'Owner / Lead', projects: '347 projects', detail: 'On every pour since 2004. Reads grade, sets forms, runs the finish. License BC-29174.', isOwner: true },
+              { stat: 'Manu', label: 'Forming & Rebar', projects: '210+ pours', detail: 'With Burt since 2017. Ties rebar, sets string line, pulls forms same week.', isOwner: false },
+              { stat: 'Koa', label: 'Finish & Joints', projects: '180+ finishes', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.', isOwner: false },
+              { stat: 'Jay', label: 'Site Prep & Cleanup', projects: '140+ sites', detail: 'Compaction, drainage, washout containment. Five years running the ground work.', isOwner: false },
             ].map((item) => (
-              <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
+              <div key={item.label} style={{ backgroundColor: item.isOwner ? 'hsl(var(--background))' : 'hsl(var(--card))', padding: '1.25rem 1.5rem', borderLeft: item.isOwner ? '3px solid hsl(var(--accent))' : 'none' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
                   <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</div>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.5)' }}>{item.projects}</span>
@@ -819,10 +828,10 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', textAlign: 'center' }}>
           {[
-            { point: 'No Subcontractors', detail: 'Burt and his crew do every pour. No dispatched labor.' },
-            { point: 'No Deposits', detail: 'You pay when the work is done and you are satisfied.' },
-            { point: 'No Change Orders', detail: 'The quote you get is the price you pay. Period.' },
-            { point: 'No Runaround', detail: 'One phone number. One person. Same guy for 22 years.' },
+            { point: 'Same Crew, Every Pour', detail: 'Burt and his four-man team do every job. No dispatched labor, no unfamiliar faces on your property.' },
+            { point: 'Pay When It\'s Done', detail: 'No deposits. You pay after the work is finished and you are satisfied with the result.' },
+            { point: 'One Quote, One Price', detail: 'The number Burt gives you at the site walk is the number on the invoice. No change orders.' },
+            { point: 'One Call Away', detail: 'Same phone number for 22 years. One person answers. One person does the work.' },
           ].map((item) => (
             <div key={item.point}>
               <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground))' }}>
@@ -861,7 +870,7 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 1.5rem' }}>
           <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Site Responsibility</p>
-          <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.5rem' }}>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.5rem', textTransform: 'none' }}>
             What happens to a jobsite after the truck leaves?
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
