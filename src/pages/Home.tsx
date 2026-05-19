@@ -289,7 +289,7 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
           </h1>
 
-          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 500, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', marginBottom: '1.5rem' }}>
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 400, fontSize: '0.88rem', letterSpacing: '0.02em', color: 'hsl(var(--accent) / 0.85)', marginBottom: '1.5rem' }}>
             Built for Maui soil. Same crew since 2017.
           </p>
 
@@ -483,15 +483,12 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
               {[
-                { ref: 'BC-347', date: 'Apr 14, 2025', job: 'Completed driveway tear-out and repour, Wailea Ekolu' },
-                { ref: 'BC-344', date: 'Mar 3, 2025', job: 'Stamped patio and pool deck, Makena residence' },
-                { ref: 'BC-341', date: 'Jan 18, 2025', job: 'Retaining wall and French drain, Kihei hillside lot' },
+                { date: 'Apr 2025', job: 'Driveway tear-out and repour, Wailea Ekolu Village' },
+                { date: 'Mar 2025', job: 'Stamped patio and pool deck, Makena residence' },
+                { date: 'Jan 2025', job: 'Retaining wall and French drain, upper Kihei' },
               ].map((entry) => (
-                <div key={entry.ref} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
-                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0 }}>
-                    {entry.ref}
-                  </span>
-                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground) / 0.45)', flexShrink: 0 }}>
+                <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0, minWidth: '68px' }}>
                     {entry.date}
                   </span>
                   <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
@@ -615,18 +612,18 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ===== MATERIALS & PARTNERS STRIP ===== */}
+      {/* ===== MATERIALS & STANDARDS STRIP ===== */}
       <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
-            Materials &amp; Suppliers
+            Materials &amp; Standards
           </span>
-          {['Hawaiian Cement', 'HC&D', 'Simpson Strong-Tie', 'Quikrete', 'BASF MasterSeal'].map((partner) => (
+          {['Hawaiian Cement', 'HC&D', 'Simpson Strong-Tie', 'ACI 318', 'ASTM C94'].map((item) => (
             <span
-              key={partner}
+              key={item}
               style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.4)' }}
             >
-              {partner}
+              {item}
             </span>
           ))}
         </div>
@@ -643,9 +640,12 @@ export default function Home() {
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 40%, hsl(220 40% 10% / 0.85) 100%)' }} />
-          <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.5rem', zIndex: 2 }}>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', backgroundColor: 'hsl(220 45% 7% / 0.8)', padding: '0.35rem 0.75rem' }}>
-              BC-347 · Completed Apr 2025
+          <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.5rem', zIndex: 2, display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', backgroundColor: 'hsl(220 45% 7% / 0.85)', padding: '0.4rem 0.85rem', borderLeft: '2px solid hsl(var(--accent))' }}>
+              Wailea Ekolu Village
+            </span>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--foreground) / 0.7)', backgroundColor: 'hsl(220 45% 7% / 0.85)', padding: '0.4rem 0.85rem' }}>
+              Completed Apr 2025
             </span>
           </div>
         </div>
@@ -825,15 +825,15 @@ export default function Home() {
       </section>
 
       {/* ===== NO-SURPRISES GUARANTEE STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', textAlign: 'center' }}>
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 4vw, 3rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '0' }} className="md:grid-cols-2">
           {[
             { point: 'Same Crew, Every Pour', detail: 'Burt and his four-man team do every job. No dispatched labor, no unfamiliar faces on your property.' },
             { point: 'Pay When It\'s Done', detail: 'No deposits. You pay after the work is finished and you are satisfied with the result.' },
             { point: 'One Quote, One Price', detail: 'The number Burt gives you at the site walk is the number on the invoice. No change orders.' },
             { point: 'One Call Away', detail: 'Same phone number for 22 years. One person answers. One person does the work.' },
-          ].map((item) => (
-            <div key={item.point}>
+          ].map((item, i) => (
+            <div key={item.point} style={{ padding: '1rem 1.25rem', borderLeft: '2px solid hsl(var(--accent) / 0.3)', borderBottom: i < 3 ? '1px solid hsl(var(--border) / 0.5)' : 'none' }}>
               <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground))' }}>
                 {item.point}
               </div>
