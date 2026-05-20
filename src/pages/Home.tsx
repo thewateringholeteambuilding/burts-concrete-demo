@@ -428,24 +428,28 @@ export default function Home() {
       <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
-            { value: '347', label: 'Projects Completed' },
-            { value: '52K+', label: 'Sq Ft Poured' },
-            { value: '3,500', label: 'PSI Minimum' },
-            { value: '24hr', label: 'Joint Cuts' },
-            { value: 'Kihei', label: 'South Maui Based' },
+            { value: '347', label: 'Projects Completed', href: '/gallery', cta: 'View Work' },
+            { value: '52K+', label: 'Sq Ft Poured', href: '/about', cta: 'Our Story' },
+            { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Specs' },
+            { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Process' },
+            { value: 'Kihei', label: 'South Maui Based', href: '/contact', cta: 'Find Us' },
           ].map((stat, i) => (
-            <div
+            <Link
               key={stat.label}
+              to={stat.href}
               className="iron-stat"
               style={{
                 opacity: stats.visible ? 1 : 0,
                 transform: stats.visible ? 'translateY(0)' : 'translateY(16px)',
                 transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`,
+                textDecoration: 'none',
+                cursor: 'pointer',
               }}
             >
               <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.9rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>{stat.value}</div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))', marginTop: '0.3rem' }}>{stat.label}</div>
-            </div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.4rem', opacity: 0.7, transition: 'opacity 0.2s' }}>{stat.cta} &rarr;</div>
+            </Link>
           ))}
         </div>
       </section>
@@ -716,9 +720,9 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
-                { date: 'May 12', note: 'Poured 1,800 sf driveway extension in Ma\'alaea. 3,500 PSI, broom finish. Joints cut next morning.' },
-                { date: 'May 6', note: 'Site walk for retaining wall estimate, upper Kihei. Clay layer at 18 inches. Will need deeper footings than standard.' },
-                { date: 'Apr 28', note: 'Wailea Ekolu driveway curing on schedule. Homeowner driving on it by May 1.' },
+                { date: 'May 12, 2025', note: 'Poured 1,800 sf driveway extension in Ma\'alaea. 3,500 PSI, broom finish. Joints cut next morning.' },
+                { date: 'May 6, 2025', note: 'Site walk for retaining wall estimate, upper Kihei. Clay layer at 18 inches. Will need deeper footings than standard.' },
+                { date: 'Apr 28, 2025', note: 'Wailea Ekolu driveway curing on schedule. Homeowner driving on it by May 1.' },
               ].map((entry) => (
                 <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground) / 0.4)', flexShrink: 0, minWidth: '52px' }}>
@@ -856,7 +860,7 @@ export default function Home() {
               Workmanship Warranty on Every Pour
             </div>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--accent-foreground) / 0.75)', marginTop: '0.5rem', lineHeight: 1.5, maxWidth: '520px' }}>
-              Cracked concrete is a trip hazard and a liability. Settling slabs pool water against your foundation. A $900 repair ignored becomes an $8,000 tear-out. If a defect appears within the warranty period, Burt comes back and makes it right. No fine print.
+              Every pour is backed by a written workmanship warranty. 3,500 PSI minimum mix, #4 rebar at 12-inch centers, control joints cut at 24 hours. If a defect appears within the warranty period, Burt comes back and makes it right. No fine print, no runaround.
             </p>
           </div>
           <Link to="/contact" className="iron-btn" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}>
@@ -866,23 +870,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== JOBSITE RESPONSIBILITY — editorial framing ===== */}
+      {/* ===== JOBSITE RESPONSIBILITY — asymmetric editorial ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
-        <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 1.5rem' }}>
-          <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Site Responsibility</p>
-          <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.5rem', textTransform: 'none' }}>
-            What happens to a jobsite after the truck leaves?
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-              Storm drain inlets get barrier protection before the first mixer backs in. That's Maui County code, but it's also common sense when you live downstream of your own work.
-            </p>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-              Washout stays in lined containment. Cleaned and hauled after every pour. Materials come from Hawaiian Cement and HC&D batch plants, both on-island.
-            </p>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
-              Forms get pulled, site gets swept, debris gets hauled. Same week. Not "when we get around to it." The crew lives in this community. Your neighbor's driveway is clean because ours was.
-            </p>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-3">
+          {/* Left: editorial narrative (spans 2 cols on desktop) */}
+          <div className="md:col-span-2" style={{ maxWidth: '640px' }}>
+            <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Site Responsibility</p>
+            <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.5rem', textTransform: 'none' }}>
+              What happens to a jobsite after the truck leaves?
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
+                Storm drain inlets get barrier protection before the first mixer backs in. That's Maui County code, but it's also common sense when you live downstream of your own work.
+              </p>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
+                Washout stays in lined containment. Cleaned and hauled after every pour. Materials come from Hawaiian Cement and HC&D batch plants, both on-island.
+              </p>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
+                Forms get pulled, site gets swept, debris gets hauled. Same week. Not "when we get around to it." The crew lives in this community. Your neighbor's driveway is clean because ours was.
+              </p>
+            </div>
+          </div>
+
+          {/* Right: compliance callout sidebar */}
+          <div style={{ borderLeft: '2px solid hsl(var(--accent))', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignSelf: 'start', marginTop: '3rem' }}>
+            <div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))', marginBottom: '0.4rem' }}>
+                Stormwater Compliance
+              </div>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                Maui County Chapter 20.08 stormwater management. Inlet barriers installed before every pour.
+              </p>
+            </div>
+            <div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))', marginBottom: '0.4rem' }}>
+                Washout Containment
+              </div>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                EPA Construction General Permit compliant. Lined containment, hauled offsite after every pour.
+              </p>
+            </div>
+            <div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))', marginBottom: '0.4rem' }}>
+                Materials Sourcing
+              </div>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                Hawaiian Cement and HC&D batch plants. Both on-island, both audited.
+              </p>
+            </div>
           </div>
         </div>
       </section>
