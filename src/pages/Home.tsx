@@ -293,7 +293,7 @@ export default function Home() {
             Built for Maui soil. Same crew since 2017.
           </p>
 
-          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1.05rem', lineHeight: 1.65, color: 'hsl(var(--muted-foreground))', maxWidth: '420px', marginBottom: '2.5rem' }}>
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', lineHeight: 1.7, color: 'hsl(var(--muted-foreground) / 0.8)', maxWidth: '420px', marginBottom: '2.5rem', fontWeight: 400 }}>
             Owner-operated out of Kihei. Burt handles the estimate, the pour, and the finish. No subcontractors. No surprises on the invoice.
           </p>
 
@@ -609,30 +609,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Branded divider */}
-      <div style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem 0' }}>
-        <div className="iron-divider">
-          <div className="iron-divider-mark">BC</div>
-        </div>
-      </div>
-
-      {/* ===== MATERIALS & STANDARDS STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
-            Materials &amp; Standards
-          </span>
-          {['Hawaiian Cement', 'HC&D', 'Simpson Strong-Tie', 'ACI 318', 'ASTM C94'].map((item) => (
-            <span
-              key={item}
-              style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.4)' }}
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </section>
-
       {/* ===== FEATURED PROJECT, quantified scope ===== */}
       <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         {/* Project hero photo */}
@@ -720,9 +696,9 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
-                { date: 'May 12, 2025', note: 'Poured 1,800 sf driveway extension in Ma\'alaea. 3,500 PSI, broom finish. Joints cut next morning.' },
-                { date: 'May 6, 2025', note: 'Site walk for retaining wall estimate, upper Kihei. Clay layer at 18 inches. Will need deeper footings than standard.' },
-                { date: 'Apr 28, 2025', note: 'Wailea Ekolu driveway curing on schedule. Homeowner driving on it by May 1.' },
+                { date: 'May 12, 2025', note: 'Poured 1,800 sf driveway extension in Ma\'alaea. 3,500 PSI, broom finish. Joints cut next morning at 6 AM before the heat set in.' },
+                { date: 'May 6, 2025', note: 'Site walk for retaining wall estimate, upper Kihei. Hit clay at 18 inches. Recommending 24-inch footings instead of standard 18.' },
+                { date: 'Apr 28, 2025', note: 'Wailea Ekolu repour at 28-day full cure. Tested with Schmidt hammer: 4,200 PSI actual. Homeowner cleared to park by May 1.' },
               ].map((entry) => (
                 <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground) / 0.4)', flexShrink: 0, minWidth: '52px' }}>
@@ -738,6 +714,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== MATERIALS & STANDARDS STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
+            Materials &amp; Standards
+          </span>
+          {['Hawaiian Cement', 'HC&D', 'Simpson Strong-Tie', 'ACI 318', 'ASTM C94'].map((item) => (
+            <span
+              key={item}
+              style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.4)' }}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Branded divider */}
+      <div style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem 0' }}>
+        <div className="iron-divider">
+          <div className="iron-divider-mark">BC</div>
+        </div>
+      </div>
+
       {/* ===== OWNER CREDIBILITY STRIP ===== */}
       <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2.5rem, 6vw, 4rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
@@ -746,6 +746,9 @@ export default function Home() {
             <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--accent-foreground))', letterSpacing: '0.05em' }}>BC</span>
           </div>
           <div style={{ flex: 1, minWidth: '260px' }}>
+            <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent))', marginBottom: '0.5rem' }}>
+              Contractor. Neighbor. Crew Chief.
+            </p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
               Owner-Operated Since 2004
             </h2>
@@ -789,7 +792,7 @@ export default function Home() {
       </section>
 
       {/* ===== WHY CHOOSE, 2-col with checklist ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(5.5rem, 12vw, 10rem) 0' }}>
+      <section style={{ backgroundColor: 'hsl(var(--card))', padding: 'clamp(6rem, 14vw, 12rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-2">
           {/* Left */}
           <div>
@@ -829,7 +832,7 @@ export default function Home() {
       </section>
 
       {/* ===== NO-SURPRISES GUARANTEE STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 4vw, 3rem) 0' }}>
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(1.5rem, 3vw, 2.5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '0' }} className="md:grid-cols-2">
           {[
             { point: 'Same Crew, Every Pour', detail: 'Burt and his four-man team do every job. No dispatched labor, no unfamiliar faces on your property.' },
