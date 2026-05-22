@@ -261,6 +261,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide process flow arrows when grid stacks on mobile */
+@media (max-width: 768px) {
+  .process-flow-arrow {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

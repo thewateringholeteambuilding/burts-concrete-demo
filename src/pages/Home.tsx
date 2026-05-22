@@ -82,8 +82,8 @@ function TestimonialSpotlight() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
         <p className="iron-label" style={{ marginBottom: '2rem', textAlign: 'center' }}>Client Reviews</p>
 
-        {/* Google badge */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
+        {/* Trust badges — multi-source validation */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1.5rem', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
             <svg width="18" height="18" viewBox="0 0 18 18" aria-label="Google">
               <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
@@ -96,6 +96,17 @@ function TestimonialSpotlight() {
             </div>
             <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem', fontWeight: 600, color: 'hsl(var(--foreground))' }}>
               5.0 from 47 Reviews
+            </span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.75rem 1.25rem', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-label="Yelp">
+              <path fill="#D32323" d="M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9S13.97 0 9 0zm-.78 4.05c.13-.38.57-.55.87-.55.18 0 .34.06.43.13.09.07.16.18.2.33l1.2 4.37c.04.14.02.3-.06.43-.08.13-.22.22-.38.24l-.46.06c-.16.02-.32-.03-.44-.13a.56.56 0 0 1-.2-.4L8.22 4.05zm-3.68 7.2c-.13-.12-.18-.3-.15-.47l.1-.48c.04-.17.15-.31.3-.38.16-.08.34-.08.5 0l3.85 1.92c.33.17.37.63.07.84l-.37.26c-.14.1-.32.13-.49.09L5.04 11.6a.55.55 0 0 1-.5-.35zm4.82 3.45c-.02.18-.12.33-.27.42-.15.09-.33.1-.49.04l-.44-.17c-.16-.06-.28-.19-.33-.35a.54.54 0 0 1 .05-.48l2.2-3.7c.18-.31.62-.28.77.05l.19.42c.07.15.06.32-.01.47l-1.67 3.3zm3.7-3.32l-.44.17c-.16.06-.34.04-.48-.06a.55.55 0 0 1-.22-.41l-.23-4.36c-.02-.37.37-.6.68-.41l.39.24c.14.09.24.23.27.4l.5 3.97c.03.17-.03.35-.15.47l-.32-.01z"/>
+            </svg>
+            <div style={{ display: 'flex', gap: '2px' }}>
+              {[1,2,3,4,5].map(n => <Star key={n} size={12} fill="hsl(0 70% 48%)" color="hsl(0 70% 48%)" />)}
+            </div>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 600, color: 'hsl(var(--foreground))' }}>
+              5.0 on Yelp
             </span>
           </div>
         </div>
@@ -390,7 +401,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Timeline grid */}
+          {/* Timeline grid with flow connectors */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0' }}>
             {processSteps.map((step, i) => (
               <div
@@ -405,6 +416,22 @@ export default function Home() {
               >
                 {/* Brass top accent bar */}
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', backgroundColor: 'hsl(var(--accent))' }} />
+
+                {/* Flow connector chevron (hidden on last step and mobile) */}
+                {i < processSteps.length - 1 && (
+                  <div className="process-flow-arrow" style={{
+                    position: 'absolute',
+                    right: '-12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 5,
+                    width: '24px',
+                    height: '24px',
+                    backgroundColor: 'hsl(var(--accent))',
+                    clipPath: 'polygon(0 0, 75% 50%, 0 100%)',
+                    opacity: 0.6,
+                  }} />
+                )}
 
                 <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.2rem', color: 'hsl(var(--accent) / 0.25)', lineHeight: 1, marginBottom: '1rem' }}>
                   {step.num}
@@ -446,9 +473,9 @@ export default function Home() {
                 cursor: 'pointer',
               }}
             >
-              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.9rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>{stat.value}</div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))', marginTop: '0.3rem' }}>{stat.label}</div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.4rem', opacity: 0.7, transition: 'opacity 0.2s' }}>{stat.cta} &rarr;</div>
+              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.4rem', color: 'hsl(var(--foreground))', lineHeight: 0.95, letterSpacing: '-0.02em' }}>{stat.value}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--muted-foreground))', marginTop: '0.4rem' }}>{stat.label}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.5rem', opacity: 0.7, transition: 'opacity 0.2s' }}>{stat.cta} &rarr;</div>
             </Link>
           ))}
         </div>
@@ -767,20 +794,44 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>The Crew</p>
+
+          {/* Owner featured strip — visually distinct from crew grid */}
+          <div style={{ backgroundColor: 'hsl(var(--background))', borderLeft: '4px solid hsl(var(--accent))', padding: '1.5rem 2rem', marginBottom: '1px', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+            <div style={{ width: '56px', height: '56px', backgroundColor: 'hsl(var(--accent))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.2rem', color: 'hsl(var(--accent-foreground))' }}>BC</span>
+            </div>
+            <div style={{ flex: 1, minWidth: '200px' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.25rem' }}>
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>Burt</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.5)' }}>347 projects</span>
+              </div>
+              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.4rem' }}>
+                Owner / Lead · Since 2004
+              </div>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6, maxWidth: '520px' }}>
+                On every pour since 2004. Reads grade, sets forms, runs the finish. License BC-29174, $2M general liability. Answers the phone. Does the work.
+              </p>
+            </div>
+            <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ flexShrink: 0 }}>
+              <Phone size={14} />
+              Call Direct
+            </a>
+          </div>
+
+          {/* Crew grid — supporting team */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
-              { stat: 'Burt', label: 'Owner / Lead', projects: '347 projects', detail: 'On every pour since 2004. Reads grade, sets forms, runs the finish. License BC-29174.', isOwner: true },
-              { stat: 'Manu', label: 'Forming & Rebar', projects: '210+ pours', detail: 'With Burt since 2017. Ties rebar, sets string line, pulls forms same week.', isOwner: false },
-              { stat: 'Koa', label: 'Finish & Joints', projects: '180+ finishes', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.', isOwner: false },
-              { stat: 'Jay', label: 'Site Prep & Cleanup', projects: '140+ sites', detail: 'Compaction, drainage, washout containment. Five years running the ground work.', isOwner: false },
+              { stat: 'Manu', label: 'Forming & Rebar', projects: '210+ pours', detail: 'With Burt since 2017. Ties rebar, sets string line, pulls forms same week.', joined: '2017' },
+              { stat: 'Koa', label: 'Finish & Joints', projects: '180+ finishes', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.', joined: '2019' },
+              { stat: 'Jay', label: 'Site Prep & Cleanup', projects: '140+ sites', detail: 'Compaction, drainage, washout containment. Five years running the ground work.', joined: '2021' },
             ].map((item) => (
-              <div key={item.label} style={{ backgroundColor: item.isOwner ? 'hsl(var(--background))' : 'hsl(var(--card))', padding: '1.25rem 1.5rem', borderLeft: item.isOwner ? '3px solid hsl(var(--accent))' : 'none' }}>
+              <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
                   <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</div>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.5)' }}>{item.projects}</span>
                 </div>
                 <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginTop: '0.35rem', marginBottom: '0.5rem' }}>
-                  {item.label}
+                  {item.label} · Joined {item.joined}
                 </div>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.8rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
                   {item.detail}
@@ -943,13 +994,13 @@ export default function Home() {
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.78)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 1.5rem', zIndex: 10 }}>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginBottom: '1rem' }}>
-            Salt air doesn't wait. Neither should you.
+            Your driveway is how your kids get home. Your patio is where the family gathers.
           </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
-            One Call. One Crew. Done Right.
+            Concrete Is the Ground You Live On
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
-            Burt walks the site, reads the soil, and gives you a firm number. No office. No runaround.
+            Burt walks the site, reads the soil, and gives you a firm number. One crew. One call. No runaround.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link to="/contact" className="iron-btn">
