@@ -287,6 +287,12 @@ export default function Home() {
           padding: 'clamp(2.5rem, 8vw, 5rem) clamp(1.5rem, 5vw, 4rem)',
           borderRight: '1px solid hsl(var(--border))',
         }}>
+          <div className="animate-fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.35rem 0.85rem', border: '1px solid hsl(var(--accent) / 0.4)', marginBottom: '1.5rem' }}>
+            <div style={{ width: '6px', height: '6px', backgroundColor: 'hsl(var(--accent))', borderRadius: '50%' }} />
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
+              Owner-Operated
+            </span>
+          </div>
           <p className="iron-label animate-fade-up" style={{ marginBottom: '1.75rem', fontSize: '0.75rem' }}>
             South Maui Concrete · Est. 2004
           </p>
@@ -301,7 +307,7 @@ export default function Home() {
           </h1>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 400, fontSize: '0.88rem', letterSpacing: '0.02em', color: 'hsl(var(--accent) / 0.85)', marginBottom: '1.5rem' }}>
-            Built for Maui soil. Same crew since 2017.
+            Poured for Maui soil. Proven over 347 projects.
           </p>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', lineHeight: 1.7, color: 'hsl(var(--muted-foreground) / 0.8)', maxWidth: '420px', marginBottom: '2.5rem', fontWeight: 400 }}>
@@ -453,9 +459,14 @@ export default function Home() {
 
       {/* ===== STATS STRIP ===== */}
       <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '1.25rem', textAlign: 'center' }}>
+            Two Decades. One Crew. The Numbers.
+          </p>
+        </div>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
-            { value: '347', label: 'Projects Completed', href: '/gallery', cta: 'View Work' },
+            { value: '347+', label: 'Projects Completed', href: '/gallery', cta: 'View Work' },
             { value: '52K+', label: 'Sq Ft Poured', href: '/about', cta: 'Our Story' },
             { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Specs' },
             { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Process' },
@@ -514,18 +525,21 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
               {[
-                { date: 'Apr 2025', job: 'Driveway tear-out and repour, Wailea Ekolu Village' },
-                { date: 'Mar 2025', job: 'Stamped patio and pool deck, Makena residence' },
-                { date: 'Jan 2025', job: 'Retaining wall and French drain, upper Kihei' },
+                { date: 'Apr 2025', ref: 'BC-097', job: 'Driveway tear-out and repour, Wailea Ekolu Village' },
+                { date: 'Mar 2025', ref: 'BC-094', job: 'Stamped patio and pool deck, Makena residence' },
+                { date: 'Jan 2025', ref: 'BC-091', job: 'Retaining wall and French drain, upper Kihei' },
               ].map((entry) => (
-                <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                <Link key={entry.ref} to="/gallery" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.75' }} onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0, minWidth: '68px' }}>
                     {entry.date}
+                  </span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', color: 'hsl(var(--accent) / 0.35)', flexShrink: 0 }}>
+                    {entry.ref}
                   </span>
                   <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
                     {entry.job}
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -629,6 +643,38 @@ export default function Home() {
                 </p>
                 <p className="service-ideal" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.75rem', opacity: 0, maxHeight: 0, overflow: 'hidden', transition: 'opacity 0.25s ease, max-height 0.25s ease' }}>
                   Ideal for: {svc.idealFor}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHO WE POUR FOR — customer segment cards ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
+            <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Who We Pour For
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
+            {[
+              { segment: 'Homeowners', detail: 'Driveways, patios, walkways, lanai slabs. Most of our work is residential, and most of our referrals come from neighbors who saw the finished pour.', stat: '~243', statLabel: 'projects' },
+              { segment: 'Property Managers', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We schedule around occupancy and work clean.', stat: '~52', statLabel: 'projects' },
+              { segment: 'General Contractors', detail: 'Foundation subcontracting for new builds and additions. We bring our own forms, rebar, and crew. Burt coordinates directly with your site super.', stat: '~35', statLabel: 'projects' },
+              { segment: 'Commercial', detail: 'Parking pads, loading aprons, ADA ramps. Small commercial work that the big outfits won\'t bid on because the margins are too thin for their overhead.', stat: '~17', statLabel: 'projects' },
+            ].map((item) => (
+              <div key={item.segment} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                  <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))' }}>
+                    {item.segment}
+                  </h3>
+                  <div style={{ textAlign: 'right' }}>
+                    <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.2rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</span>
+                    <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', display: 'block', marginTop: '0.1rem' }}>{item.statLabel}</span>
+                  </div>
+                </div>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                  {item.detail}
                 </p>
               </div>
             ))}
@@ -768,9 +814,10 @@ export default function Home() {
       {/* ===== OWNER CREDIBILITY STRIP ===== */}
       <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2.5rem, 6vw, 4rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          {/* Initials badge */}
-          <div style={{ width: '72px', height: '72px', backgroundColor: 'hsl(var(--accent))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--accent-foreground))', letterSpacing: '0.05em' }}>BC</span>
+          {/* Founding year anchor + initials */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, gap: '0.25rem' }}>
+            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.4rem', color: 'hsl(var(--accent))', lineHeight: 1, letterSpacing: '-0.02em' }}>2004</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--muted-foreground))' }}>Founded</div>
           </div>
           <div style={{ flex: 1, minWidth: '260px' }}>
             <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent))', marginBottom: '0.5rem' }}>
@@ -907,10 +954,13 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--accent))', padding: 'clamp(2.5rem, 5vw, 3.5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
           <div>
-            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent-foreground) / 0.6)', marginBottom: '0.75rem' }}>
-              Grade the soil. Set the forms. Pour it right.
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent-foreground) / 0.6)', marginBottom: '0.5rem' }}>
+              Our Standard
             </p>
-            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', textTransform: 'uppercase', letterSpacing: '-0.01em', lineHeight: 0.95, color: 'hsl(var(--accent-foreground))' }}>
+            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', textTransform: 'uppercase', letterSpacing: '-0.01em', lineHeight: 0.95, color: 'hsl(var(--accent-foreground))', marginBottom: '0.5rem' }}>
+              Grade Right. Pour Once.
+            </div>
+            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: 'clamp(0.9rem, 1.8vw, 1.2rem)', textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1.1, color: 'hsl(var(--accent-foreground) / 0.7)' }}>
               Workmanship Warranty on Every Pour
             </div>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--accent-foreground) / 0.75)', marginTop: '0.5rem', lineHeight: 1.5, maxWidth: '520px' }}>
@@ -1002,7 +1052,7 @@ export default function Home() {
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
             Burt walks the site, reads the soil, and gives you a firm number. One crew. One call. No runaround.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2rem' }}>
             <Link to="/contact" className="iron-btn">
               Start Your Project
               <ArrowRight size={14} />
@@ -1011,6 +1061,37 @@ export default function Home() {
               <Phone size={14} />
               (808) 875-9085
             </a>
+          </div>
+
+          {/* Project-type quick-select */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--foreground) / 0.4)' }}>
+              What best describes your project?
+            </span>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              {['Residential', 'Commercial', 'Repair / Repour'].map((type) => (
+                <Link
+                  key={type}
+                  to="/contact"
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.62rem',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.12em',
+                    color: 'hsl(var(--foreground) / 0.7)',
+                    padding: '0.5rem 1rem',
+                    border: '1px solid hsl(var(--foreground) / 0.2)',
+                    textDecoration: 'none',
+                    transition: 'background-color 0.2s, border-color 0.2s, color 0.2s',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--accent) / 0.15)'; e.currentTarget.style.borderColor = 'hsl(var(--accent))'; e.currentTarget.style.color = 'hsl(var(--accent))' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'hsl(var(--foreground) / 0.2)'; e.currentTarget.style.color = 'hsl(var(--foreground) / 0.7)' }}
+                >
+                  {type}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
