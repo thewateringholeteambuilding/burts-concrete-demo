@@ -93,6 +93,29 @@ export default function Footer() {
 
         </div>
 
+        {/* Jobsite commitments — values-forward content */}
+        <div style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '1.25rem', paddingBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))' }}>
+            On Every Jobsite
+          </span>
+          {[
+            { label: 'Storm Drain Protection', href: '/#site-responsibility' },
+            { label: 'Washout Containment', href: '/#site-responsibility' },
+            { label: 'On-Island Materials', href: '/#site-responsibility' },
+            { label: 'Same-Week Cleanup', href: '/#site-responsibility' },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              to={item.href}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground) / 0.35)', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'hsl(var(--accent))')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'hsl(var(--foreground) / 0.35)')}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
         {/* Industry affiliations */}
         <div style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '1.25rem', paddingBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--muted-foreground))' }}>
@@ -114,7 +137,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Burt's Concrete. All rights reserved.
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>
-            Licensed &amp; Insured · <span style={{ borderBottom: '1px solid hsl(var(--accent) / 0.4)', cursor: 'default' }} title="Hawaii DCCA Contractor License">BC-29174</span> · Kihei, Maui · <span style={{ color: 'hsl(var(--accent) / 0.5)' }}>Updated May 2026</span>
+            Licensed &amp; Insured · <span style={{ borderBottom: '1px solid hsl(var(--accent) / 0.4)', cursor: 'default' }} title="Hawaii DCCA Contractor License — Valid 2026">BC-29174</span> · Insured through Mar 2027 · Kihei, Maui
           </p>
         </div>
       </div>

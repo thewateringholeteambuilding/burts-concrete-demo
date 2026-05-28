@@ -306,6 +306,9 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
           </h1>
 
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '0.75rem' }}>
+            South Maui's Concrete Contractor
+          </p>
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 400, fontSize: '0.88rem', letterSpacing: '0.02em', color: 'hsl(var(--accent) / 0.85)', marginBottom: '1.5rem' }}>
             Poured for Maui soil. Proven over 347 projects.
           </p>
@@ -328,8 +331,8 @@ export default function Home() {
           {/* Trust row — specific credentials, not generic labels */}
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             {[
-              { icon: true, text: 'License BC-29174' },
-              { icon: true, text: 'Insured to $2M' },
+              { icon: true, text: 'License BC-29174 · Valid 2026' },
+              { icon: true, text: 'Insured to $2M · Renewed Mar 2026' },
               { icon: true, text: 'Est. 2004, Kihei' },
             ].map((t) => (
               <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
@@ -460,8 +463,11 @@ export default function Home() {
       {/* ===== STATS STRIP ===== */}
       <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '1.25rem', textAlign: 'center' }}>
-            Two Decades. One Crew. The Numbers.
+          <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem', textAlign: 'center' }}>
+            Burt's Concrete at a Glance
+          </p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.08em', color: 'hsl(var(--muted-foreground))', marginBottom: '1.25rem', textAlign: 'center' }}>
+            22 years of owner-operated concrete work across South Maui
           </p>
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
@@ -929,24 +935,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== NO-SURPRISES GUARANTEE STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(1.5rem, 3vw, 2.5rem) 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '0' }} className="md:grid-cols-2">
-          {[
-            { point: 'Same Crew, Every Pour', detail: 'Burt and his four-man team do every job. No dispatched labor, no unfamiliar faces on your property.' },
-            { point: 'Pay When It\'s Done', detail: 'No deposits. You pay after the work is finished and you are satisfied with the result.' },
-            { point: 'One Quote, One Price', detail: 'The number Burt gives you at the site walk is the number on the invoice. No change orders.' },
-            { point: 'One Call Away', detail: 'Same phone number for 22 years. One person answers. One person does the work.' },
-          ].map((item, i) => (
-            <div key={item.point} style={{ padding: '1rem 1.25rem', borderLeft: '2px solid hsl(var(--accent) / 0.3)', borderBottom: i < 3 ? '1px solid hsl(var(--border) / 0.5)' : 'none' }}>
-              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground))' }}>
-                {item.point}
+      {/* ===== NO-SURPRISES GUARANTEE — narrative card grid ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>The No-Surprises Standard
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { num: '01', point: 'Same Crew, Every Pour', detail: 'Burt and his four-man team do every job. No dispatched labor, no unfamiliar faces on your property.' },
+              { num: '02', point: 'Pay When It\'s Done', detail: 'No deposits. You pay after the work is finished and you are satisfied with the result.' },
+              { num: '03', point: 'One Quote, One Price', detail: 'The number Burt gives you at the site walk is the number on the invoice. No change orders.' },
+              { num: '04', point: 'One Call Away', detail: 'Same phone number for 22 years. One person answers. One person does the work.' },
+            ].map((item) => (
+              <div key={item.point} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.5rem 1.5rem', position: 'relative' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', backgroundColor: 'hsl(var(--accent))' }} />
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent) / 0.2)', lineHeight: 1, marginBottom: '0.75rem' }}>
+                  {item.num}
+                </div>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
+                  {item.point}
+                </div>
+                <div style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                  {item.detail}
+                </div>
               </div>
-              <div style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5, marginTop: '0.3rem' }}>
-                {item.detail}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
