@@ -8,12 +8,12 @@ const PROCESS_PHOTO = 'https://images.unsplash.com/photo-1685464196339-46a985b20
 const CTA_BAND_PHOTO = 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=1600&q=80'
 
 const services = [
-  { name: 'Concrete Foundations', desc: 'Stem walls, grade beams, slab-on-grade. Seismic code compliant for Maui.', idealFor: 'New builds, additions, ADU projects' },
-  { name: 'Driveways & Parking', desc: 'Smooth residential and commercial driveway pours. Salt-air mix specs.', idealFor: 'Homeowners, vacation rental owners' },
-  { name: 'Retaining Walls', desc: 'Hillside erosion control and grade separation for South Maui properties.', idealFor: 'Hillside lots, erosion-prone properties' },
-  { name: 'Sidewalks & Walkways', desc: 'Flatwork cut and finished to spec. Joints at 24 hours, not guessed.', idealFor: 'Commercial properties, HOA common areas' },
-  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes. The look of natural stone at a fraction of replacement cost.', idealFor: 'Pool decks, lanai floors, entryways' },
-  { name: 'Concrete Repair', desc: 'Spalling, cracking, and resurfacing. Most repairs done in a single visit.', idealFor: 'Aging driveways, salt-damaged surfaces' },
+  { name: 'Concrete Foundations', desc: 'Stem walls, grade beams, slab-on-grade. Seismic code compliant for Maui.', idealFor: 'New builds, additions, ADU projects', lastPoured: 'Mar 2025, Wailea ADU' },
+  { name: 'Driveways & Parking', desc: 'Smooth residential and commercial driveway pours. Salt-air mix specs.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu' },
+  { name: 'Retaining Walls', desc: 'Hillside erosion control and grade separation for South Maui properties.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei' },
+  { name: 'Sidewalks & Walkways', desc: 'Flatwork cut and finished to spec. Joints at 24 hours, not guessed.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway' },
+  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes. The look of natural stone at a fraction of replacement cost.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence' },
+  { name: 'Concrete Repair', desc: 'Spalling, cracking, and resurfacing. Most repairs done in a single visit.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo' },
 ]
 
 const processSteps = [
@@ -650,6 +650,9 @@ export default function Home() {
                 <p className="service-ideal" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.75rem', opacity: 0, maxHeight: 0, overflow: 'hidden', transition: 'opacity 0.25s ease, max-height 0.25s ease' }}>
                   Ideal for: {svc.idealFor}
                 </p>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground) / 0.6)', marginTop: '0.5rem' }}>
+                  Last poured: {svc.lastPoured}
+                </p>
               </div>
             ))}
           </div>
@@ -664,10 +667,10 @@ export default function Home() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
             {[
-              { segment: 'Homeowners', detail: 'Driveways, patios, walkways, lanai slabs. Most of our work is residential, and most of our referrals come from neighbors who saw the finished pour.', stat: '~243', statLabel: 'projects' },
-              { segment: 'Property Managers', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We schedule around occupancy and work clean.', stat: '~52', statLabel: 'projects' },
-              { segment: 'General Contractors', detail: 'Foundation subcontracting for new builds and additions. We bring our own forms, rebar, and crew. Burt coordinates directly with your site super.', stat: '~35', statLabel: 'projects' },
-              { segment: 'Commercial', detail: 'Parking pads, loading aprons, ADA ramps. Small commercial work that the big outfits won\'t bid on because the margins are too thin for their overhead.', stat: '~17', statLabel: 'projects' },
+              { segment: 'Homeowners', lead: 'Most of our work starts with a neighbor\'s recommendation.', detail: 'Driveways, patios, walkways, lanai slabs. Most of our referrals come from someone who watched the finished pour from across the street.', stat: '~243', statLabel: 'projects' },
+              { segment: 'Property Managers', lead: 'Occupancy schedules drive the timeline, not ours.', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We coordinate around guest bookings and work clean.', stat: '~52', statLabel: 'projects' },
+              { segment: 'General Contractors', lead: 'We show up with our own crew, forms, and rebar.', detail: 'Foundation subcontracting for new builds and additions. Burt coordinates directly with your site super. No babysitting required.', stat: '~35', statLabel: 'projects' },
+              { segment: 'Commercial', lead: 'The jobs the big outfits pass on.', detail: 'Parking pads, loading aprons, ADA ramps. Small commercial work where the margins are too thin for their overhead but right-sized for ours.', stat: '~17', statLabel: 'projects' },
             ].map((item) => (
               <div key={item.segment} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
@@ -680,6 +683,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                  <strong style={{ color: 'hsl(var(--foreground))', fontWeight: 600 }}>{item.lead}</strong>{' '}
                   {item.detail}
                 </p>
               </div>
@@ -779,14 +783,14 @@ export default function Home() {
                 { date: 'May 6, 2025', note: 'Site walk for retaining wall estimate, upper Kihei. Hit clay at 18 inches. Recommending 24-inch footings instead of standard 18.' },
                 { date: 'Apr 28, 2025', note: 'Wailea Ekolu repour at 28-day full cure. Tested with Schmidt hammer: 4,200 PSI actual. Homeowner cleared to park by May 1.' },
               ].map((entry) => (
-                <div key={entry.date} style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                <Link key={entry.date} to="/gallery" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.7' }} onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground) / 0.4)', flexShrink: 0, minWidth: '52px' }}>
                     {entry.date}
                   </span>
                   <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
                     {entry.note}
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -835,6 +839,16 @@ export default function Home() {
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65, maxWidth: '520px' }}>
               I answer the phone, walk the site, and run the pour. No office staff, no dispatched crews. You talk to the person who does the work. Same phone number for 22 years.
             </p>
+            <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.3rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>16</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))' }}>return clients</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.3rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>11</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))' }}>neighbor referrals last year</span>
+              </div>
+            </div>
           </div>
           <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ flexShrink: 0 }}>
             <Phone size={14} />
@@ -1043,6 +1057,33 @@ export default function Home() {
 
       {/* ===== TESTIMONIALS — spotlight carousel ===== */}
       <TestimonialSpotlight />
+
+      {/* ===== REPEAT & REFERRAL — relationship proof strip ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '2rem', flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', flexShrink: 0, paddingTop: '0.15rem' }}>
+              <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.25rem' }}>//</span>They Came Back
+            </span>
+            <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
+              {[
+                { client: 'Shannon T.', action: 'Returned for a stamped patio after her driveway repour' },
+                { client: 'Ryan M.', action: 'Referred his neighbor for a retaining wall estimate' },
+                { client: 'Kimo & Lana H.', action: 'Third project — pool deck extension, Wailea' },
+              ].map((entry) => (
+                <div key={entry.client} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', flexShrink: 0 }}>
+                    {entry.client}
+                  </span>
+                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
+                    {entry.action}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ===== FAQ ===== */}
       <FAQSection />
