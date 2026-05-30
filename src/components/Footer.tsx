@@ -139,6 +139,9 @@ export default function Footer() {
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>
             Licensed &amp; Insured · <span style={{ borderBottom: '1px solid hsl(var(--accent) / 0.4)', cursor: 'default' }} title="Hawaii DCCA Contractor License — Valid 2026">BC-29174</span> · Insured through Mar 2027 · Kihei, Maui
           </p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '0.35rem' }}>
+            Site updated May 2025 · Serving South Maui since 2004
+          </p>
         </div>
       </div>
     </footer>

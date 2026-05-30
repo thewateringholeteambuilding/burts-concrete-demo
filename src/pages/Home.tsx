@@ -472,7 +472,7 @@ export default function Home() {
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
-            { value: '347+', label: 'Projects Completed', href: '/gallery', cta: 'View Work' },
+            { value: '347+', label: 'Projects Completed', href: '/gallery', cta: 'View 47 Photos' },
             { value: '52K+', label: 'Sq Ft Poured', href: '/about', cta: 'Our Story' },
             { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Specs' },
             { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Process' },
@@ -566,7 +566,7 @@ export default function Home() {
               to="/services"
               style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
             >
-              All Services <ArrowRight size={13} />
+              All 6 Services <ArrowRight size={13} />
             </Link>
           </div>
 
@@ -755,6 +755,8 @@ export default function Home() {
                 { key: 'Finish', val: 'Stamped border + broom' },
                 { key: 'Drainage', val: 'French drain, mauka edge' },
                 { key: 'Permit', val: 'Maui County #SP-2025-041' },
+                { key: 'Outcome', val: '4,200 PSI at 28-day cure · cars on slab by day 8' },
+                { key: 'Status', val: 'Complete · Apr 2025' },
               ].map((item) => (
                 <div key={item.key} style={{ display: 'flex', gap: '0.4rem', alignItems: 'baseline' }}>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent) / 0.6)', flexShrink: 0 }}>
@@ -906,6 +908,23 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== JOIN THE CREW — hiring micro-strip ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))' }}>
+              Join the Crew
+            </span>
+            <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))' }}>
+              Experienced concrete finishers and formwork hands — Maui-based, year-round work, paid weekly.
+            </span>
+          </div>
+          <a href="tel:+18088759085" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', padding: '0.4rem 0.85rem', border: '1px solid hsl(var(--accent) / 0.3)', transition: 'background-color 0.2s', flexShrink: 0 }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--accent) / 0.08)' }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}>
+            Call Burt
+          </a>
         </div>
       </section>
 
@@ -1087,6 +1106,36 @@ export default function Home() {
 
       {/* ===== FAQ ===== */}
       <FAQSection />
+
+      {/* ===== FREE RESOURCE CARD ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+        <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', padding: 'clamp(1.5rem, 4vw, 2.5rem)', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', backgroundColor: 'hsl(var(--accent))' }} />
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <div style={{ flex: 1, minWidth: '240px' }}>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))', marginBottom: '0.5rem' }}>
+                  Free Resource
+                </p>
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.1rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.5rem', lineHeight: 1.2 }}>
+                  Concrete Maintenance Guide for Maui Homeowners
+                </h3>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                  Sealing schedules for coastal vs. upcountry. When to worry about cracks and when not to. Written by Burt from 22 years of callbacks and site visits.
+                </p>
+              </div>
+              <Link
+                to="/contact"
+                style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', padding: '0.6rem 1.25rem', border: '1px solid hsl(var(--accent) / 0.4)', alignSelf: 'center', flexShrink: 0, transition: 'background-color 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--accent) / 0.08)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}
+              >
+                Request Copy
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ===== PRE-FOOTER CTA BAND ===== */}
       <section style={{ position: 'relative', height: '400px', overflow: 'hidden' }} aria-label="Contact call to action">
