@@ -261,6 +261,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Process step hover — progressive disclosure of method code */
+.process-step {
+  transition: background-color 0.25s ease;
+}
+.process-step:hover {
+  background-color: hsl(220 45% 9%);
+}
+.process-step:hover .process-method {
+  color: hsl(var(--accent)) !important;
+  letter-spacing: 0.2em !important;
+}
+
 /* Hide process flow arrows when grid stacks on mobile */
 @media (max-width: 768px) {
   .process-flow-arrow {

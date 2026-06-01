@@ -8,12 +8,12 @@ const PROCESS_PHOTO = 'https://images.unsplash.com/photo-1685464196339-46a985b20
 const CTA_BAND_PHOTO = 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=1600&q=80'
 
 const services = [
-  { name: 'Concrete Foundations', desc: 'Stem walls, grade beams, slab-on-grade. Seismic code compliant for Maui.', idealFor: 'New builds, additions, ADU projects', lastPoured: 'Mar 2025, Wailea ADU' },
-  { name: 'Driveways & Parking', desc: 'Smooth residential and commercial driveway pours. Salt-air mix specs.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu' },
-  { name: 'Retaining Walls', desc: 'Hillside erosion control and grade separation for South Maui properties.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei' },
-  { name: 'Sidewalks & Walkways', desc: 'Flatwork cut and finished to spec. Joints at 24 hours, not guessed.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway' },
-  { name: 'Decorative Concrete', desc: 'Stamped, stained, and polished finishes. The look of natural stone at a fraction of replacement cost.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence' },
-  { name: 'Concrete Repair', desc: 'Spalling, cracking, and resurfacing. Most repairs done in a single visit.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo' },
+  { name: 'Concrete Foundations', desc: 'Start with the ground right. Stem walls, grade beams, and slab-on-grade poured to seismic code for Maui soil conditions.', idealFor: 'New builds, additions, ADU projects', lastPoured: 'Mar 2025, Wailea ADU' },
+  { name: 'Driveways & Parking', desc: 'The first thing visitors see and the surface that takes the most abuse. Salt-air mix specs, 4,000 PSI minimum, broom or stamped finish.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu' },
+  { name: 'Retaining Walls', desc: 'Kihei clay and Wailea slopes move differently after heavy rain. Proper drainage behind the wall matters more than the wall itself.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei' },
+  { name: 'Sidewalks & Walkways', desc: 'Cut joints at 24 hours, not whenever the crew returns. Flatwork finished to spec with consistent slope for drainage.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway' },
+  { name: 'Decorative Concrete', desc: 'Stamped patterns that hold up to barefoot traffic and salt exposure. Your lanai floor will outlast the furniture on it.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence' },
+  { name: 'Concrete Repair', desc: 'Spalling from salt. Cracks from settling. Most repairs handled in a single visit with color-matched patching.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo' },
 ]
 
 const processSteps = [
@@ -293,8 +293,11 @@ export default function Home() {
               Owner-Operated
             </span>
           </div>
-          <p className="iron-label animate-fade-up" style={{ marginBottom: '1.75rem', fontSize: '0.75rem' }}>
+          <p className="iron-label animate-fade-up" style={{ marginBottom: '0.5rem', fontSize: '0.75rem' }}>
             South Maui Concrete · Est. 2004
+          </p>
+          <p className="animate-fade-up" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.35)', marginBottom: '1.75rem' }}>
+            Grade. Form. Pour.&#8482;
           </p>
 
           <h1
@@ -333,7 +336,7 @@ export default function Home() {
             {[
               { icon: true, text: 'License BC-29174 · Valid 2026' },
               { icon: true, text: 'Insured to $2M · Renewed Mar 2026' },
-              { icon: true, text: 'Est. 2004, Kihei' },
+              { icon: true, text: 'Est. March 2004, Kihei' },
             ].map((t) => (
               <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <CheckCircle2 size={13} style={{ color: 'hsl(var(--accent))', flexShrink: 0 }} />
@@ -380,7 +383,7 @@ export default function Home() {
             padding: '0.85rem 1.25rem',
             zIndex: 10,
           }}>
-            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.8rem', lineHeight: 1 }}>20+</div>
+            <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.8rem', lineHeight: 1 }}>22</div>
             <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.18em', marginTop: '0.2rem' }}>Years on Maui</div>
           </div>
         </div>
@@ -415,6 +418,7 @@ export default function Home() {
             {processSteps.map((step, i) => (
               <div
                 key={step.num}
+                className="process-step"
                 style={{
                   padding: '2rem 1.75rem',
                   borderLeft: '1px solid hsl(var(--border))',
@@ -448,7 +452,7 @@ export default function Home() {
                 <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem' }}>
                   {step.title}
                 </h3>
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.6)', display: 'block', marginBottom: '0.6rem' }}>
+                <span className="process-method" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.6)', display: 'block', marginBottom: '0.6rem', transition: 'color 0.25s ease, letter-spacing 0.25s ease' }}>
                   {step.method}
                 </span>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
@@ -1148,8 +1152,11 @@ export default function Home() {
         />
         <div style={{ position: 'absolute', inset: 0, backgroundColor: 'hsl(220 45% 7% / 0.78)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 1.5rem', zIndex: 10 }}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginBottom: '1rem' }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginBottom: '0.5rem' }}>
             Your driveway is how your kids get home. Your patio is where the family gathers.
+          </p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground) / 0.35)', marginBottom: '1rem' }}>
+            Currently Booking: June–July 2026
           </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
             Concrete Is the Ground You Live On
