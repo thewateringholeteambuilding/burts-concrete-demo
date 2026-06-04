@@ -320,7 +320,7 @@ export default function Home() {
             Owner-operated out of Kihei. Burt handles the estimate, the pour, and the finish. No subcontractors. No surprises on the invoice.
           </p>
 
-          <div className="animate-fade-up-delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+          <div className="animate-fade-up-delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
             <Link to="/contact" className="iron-btn">
               Get a Free Quote
               <ArrowRight size={14} />
@@ -330,6 +330,9 @@ export default function Home() {
               (808) 875-9085
             </a>
           </div>
+          <p className="animate-fade-up-delay-3" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground) / 0.6)', marginBottom: '2rem' }}>
+            No pressure, no obligation. Just a conversation about your project.
+          </p>
 
           {/* Trust row — specific credentials, not generic labels */}
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
@@ -478,6 +481,7 @@ export default function Home() {
           {[
             { value: '347+', label: 'Projects Completed', href: '/gallery', cta: 'View 47 Photos' },
             { value: '52K+', label: 'Sq Ft Poured', href: '/about', cta: 'Our Story' },
+            { value: '0', label: 'Warranty Callbacks', href: '/about', cta: 'Our Promise' },
             { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Specs' },
             { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Process' },
             { value: 'Kihei', label: 'South Maui Based', href: '/contact', cta: 'Find Us' },
@@ -657,6 +661,14 @@ export default function Home() {
                 <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground) / 0.6)', marginTop: '0.5rem' }}>
                   Last poured: {svc.lastPoured}
                 </p>
+                <Link
+                  to="/services"
+                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', marginTop: '0.75rem', opacity: 0.7, transition: 'opacity 0.2s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '1' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.7' }}
+                >
+                  View Details <ArrowRight size={11} />
+                </Link>
               </div>
             ))}
           </div>
@@ -1108,6 +1120,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== GALLERY PREVIEW — visual proof on homepage ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+            <div>
+              <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Recent Work</p>
+              <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))' }}>
+                From the Field
+              </h2>
+            </div>
+            <Link
+              to="/gallery"
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+            >
+              View Full Gallery <ArrowRight size={13} />
+            </Link>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px' }}>
+            {[
+              { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75', alt: 'Completed driveway repour, Wailea', label: 'Wailea Ekolu · Driveway' },
+              { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=75', alt: 'Stamped patio finish, Makena', label: 'Makena · Stamped Patio' },
+              { src: 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=600&q=75', alt: 'Retaining wall, upper Kihei', label: 'Kihei · Retaining Wall' },
+            ].map((photo) => (
+              <Link key={photo.alt} to="/gallery" style={{ position: 'relative', display: 'block', overflow: 'hidden', aspectRatio: '4/3' }}>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  loading="lazy"
+                  width={600}
+                  height={450}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.04)' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)' }}
+                />
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(transparent, hsl(220 45% 7% / 0.75))', padding: '2rem 1rem 0.75rem' }}>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground) / 0.85)' }}>
+                    {photo.label}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== FAQ ===== */}
       <FAQSection />
 
@@ -1155,8 +1212,11 @@ export default function Home() {
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginBottom: '0.5rem' }}>
             Your driveway is how your kids get home. Your patio is where the family gathers.
           </p>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground) / 0.35)', marginBottom: '1rem' }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground) / 0.35)', marginBottom: '0.5rem' }}>
             Currently Booking: June–July 2026
+          </p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '1rem' }}>
+            Financing available for projects over $5,000
           </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
             Concrete Is the Ground You Live On
