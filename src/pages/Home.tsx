@@ -310,7 +310,7 @@ export default function Home() {
           </h1>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '0.75rem' }}>
-            South Maui's Concrete Contractor
+            Local. Owner-Operated. Poured for Maui.
           </p>
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 400, fontSize: '0.88rem', letterSpacing: '0.02em', color: 'hsl(var(--accent) / 0.85)', marginBottom: '1.5rem' }}>
             Poured for Maui soil. Proven over 347 projects.
@@ -815,6 +815,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== MID-PAGE CTA — conversion reminder between content blocks ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+          <div>
+            <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))' }}>
+              Ready to talk about your project?
+            </p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>
+              Free site walk. Firm quote. No deposit required.
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <Link to="/contact" className="iron-btn" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
+              Get a Free Quote
+              <ArrowRight size={12} />
+            </Link>
+            <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
+              <Phone size={12} />
+              (808) 875-9085
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ===== MATERIALS & STANDARDS STRIP ===== */}
       <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -857,6 +881,14 @@ export default function Home() {
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65, maxWidth: '520px' }}>
               I answer the phone, walk the site, and run the pour. No office staff, no dispatched crews. You talk to the person who does the work. Same phone number for 22 years.
             </p>
+            <div style={{ marginTop: '1rem', padding: '0.75rem 1rem', borderLeft: '3px solid hsl(var(--accent))', backgroundColor: 'hsl(var(--card))' }}>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', marginBottom: '0.25rem' }}>
+                Burt's Rule
+              </p>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--foreground))', lineHeight: 1.5, fontStyle: 'italic' }}>
+                "If I wouldn't pour it at my own house, I won't pour it at yours."
+              </p>
+            </div>
             <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
                 <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.3rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>16</span>
@@ -1025,10 +1057,10 @@ export default function Home() {
               Grade Right. Pour Once.
             </div>
             <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: 'clamp(0.9rem, 1.8vw, 1.2rem)', textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1.1, color: 'hsl(var(--accent-foreground) / 0.7)' }}>
-              Workmanship Warranty on Every Pour
+              5-Year Workmanship Warranty on Every Pour
             </div>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--accent-foreground) / 0.75)', marginTop: '0.5rem', lineHeight: 1.5, maxWidth: '520px' }}>
-              Every pour is backed by a written workmanship warranty. 3,500 PSI minimum mix, #4 rebar at 12-inch centers, control joints cut at 24 hours. If a defect appears within the warranty period, Burt comes back and makes it right. No fine print, no runaround.
+              Every pour is backed by a written 5-year workmanship warranty. 3,500 PSI minimum mix, #4 rebar at 12-inch centers, control joints cut at 24 hours. If a defect appears within five years, Burt comes back and makes it right. No fine print, no runaround.
             </p>
           </div>
           <Link to="/contact" className="iron-btn" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}>
@@ -1194,6 +1226,34 @@ export default function Home() {
                 Request Copy
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== COVERAGE CONFIDENCE STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
+              Coverage Confirmed
+            </span>
+            {[
+              { town: 'Kihei', time: 'Same-day estimate' },
+              { town: 'Wailea', time: 'Same-day estimate' },
+              { town: 'Makena', time: 'Same-day estimate' },
+              { town: 'Kahului', time: 'Next-day estimate' },
+              { town: 'Wailuku', time: 'Next-day estimate' },
+              { town: 'Kula', time: '48-hour estimate' },
+            ].map((area) => (
+              <div key={area.town} style={{ display: 'flex', alignItems: 'baseline', gap: '0.35rem' }}>
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))' }}>
+                  {area.town}
+                </span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 500, letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground))' }}>
+                  {area.time}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
