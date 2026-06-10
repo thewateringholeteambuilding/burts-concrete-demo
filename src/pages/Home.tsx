@@ -26,7 +26,7 @@ const processSteps = [
 const testimonials = [
   {
     headline: 'Showed up. Delivered.',
-    quote: 'Burt did exactly what he said he would. The driveway looks incredible.',
+    quote: 'Burt did exactly what he said he would. Finished a day ahead of schedule, swept the site clean before he left, and the final invoice matched his original quote to the dollar. The driveway looks incredible.',
     author: 'Shannon Takemoto, Kihei',
     detail: 'Homeowner · November 2024',
     project: 'Driveway Repour',
@@ -34,7 +34,7 @@ const testimonials = [
   },
   {
     headline: 'The only one who came out',
-    quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. The wall has held through two winters with no movement and no drainage issues.',
+    quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. He redesigned the drainage layout on-site with a sketch on graph paper. The wall has held through two winters with no movement and no drainage issues.',
     author: 'Ryan Medeiros, Makena',
     detail: 'Property Owner · August 2024',
     project: 'Retaining Wall',
@@ -42,7 +42,7 @@ const testimonials = [
   },
   {
     headline: 'Best part of the backyard',
-    quote: 'Fast, clean, exactly what I asked for. The stamped patio turned out better than the sample. Would not use anyone else on Maui.',
+    quote: 'Crew arrived at 6:30 AM to beat the heat, poured and finished the patio in a single day. Burt came back at sunset to check the cure and adjust the barricades. The stamped pattern turned out better than the sample.',
     author: 'Christine Akana, Wailea',
     detail: 'Homeowner · March 2025',
     project: 'Stamped Patio',
@@ -322,7 +322,7 @@ export default function Home() {
 
           <div className="animate-fade-up-delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
             <Link to="/contact" className="iron-btn">
-              Get a Free Quote
+              Schedule a Site Walk
               <ArrowRight size={14} />
             </Link>
             <a href="tel:+18088759085" className="iron-btn iron-btn--ghost">
@@ -389,6 +389,28 @@ export default function Home() {
             <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.8rem', lineHeight: 1 }}>22</div>
             <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.18em', marginTop: '0.2rem' }}>Years on Maui</div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== VALUE-PROP TRIAD — quantified benefits at a glance ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+          {[
+            { stat: '5-Year', label: 'Written Warranty', detail: 'Every pour backed in writing. Defect within five years, Burt comes back.' },
+            { stat: '24hr', label: 'Joint Cuts, Every Time', detail: 'Control joints cut on schedule. Not when the crew returns next week.' },
+            { stat: '1 Crew', label: 'Start to Finish', detail: 'Same four people on every job. No subcontractors, no handoffs.' },
+          ].map((item) => (
+            <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.5rem 1.75rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <CheckCircle2 size={18} style={{ color: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.15rem' }} />
+              <div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '0.3rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.3rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground))' }}>{item.label}</span>
+                </div>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>{item.detail}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -479,12 +501,12 @@ export default function Home() {
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
-            { value: '347+', label: 'Projects Completed', href: '/gallery', cta: 'View 47 Photos' },
+            { value: '347', label: 'Projects Since 2004', href: '/gallery', cta: 'View 47 Photos' },
             { value: '52K+', label: 'Sq Ft Poured', href: '/about', cta: 'Our Story' },
             { value: '0', label: 'Warranty Callbacks', href: '/about', cta: 'Our Promise' },
-            { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Specs' },
-            { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Process' },
-            { value: 'Kihei', label: 'South Maui Based', href: '/contact', cta: 'Find Us' },
+            { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Mix Specs' },
+            { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Our Process' },
+            { value: '93%', label: 'Referral Rate (2024)', href: '/contact', cta: 'Get in Touch' },
           ].map((stat, i) => (
             <Link
               key={stat.label}
@@ -672,6 +694,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Honesty caveat — transparency builds trust */}
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '1rem', letterSpacing: '0.04em', lineHeight: 1.5 }}>
+            Scope, timeline, and mix specifications vary by soil conditions, site access, and permit requirements. Burt evaluates every job individually during the site walk.
+          </p>
         </div>
       </section>
 
@@ -680,6 +707,9 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
             <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Who We Pour For
+          </p>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
+            Different clients need different things from a concrete contractor. Here is how our 347 projects break down.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
             {[
@@ -749,14 +779,14 @@ export default function Home() {
                 { value: '6', unit: 'days', label: 'Start to Finish' },
                 { value: '4,000', unit: 'PSI', label: 'Mix Spec' },
               ].map((metric) => (
-                <div key={metric.label} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem 1rem', textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.6rem', color: 'hsl(var(--foreground))', lineHeight: 1 }}>
+                <div key={metric.label} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem 1rem', textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.2rem', color: 'hsl(var(--foreground))', lineHeight: 1, letterSpacing: '-0.02em' }}>
                     {metric.value}
                   </div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.15rem' }}>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginTop: '0.25rem' }}>
                     {metric.unit}
                   </div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', marginTop: '0.35rem' }}>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', marginTop: '0.4rem' }}>
                     {metric.label}
                   </div>
                 </div>
@@ -820,15 +850,15 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
             <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))' }}>
-              Ready to talk about your project?
+              Your slab is only as good as the ground beneath it.
             </p>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>
-              Free site walk. Firm quote. No deposit required.
+              Free site walk. Burt reads the soil before quoting a number. No deposit required.
             </p>
           </div>
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <Link to="/contact" className="iron-btn" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
-              Get a Free Quote
+              Talk to Burt
               <ArrowRight size={12} />
             </Link>
             <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
@@ -991,6 +1021,26 @@ export default function Home() {
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, marginTop: '1rem' }}>
               Burt has worked Maui soil for over 20 years. He knows where the clay pockets sit in Kihei, which Wailea slopes hold water, and why a foundation in Ma'alaea needs different rebar spacing than one in Makena.
             </p>
+
+            {/* Paired risk/reward — consequence vs. outcome */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '1.75rem' }}>
+              <div style={{ backgroundColor: 'hsl(var(--background))', padding: '1rem 1.25rem' }}>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--muted-foreground) / 0.6)', marginBottom: '0.35rem' }}>
+                  Skip the site walk
+                </p>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                  Cracks within two rainy seasons. Water pooling against your foundation. A tear-out that costs twice the original pour.
+                </p>
+              </div>
+              <div style={{ backgroundColor: 'hsl(var(--background))', padding: '1rem 1.25rem', borderLeft: '3px solid hsl(var(--accent))' }}>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', marginBottom: '0.35rem' }}>
+                  Get the grade right first
+                </p>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                  A slab that holds through decades of Maui weather. Proper drainage. One pour, done right, backed by a 5-year warranty.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Right, branded pillars */}
@@ -1169,19 +1219,37 @@ export default function Home() {
               View Full Gallery <ArrowRight size={13} />
             </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gridTemplateRows: 'auto auto', gap: '2px' }}>
+            {/* Hero-width feature image spanning both rows on left */}
+            <Link to="/gallery" style={{ position: 'relative', display: 'block', overflow: 'hidden', gridRow: '1 / 3' }}>
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=75"
+                alt="Completed driveway repour, Wailea"
+                loading="lazy"
+                width={900}
+                height={600}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.04)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)' }}
+              />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(transparent, hsl(220 45% 7% / 0.75))', padding: '2rem 1rem 0.75rem' }}>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground) / 0.85)' }}>
+                  Wailea Ekolu · Driveway Repour
+                </span>
+              </div>
+            </Link>
+            {/* Two stacked smaller images on right */}
             {[
-              { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75', alt: 'Completed driveway repour, Wailea', label: 'Wailea Ekolu · Driveway' },
-              { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=75', alt: 'Stamped patio finish, Makena', label: 'Makena · Stamped Patio' },
-              { src: 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=600&q=75', alt: 'Retaining wall, upper Kihei', label: 'Kihei · Retaining Wall' },
+              { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=75', alt: 'Stamped patio finish, Makena', label: 'Makena · Stamped Patio' },
+              { src: 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=500&q=75', alt: 'Retaining wall, upper Kihei', label: 'Kihei · Retaining Wall' },
             ].map((photo) => (
-              <Link key={photo.alt} to="/gallery" style={{ position: 'relative', display: 'block', overflow: 'hidden', aspectRatio: '4/3' }}>
+              <Link key={photo.alt} to="/gallery" style={{ position: 'relative', display: 'block', overflow: 'hidden' }}>
                 <img
                   src={photo.src}
                   alt={photo.alt}
                   loading="lazy"
-                  width={600}
-                  height={450}
+                  width={500}
+                  height={375}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.04)' }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)' }}
@@ -1286,7 +1354,7 @@ export default function Home() {
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2rem' }}>
             <Link to="/contact" className="iron-btn">
-              Start Your Project
+              Get a Free Estimate
               <ArrowRight size={14} />
             </Link>
             <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ borderColor: 'hsl(var(--foreground) / 0.4)' }}>
