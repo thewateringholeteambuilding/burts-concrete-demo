@@ -309,11 +309,8 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
           </h1>
 
-          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '0.75rem' }}>
-            Local. Owner-Operated. Poured for Maui.
-          </p>
-          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 400, fontSize: '0.88rem', letterSpacing: '0.02em', color: 'hsl(var(--accent) / 0.85)', marginBottom: '1.5rem' }}>
-            Poured for Maui soil. Proven over 347 projects.
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '1.5rem' }}>
+            South Maui's Owner-Operated Concrete Contractor Since 2004
           </p>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', lineHeight: 1.7, color: 'hsl(var(--muted-foreground) / 0.8)', maxWidth: '420px', marginBottom: '2.5rem', fontWeight: 400 }}>
@@ -337,8 +334,8 @@ export default function Home() {
           {/* Trust row — specific credentials, not generic labels */}
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             {[
-              { icon: true, text: 'License BC-29174 · Valid 2026' },
-              { icon: true, text: 'Insured to $2M · Renewed Mar 2026' },
+              { icon: true, text: 'License BC-29174 · Jan–Dec 2026' },
+              { icon: true, text: '$2M GL · Renewed Mar 2026–Mar 2027' },
               { icon: true, text: 'Est. March 2004, Kihei' },
             ].map((t) => (
               <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
@@ -362,7 +359,7 @@ export default function Home() {
         {/* Right col, photo + trust badge */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: '480px' }}>
           {/* Brass corner frame, top right */}
-          <div style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', zIndex: 10, width: '40px', height: '40px', borderTop: '3px solid hsl(var(--accent))', borderRight: '3px solid hsl(var(--accent))' }} />
+          <div className="brass-corner-glow" style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', zIndex: 10, width: '40px', height: '40px', borderTop: '3px solid hsl(var(--accent))', borderRight: '3px solid hsl(var(--accent))' }} />
 
           <img
             src={HERO_PHOTO}
@@ -780,10 +777,10 @@ export default function Home() {
                 { value: '4,000', unit: 'PSI', label: 'Mix Spec' },
               ].map((metric) => (
                 <div key={metric.label} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem 1rem', textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.2rem', color: 'hsl(var(--foreground))', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                  <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.8rem', color: 'hsl(var(--foreground))', lineHeight: 1, letterSpacing: '-0.03em' }}>
                     {metric.value}
                   </div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', marginTop: '0.25rem' }}>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent))', marginTop: '0.15rem' }}>
                     {metric.unit}
                   </div>
                   <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', marginTop: '0.4rem' }}>
@@ -989,18 +986,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== JOIN THE CREW — hiring micro-strip ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))' }}>
+      {/* ===== JOIN THE CREW — hiring strip with personality ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.25rem' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem', flexWrap: 'wrap', flex: 1, minWidth: '280px' }}>
+            <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '0.88rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--accent))', flexShrink: 0, paddingTop: '0.1rem' }}>
               Join the Crew
             </span>
-            <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))' }}>
-              Experienced concrete finishers and formwork hands — Maui-based, year-round work, paid weekly.
-            </span>
+            <div>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--foreground))', lineHeight: 1.5, marginBottom: '0.35rem' }}>
+                Looking for concrete finishers and formwork hands who want year-round work on Maui.
+              </p>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', color: 'hsl(var(--muted-foreground))', letterSpacing: '0.04em', lineHeight: 1.5 }}>
+                Paid weekly. Start at 6:30 AM, done by 3. Same four-person crew every day. No temp agencies, no rotating sites across the island. If you can read a string line and show up on time, call Burt.
+              </p>
+            </div>
           </div>
-          <a href="tel:+18088759085" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', padding: '0.4rem 0.85rem', border: '1px solid hsl(var(--accent) / 0.3)', transition: 'background-color 0.2s', flexShrink: 0 }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--accent) / 0.08)' }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}>
+          <a href="tel:+18088759085" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', padding: '0.5rem 1rem', border: '1px solid hsl(var(--accent) / 0.3)', transition: 'background-color 0.2s', flexShrink: 0 }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--accent) / 0.08)' }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent' }}>
             Call Burt
           </a>
         </div>

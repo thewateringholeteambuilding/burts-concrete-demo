@@ -252,6 +252,20 @@
   animation: heroZoom 12s cubic-bezier(0.25, 0.1, 0.25, 1) both;
 }
 
+@keyframes brassGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0);
+  }
+  50% {
+    box-shadow: 0 0 18px 4px hsl(var(--accent) / 0.25);
+  }
+}
+
+.brass-corner-glow {
+  animation: brassGlow 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
 .service-card-hover:hover .service-ideal {
   opacity: 1 !important;
   max-height: 3rem !important;
