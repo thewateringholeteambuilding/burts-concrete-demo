@@ -17,10 +17,10 @@ const services = [
 ]
 
 const processSteps = [
-  { num: '01', title: 'Call or Text Burt', method: 'BC-Direct', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
-  { num: '02', title: 'Site Walk', method: 'BC-ReadGrade', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. Mainland contractors skip this step and pour on whatever is there. On Maui, that means cracking within two rainy seasons. You get a firm number before he leaves your property.' },
-  { num: '03', title: 'Mix & Forms', method: 'BC-SpecLock', body: 'Standard mainland residential is 2,500 PSI. Burt specs 3,500 PSI minimum, 4,000 PSI for driveways. The difference is salt-air resistance and load tolerance on volcanic substrate. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
-  { num: '04', title: 'Pour & Finish', method: 'BC-OnePour', body: 'One continuous pour. No cold joints, no seams. A cold joint is where one batch dries before the next is poured against it. It is the first place concrete cracks. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
+  { num: '01', title: 'Call or Text Burt', method: 'BC-Direct', duration: 'Same-day callback', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
+  { num: '02', title: 'Site Walk', method: 'BC-ReadGrade', duration: '1-2 hrs on-site', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. Mainland contractors skip this step and pour on whatever is there. On Maui, that means cracking within two rainy seasons. You get a firm number before he leaves your property.' },
+  { num: '03', title: 'Mix & Forms', method: 'BC-SpecLock', duration: '1-3 days prep', body: 'Standard mainland residential is 2,500 PSI. Burt specs 3,500 PSI minimum, 4,000 PSI for driveways. The difference is salt-air resistance and load tolerance on volcanic substrate. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
+  { num: '04', title: 'Pour & Finish', method: 'BC-OnePour', duration: '1 day pour · 28-day cure', body: 'One continuous pour. No cold joints, no seams. A cold joint is where one batch dries before the next is poured against it. It is the first place concrete cracks. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
 ]
 
 const testimonials = [
@@ -70,6 +70,14 @@ const faqs = [
   {
     q: 'Can you pour concrete on a hillside lot in South Maui?',
     a: 'Yes, but it requires specific engineering. Hillside pours need retaining structures, proper drainage behind walls, and compacted fill verified to at least 95% modified Proctor. Burt has poured on slopes across Kihei and Wailea for over 20 years and knows which soil profiles hold and which ones need additional reinforcement.',
+  },
+  {
+    q: 'What does the 5-year workmanship warranty actually cover?',
+    a: 'The warranty covers structural defects in the concrete itself: cracking beyond normal control joints, settling caused by improper subgrade preparation, spalling from mix issues, and drainage failures resulting from incorrect grading. It does not cover cosmetic wear from normal use, damage from vehicle impact, or issues caused by third-party modifications to the slab. If a covered defect appears within five years, Burt inspects, documents, and repairs at no additional cost. No claim forms, no phone trees. Call the same number you used to book the job.',
+  },
+  {
+    q: 'What should I expect during the estimate and contract process?',
+    a: 'Burt walks your site in person, measures the area, reads the soil, and checks drainage. You receive a written estimate within 48 hours that includes square footage, PSI specification, rebar layout, finish type, and a firm total price. If you approve, Burt provides a one-page contract covering scope, timeline, payment terms, and warranty details. No deposits are required on standard residential jobs. Payment is due upon completion and your satisfaction with the finished work. For jobs requiring a Maui County building permit (any slab over 200 sq ft or retaining wall over 4 ft), Burt handles the application and coordinates inspections.',
   },
 ]
 
@@ -474,9 +482,14 @@ export default function Home() {
                 <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem' }}>
                   {step.title}
                 </h3>
-                <span className="process-method" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.6)', display: 'block', marginBottom: '0.6rem', transition: 'color 0.25s ease, letter-spacing 0.25s ease' }}>
-                  {step.method}
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.6rem' }}>
+                  <span className="process-method" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.6)', transition: 'color 0.25s ease, letter-spacing 0.25s ease' }}>
+                    {step.method}
+                  </span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground) / 0.7)', padding: '0.2rem 0.5rem', border: '1px solid hsl(var(--border))', whiteSpace: 'nowrap' }}>
+                    {step.duration}
+                  </span>
+                </div>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65 }}>
                   {step.body}
                 </p>
@@ -699,6 +712,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== FINISH OPTIONS — product catalog feel ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+            <div>
+              <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Finish Options</p>
+              <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))' }}>
+                Choose Your Surface
+              </h2>
+            </div>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', maxWidth: '360px', lineHeight: 1.5 }}>
+              Every finish is poured and finished on-site by Burt's crew. Samples available at the site walk.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { name: 'Standard Broom', code: 'BC-BRM', use: 'Driveways, walkways, utility slabs', note: 'Non-slip texture. Most requested finish for residential driveways on Maui.' },
+              { name: 'Light Broom', code: 'BC-LBR', use: 'Patios, lanai floors, pool surrounds', note: 'Smoother than standard. Comfortable for barefoot traffic.' },
+              { name: 'Stamped Ashlar', code: 'BC-STA', use: 'Entryways, patios, pool decks', note: 'Cut-stone pattern pressed into wet concrete. Color-hardened surface resists UV fade.' },
+              { name: 'Stamped Slate', code: 'BC-STS', use: 'Lanai, covered walkways', note: 'Natural slate texture. Popular for covered outdoor living spaces in Wailea.' },
+              { name: 'Exposed Aggregate', code: 'BC-EXP', use: 'Driveways, commercial entries', note: 'Top layer washed to reveal stone aggregate. Uses local volcanic rock blend from HC&D.' },
+              { name: 'Salt Finish', code: 'BC-SLT', use: 'Pool decks, shower entries', note: 'Rock salt pressed into surface, washed out after cure. Subtle pitted texture for grip.' },
+            ].map((finish) => (
+              <div key={finish.code} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', lineHeight: 1.2 }}>
+                    {finish.name}
+                  </h3>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.4)' }}>
+                    {finish.code}
+                  </span>
+                </div>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginBottom: '0.4rem' }}>
+                  {finish.use}
+                </p>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                  {finish.note}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '0.75rem', letterSpacing: '0.04em' }}>
+            Custom color and pattern combinations available. Burt brings physical samples to the site walk so you can see the finish against your existing landscape.
+          </p>
+        </div>
+      </section>
+
       {/* ===== WHO WE POUR FOR — customer segment cards ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -842,26 +902,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== MID-PAGE CTA — conversion reminder between content blocks ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-          <div>
-            <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))' }}>
-              Your slab is only as good as the ground beneath it.
-            </p>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>
-              Free site walk. Burt reads the soil before quoting a number. No deposit required.
-            </p>
+      {/* ===== MID-PAGE CTA — conversion reminder with estimate-includes checklist ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(1.5rem, 4vw, 2.5rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
+            <div>
+              <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))' }}>
+                Your slab is only as good as the ground beneath it.
+              </p>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>
+                Free site walk. Burt reads the soil before quoting a number. No deposit required.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <Link to="/contact" className="iron-btn" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
+                Talk to Burt
+                <ArrowRight size={12} />
+              </Link>
+              <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
+                <Phone size={12} />
+                (808) 875-9085
+              </a>
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-            <Link to="/contact" className="iron-btn" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
-              Talk to Burt
-              <ArrowRight size={12} />
-            </Link>
-            <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ fontSize: '0.72rem', padding: '0.6rem 1.25rem' }}>
-              <Phone size={12} />
-              (808) 875-9085
-            </a>
+          {/* What Your Estimate Includes — transparency checklist */}
+          <div style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '1rem' }}>
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))', marginBottom: '0.75rem' }}>
+              What Your Free Estimate Includes
+            </p>
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              {[
+                'In-person site walk by Burt',
+                'Soil profile and drainage assessment',
+                'Written spec (PSI, rebar, finish type)',
+                'Firm total price, no change orders',
+                'Permit guidance if required',
+                'Timeline with start and completion dates',
+              ].map((item) => (
+                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <CheckCircle2 size={11} style={{ color: 'hsl(var(--accent))', flexShrink: 0 }} />
+                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1119,6 +1202,45 @@ export default function Home() {
             Schedule a Site Walk
             <ArrowRight size={14} />
           </Link>
+        </div>
+        {/* Warranty coverage detail grid */}
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '1.5rem 1.5rem 0' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(42 54% 44% / 0.3)' }}>
+            <div style={{ backgroundColor: 'hsl(42 50% 10%)', padding: '1.25rem' }}>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(42 54% 75%)', marginBottom: '0.5rem' }}>
+                Covered
+              </p>
+              <ul style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(42 54% 85% / 0.8)', lineHeight: 1.7, listStyle: 'none', padding: 0, margin: 0 }}>
+                {['Structural cracking beyond control joints', 'Settling from subgrade failure', 'Spalling from mix deficiency', 'Drainage failure from grading error'].map((item) => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+                    <CheckCircle2 size={10} style={{ color: 'hsl(42 54% 65%)', flexShrink: 0, marginTop: '0.2rem' }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div style={{ backgroundColor: 'hsl(42 50% 10%)', padding: '1.25rem' }}>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(42 54% 75% / 0.6)', marginBottom: '0.5rem' }}>
+                Not Covered
+              </p>
+              <ul style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(42 54% 85% / 0.5)', lineHeight: 1.7, listStyle: 'none', padding: 0, margin: 0 }}>
+                {['Normal surface wear from traffic', 'Vehicle or equipment impact damage', 'Third-party modifications to slab', 'Cosmetic discoloration from weathering'].map((item) => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
+                    <span style={{ color: 'hsl(42 54% 65% / 0.4)', fontSize: '0.7rem', flexShrink: 0 }}>—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div style={{ backgroundColor: 'hsl(42 50% 10%)', padding: '1.25rem' }}>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(42 54% 75%)', marginBottom: '0.5rem' }}>
+                How to Claim
+              </p>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(42 54% 85% / 0.8)', lineHeight: 1.7 }}>
+                Call the same number you used to book the job. Burt inspects within 72 hours, documents the issue, and schedules the repair. No claim forms. No third-party adjusters.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
