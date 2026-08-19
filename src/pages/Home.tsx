@@ -819,7 +819,7 @@ export default function Home() {
           <div>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Recent Work · Wailea Ekolu Village</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
-              Driveway Tear-Out &amp; Repour
+              We Tore It Out and Started Over
             </h2>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.95rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, marginBottom: '0.75rem' }}>
               Water pooling against the garage foundation. The homeowner had called two contractors already. Neither wanted to touch a tear-out on a condo common area with shared drainage.
@@ -966,6 +966,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== COMMUNITY STANDING STRIP ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))' }}>
+            Community Standing
+          </span>
+          {['Maui Contractors Association', 'BBB Accredited', 'Maui County Licensed', 'OSHA 30-Hour Certified'].map((item) => (
+            <span
+              key={item}
+              style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground) / 0.4)' }}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* Branded divider */}
       <div style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem 0' }}>
         <div className="iron-divider">
@@ -1052,7 +1069,12 @@ export default function Home() {
               { stat: 'Koa', label: 'Finish & Joints', projects: '180+ finishes', detail: 'Hand-tools edges, cuts control joints at 24 hours. Seven years on crew.', joined: '2019' },
               { stat: 'Jay', label: 'Site Prep & Cleanup', projects: '140+ sites', detail: 'Compaction, drainage, washout containment. Five years running the ground work.', joined: '2021' },
             ].map((item) => (
-              <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem' }}>
+              <div
+                key={item.label}
+                style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem 1.5rem', transition: 'transform 0.25s ease, box-shadow 0.25s ease', cursor: 'default' }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 4px 12px hsl(220 45% 7% / 0.3)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}
+              >
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
                   <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.4rem', color: 'hsl(var(--accent))', lineHeight: 1 }}>{item.stat}</div>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.5)' }}>{item.projects}</span>
@@ -1100,6 +1122,9 @@ export default function Home() {
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'hsl(var(--foreground))', marginBottom: '1.25rem' }}>
               Know the Soil Before You Pour
             </h2>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1.05rem', color: 'hsl(var(--foreground))', lineHeight: 1.7, fontWeight: 500, marginBottom: '1.25rem' }}>
+              Concrete is about the ground it sits on and the people who walk on it.
+            </p>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
               Volcanic soil shifts differently than mainland dirt. Salt air corrodes poorly mixed concrete. Hillside sites need drainage engineered before the forms go up.
             </p>
@@ -1251,7 +1276,7 @@ export default function Home() {
           <div className="md:col-span-2" style={{ maxWidth: '640px' }}>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Site Responsibility</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '1.5rem', textTransform: 'none' }}>
-              What happens to a jobsite after the truck leaves?
+              We clean the site the same week we pour it.
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.75 }}>
@@ -1343,7 +1368,7 @@ export default function Home() {
               View Full Gallery <ArrowRight size={13} />
             </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gridTemplateRows: 'auto auto', gap: '2px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gridTemplateRows: '3fr 2fr', gap: '2px' }}>
             {/* Hero-width feature image spanning both rows on left */}
             <Link to="/gallery" style={{ position: 'relative', display: 'block', overflow: 'hidden', gridRow: '1 / 3' }}>
               <img
