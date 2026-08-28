@@ -26,7 +26,7 @@ const processSteps = [
 const testimonials = [
   {
     headline: 'Showed up. Delivered.',
-    quote: 'Burt did exactly what he said he would. Finished a day ahead of schedule, swept the site clean before he left, and the final invoice matched his original quote to the dollar. The driveway looks incredible.',
+    quote: 'Burt did exactly what he said he would. Manu had the forms set by noon, and Koa hand-finished the edges before the afternoon heat. Swept the site clean before they left, and the final invoice matched the original quote to the dollar. The driveway looks incredible.',
     author: 'Shannon Takemoto, Kihei',
     detail: 'Homeowner · November 2024',
     project: 'Driveway Repour',
@@ -42,7 +42,7 @@ const testimonials = [
   },
   {
     headline: 'Best part of the backyard',
-    quote: 'Crew arrived at 6:30 AM to beat the heat, poured and finished the patio in a single day. Burt came back at sunset to check the cure and adjust the barricades. The stamped pattern turned out better than the sample.',
+    quote: 'Jay had the site prepped by 6:30 AM to beat the heat. Manu and Koa poured and finished the patio in a single day. Burt came back at sunset to check the cure and adjust the barricades. The stamped pattern turned out better than the sample.',
     author: 'Christine Akana, Wailea',
     detail: 'Homeowner · March 2025',
     project: 'Stamped Patio',
@@ -66,6 +66,10 @@ const faqs = [
   {
     q: 'What PSI should residential concrete be on Maui?',
     a: 'Burt specs 3,500 PSI minimum for residential flatwork and 4,000 PSI for driveways and any surface exposed to vehicle traffic. Coastal properties get higher-performance mix to resist chloride penetration from salt spray. Interior slabs in protected areas can use standard 3,000 PSI.',
+  },
+  {
+    q: 'Can you pour during Maui\'s rainy season?',
+    a: 'Yes. November through March brings more rain, but Burt pours year-round with wet-season protocols: tarps staged on-site before the pour, calcium chloride accelerant added to the mix for faster initial set (2-3 hours vs. 6-8 in dry conditions), and temporary drainage channels cut around the forms to route runoff away from fresh concrete. The crew monitors weather radar morning-of and will push a pour 24 hours if sustained rain is forecast. Wet-season scheduling typically runs 4-6 weeks out instead of the 8-12 week lead time during dry months.',
   },
   {
     q: 'Can you pour concrete on a hillside lot in South Maui?',
@@ -276,6 +280,23 @@ export default function Home() {
 
   return (
     <>
+      {/* ===== PRE-HERO UTILITY BAR — financing + booking window ===== */}
+      <div style={{ backgroundColor: 'hsl(var(--accent))', padding: '0.5rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent-foreground))' }}>
+            Booking 8–12 Wks Out (Apr–Oct) · 4–6 Wks (Nov–Mar)
+          </span>
+          <span style={{ width: '1px', height: '14px', backgroundColor: 'hsl(var(--accent-foreground) / 0.3)' }} />
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent-foreground))' }}>
+            Financing Available on Projects Over $5,000
+          </span>
+          <span style={{ width: '1px', height: '14px', backgroundColor: 'hsl(var(--accent-foreground) / 0.3)' }} />
+          <a href="tel:+18088759085" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent-foreground))', textDecoration: 'none' }}>
+            (808) 875-9085
+          </a>
+        </div>
+      </div>
+
       {/* ===== HERO, split 2-col, finished driveway photo ===== */}
       <section
         aria-labelledby="hero-heading"
@@ -344,7 +365,7 @@ export default function Home() {
             {[
               { icon: true, text: 'License BC-29174 · Jan–Dec 2026' },
               { icon: true, text: '$2M GL · Renewed Mar 2026–Mar 2027' },
-              { icon: true, text: 'Est. March 2004, Kihei' },
+              { icon: true, text: '22 Consecutive Years · Kihei' },
             ].map((t) => (
               <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <CheckCircle2 size={13} style={{ color: 'hsl(var(--accent))', flexShrink: 0 }} />
@@ -513,7 +534,7 @@ export default function Home() {
           {[
             { value: '347', label: 'Projects Since 2004', href: '/gallery', cta: 'View 47 Photos' },
             { value: '52K+', label: 'Sq Ft Poured', href: '/about', cta: 'Our Story' },
-            { value: '0', label: 'Warranty Callbacks', href: '/about', cta: 'Our Promise' },
+            { value: '0', label: 'Warranty Callbacks (2020–2025)', href: '/about', cta: 'Our Promise' },
             { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Mix Specs' },
             { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Our Process' },
             { value: '93%', label: 'Referral Rate (2024)', href: '/contact', cta: 'Get in Touch' },
@@ -705,10 +726,18 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Honesty caveat — transparency builds trust */}
+          {/* Honesty caveat + scope exclusions — transparency builds trust */}
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '1rem', letterSpacing: '0.04em', lineHeight: 1.5 }}>
             Scope, timeline, and mix specifications vary by soil conditions, site access, and permit requirements. Burt evaluates every job individually during the site walk.
           </p>
+          <div style={{ marginTop: '1rem', padding: '0.75rem 1rem', borderLeft: '2px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--muted-foreground))', marginBottom: '0.35rem' }}>
+              What We Don't Pour
+            </p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground) / 0.7)', lineHeight: 1.6 }}>
+              Asphalt paving, concrete lifting/leveling (mudjacking), pool shells, and structural post-tension work. Burt refers these to specialists he trusts: Maui Paving for asphalt, Pacific Pool Builders for shells, and Valley Isle Engineering for post-tension design. Call and he will point you to the right crew.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -949,6 +978,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== PAYMENT POLICY — named commitment, not buried in FAQ ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(1.5rem, 4vw, 2.5rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+            <CheckCircle2 size={20} style={{ color: 'hsl(var(--accent))' }} />
+            <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))' }}>
+              No Payment Until Walk-Through
+            </span>
+          </div>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65, flex: 1, minWidth: '260px' }}>
+            No deposit required on standard residential jobs. Once concrete is poured, there is no inexpensive fix. If you have paid upfront, you have no leverage to get problems corrected. Burt collects payment after you walk the finished slab and confirm the work meets spec. Same policy since 2004.
+          </p>
+        </div>
+      </section>
+
       {/* ===== MATERIALS & STANDARDS STRIP ===== */}
       <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -1031,6 +1075,32 @@ export default function Home() {
             <Phone size={14} />
             Call Burt Direct
           </a>
+        </div>
+      </section>
+
+      {/* ===== BURT'S THREE COMMITMENTS — named operating principles ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>How We Operate</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { title: 'Written Specs Before Pour Day', num: '01', detail: 'Every job gets a one-page spec sheet: PSI, rebar layout, finish type, drainage plan, timeline, and a firm total price. No verbal estimates, no "we\'ll figure it out on-site." You approve the spec before we order the mix.' },
+              { title: 'No Payment Until Walk-Through', num: '02', detail: 'No deposit on standard residential jobs. Burt collects payment after you walk the finished slab and confirm the work meets the spec you approved. If something is wrong, it gets fixed before you pay.' },
+              { title: 'Owner On Every Pour', num: '03', detail: 'Burt is on-site for every pour, every finish, every joint cut. No dispatched crews, no subcontractors. The person who quoted the job is the person who runs the job. Same four people, start to finish.' },
+            ].map((item) => (
+              <div key={item.num} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.5rem 1.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.8rem', color: 'hsl(var(--accent) / 0.2)', lineHeight: 1 }}>{item.num}</span>
+                  <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', lineHeight: 1.2 }}>
+                    {item.title}
+                  </h3>
+                </div>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1217,7 +1287,7 @@ export default function Home() {
               Grade Right. Pour Once.
             </div>
             <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: 'clamp(0.9rem, 1.8vw, 1.2rem)', textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: 1.1, color: 'hsl(var(--accent-foreground) / 0.7)' }}>
-              5-Year Workmanship Warranty on Every Pour
+              5-Year Workmanship Warranty on Every Pour · Zero Callbacks Since 2020
             </div>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.9rem', color: 'hsl(var(--accent-foreground) / 0.75)', marginTop: '0.5rem', lineHeight: 1.5, maxWidth: '520px' }}>
               Every pour is backed by a written 5-year workmanship warranty. 3,500 PSI minimum mix, #4 rebar at 12-inch centers, control joints cut at 24 hours. If a defect appears within five years, Burt comes back and makes it right. No fine print, no runaround.
@@ -1414,6 +1484,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== AFTER THE POUR — maintenance as ongoing relationship ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+            <div>
+              <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Maintenance</p>
+              <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))' }}>
+                After the Pour
+              </h2>
+            </div>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', maxWidth: '380px', lineHeight: 1.5 }}>
+              Concrete lasts decades when maintained. Burt handles resealing, crack repair, and resurfacing for past clients at priority scheduling.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { service: 'Reseal', interval: 'Every 2–3 years (coastal)', detail: 'Penetrating sealer application for salt-air protection. Extends surface life by 40%. Half-day job, no traffic disruption.', code: 'BC-SEAL' },
+              { service: 'Crack Repair', interval: 'As needed', detail: 'Color-matched epoxy injection for hairline cracks. Structural patching for anything wider than 1/4 inch. Most repairs finished in a single visit.', code: 'BC-FIX' },
+              { service: 'Resurface', interval: 'Every 10–15 years', detail: 'Overlay or grind-and-coat for faded or worn surfaces. New finish on existing slab without a full tear-out. Two-day turnaround.', code: 'BC-SURF' },
+            ].map((item) => (
+              <div key={item.code} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                  <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))' }}>
+                    {item.service}
+                  </h3>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.4)' }}>
+                    {item.code}
+                  </span>
+                </div>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginBottom: '0.4rem' }}>
+                  {item.interval}
+                </p>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '0.75rem', letterSpacing: '0.04em' }}>
+            Past clients get priority scheduling for all maintenance work. Call the same number you used for the original job.
+          </p>
+        </div>
+      </section>
+
       {/* ===== FAQ ===== */}
       <FAQSection />
 
@@ -1490,7 +1604,7 @@ export default function Home() {
             Your driveway is how your kids get home. Your patio is where the family gathers.
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground) / 0.35)', marginBottom: '0.5rem' }}>
-            Currently Booking: June–July 2026
+            Booking 8–12 Wks Out (Apr–Oct) · 4–6 Wks (Nov–Mar)
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '1rem' }}>
             Financing available for projects over $5,000
