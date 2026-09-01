@@ -26,7 +26,7 @@ const processSteps = [
 const testimonials = [
   {
     headline: 'Showed up. Delivered.',
-    quote: 'Burt did exactly what he said he would. Manu had the forms set by noon, and Koa hand-finished the edges before the afternoon heat. Swept the site clean before they left, and the final invoice matched the original quote to the dollar. The driveway looks incredible.',
+    quote: 'Burt did exactly what he said he would. Forms set Monday, poured Wednesday, site swept by Friday. Four days start to finish. Manu had the forms set by noon, and Koa hand-finished the edges before the afternoon heat. The final invoice matched the original quote to the dollar. The driveway looks incredible.',
     author: 'Shannon Takemoto, Kihei',
     detail: 'Homeowner · November 2024',
     project: 'Driveway Repour',
@@ -34,7 +34,7 @@ const testimonials = [
   },
   {
     headline: 'The only one who came out',
-    quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. He redesigned the drainage layout on-site with a sketch on graph paper. The wall has held through two winters with no movement and no drainage issues.',
+    quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. He redesigned the drainage layout on-site with a sketch on graph paper. Nine days from excavation to finished wall. It has held through two winters with no movement and no drainage issues.',
     author: 'Ryan Medeiros, Makena',
     detail: 'Property Owner · August 2024',
     project: 'Retaining Wall',
@@ -96,7 +96,7 @@ function TestimonialSpotlight() {
   return (
     <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <p className="iron-label" style={{ marginBottom: '2rem', textAlign: 'center' }}>Client Reviews</p>
+        <p className="iron-label" style={{ marginBottom: '2rem', textAlign: 'center' }}>47 Projects · 47 Five-Star Reviews</p>
 
         {/* Trust badges — multi-source validation */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
@@ -429,7 +429,7 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
           {[
-            { stat: '5-Year', label: 'Written Warranty', detail: 'Every pour backed in writing. Defect within five years, Burt comes back.' },
+            { stat: '5-Year', label: 'Written Warranty', detail: 'Covers structural cracking, settling from subgrade prep, spalling from mix issues, and drainage failures. Defect within five years, Burt inspects and repairs at no cost.' },
             { stat: '24hr', label: 'Joint Cuts, Every Time', detail: 'Control joints cut on schedule. Not when the crew returns next week.' },
             { stat: '1 Crew', label: 'Start to Finish', detail: 'Same four people on every job. No subcontractors, no handoffs.' },
           ].map((item) => (
@@ -992,6 +992,16 @@ export default function Home() {
                   </span>
                 </div>
               ))}
+            </div>
+
+            {/* Client pull-quote — couples emotion with specs (Ageless Concrete pattern) */}
+            <div style={{ marginTop: '1rem', borderLeft: '2px solid hsl(var(--accent))', paddingLeft: '1rem', backgroundColor: 'hsl(var(--card))', padding: '1rem 1.25rem 1rem calc(1.25rem + 2px)', borderLeftWidth: '2px', borderLeftStyle: 'solid', borderLeftColor: 'hsl(var(--accent))' }}>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--foreground))', lineHeight: 1.65, fontStyle: 'italic' }}>
+                &ldquo;Two contractors told us they wouldn&rsquo;t touch it because of the shared drainage. Burt explained exactly what was wrong, what he would do differently, and what it would cost. Six days later we had a new driveway.&rdquo;
+              </p>
+              <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.5rem', display: 'block' }}>
+                Wailea Ekolu Homeowner · Apr 2025
+              </span>
             </div>
           </div>
         </div>
@@ -1708,6 +1718,42 @@ export default function Home() {
                 </span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== YOUR NEXT 3 STEPS — customer journey (Ageless Concrete pattern) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 4.5rem) 0' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>How It Starts</p>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: 'hsl(var(--foreground))', marginBottom: '2.5rem', textAlign: 'center' }}>
+            Your Next 3 Steps
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0', position: 'relative' }}>
+            {[
+              { num: '1', title: 'Call or Text Burt', detail: 'Same number since 2004. Describe your project, ask questions, get a straight answer. No sales pitch, no pressure.' },
+              { num: '2', title: 'Free Site Walk', detail: 'Burt walks your property, reads the soil, measures the area, and explains what the job requires. Written estimate within 48 hours.' },
+              { num: '3', title: 'Schedule Your Pour', detail: 'Approve the estimate, pick a start date. Burt handles permits, materials, and crew. You get updates at every stage.' },
+            ].map((step, i) => (
+              <div key={step.num} style={{ padding: '1.5rem', borderLeft: i === 0 ? '2px solid hsl(var(--accent))' : '1px solid hsl(var(--border))', position: 'relative' }}>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2rem', color: 'hsl(var(--accent) / 0.2)', lineHeight: 1, marginBottom: '0.75rem' }}>
+                  {step.num}
+                </div>
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
+                  {step.title}
+                </h3>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                  {step.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <a href="tel:+18088759085" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', textDecoration: 'none' }}>
+              Start with Step 1 → (808) 875-9085
+            </a>
           </div>
         </div>
       </section>
