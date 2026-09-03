@@ -19,7 +19,7 @@ const services = [
 const processSteps = [
   { num: '01', title: 'Call or Text Burt', method: 'BC-Direct', duration: 'Same-day callback', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
   { num: '02', title: 'Site Walk', method: 'BC-ReadGrade', duration: '1-2 hrs on-site', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. Mainland contractors skip this step and pour on whatever is there. On Maui, that means cracking within two rainy seasons. You get a firm number before he leaves your property.' },
-  { num: '03', title: 'Mix & Forms', method: 'BC-SpecLock', duration: '1-3 days prep', body: 'Standard mainland residential is 2,500 PSI. Burt specs 3,500 PSI minimum, 4,000 PSI for driveways. The difference is salt-air resistance and load tolerance on volcanic substrate. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
+  { num: '03', title: 'Mix & Forms', method: 'Maui-Grade™ Spec', duration: '1-3 days prep', body: 'Standard mainland residential is 2,500 PSI. Burt specs 3,500 PSI minimum, 4,000 PSI for driveways. The difference is salt-air resistance and load tolerance on volcanic substrate. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers. Forms leveled and pinned to engineered grade.' },
   { num: '04', title: 'Pour & Finish', method: 'BC-OnePour', duration: '1 day pour · 28-day cure', body: 'One continuous pour. No cold joints, no seams. A cold joint is where one batch dries before the next is poured against it. It is the first place concrete cracks. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
 ]
 
@@ -467,10 +467,10 @@ export default function Home() {
           <div style={{ marginBottom: '3rem' }}>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Grade. Form. Pour.&#8482;</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
-              The Burt's Concrete Sequence
+              The Maui-Grade&#8482; Sequence
             </h2>
             <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.5)', marginBottom: '0.75rem' }}>
-              Read the soil before you spec the mix.
+              Salt-air specs. Volcanic substrate prep. Island-calibrated mix design.
             </p>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', maxWidth: '440px' }}>
               Owner-operated site preparation, forming, and finishing for residential and commercial concrete on Maui.
@@ -682,9 +682,9 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
               {[
-                { date: 'Apr 2025', ref: 'BC-097', type: 'Driveway', job: 'Driveway tear-out and repour, Wailea Ekolu Village' },
-                { date: 'Mar 2025', ref: 'BC-094', type: 'Patio', job: 'Stamped patio and pool deck, Makena residence' },
-                { date: 'Jan 2025', ref: 'BC-091', type: 'Retaining Wall', job: 'Retaining wall and French drain, upper Kihei' },
+                { date: 'Apr 2025', ref: 'BC-097', type: 'Driveway', area: 'Wailea', job: 'Driveway tear-out and repour, Wailea Ekolu Village' },
+                { date: 'Mar 2025', ref: 'BC-094', type: 'Patio', area: 'Makena', job: 'Stamped patio and pool deck, Makena residence' },
+                { date: 'Jan 2025', ref: 'BC-091', type: 'Retaining Wall', area: 'Kihei', job: 'Retaining wall and French drain, upper Kihei' },
               ].map((entry) => (
                 <Link key={entry.ref} to="/gallery" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.75' }} onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0, minWidth: '68px' }}>
@@ -692,6 +692,9 @@ export default function Home() {
                   </span>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', padding: '0.2rem 0.5rem', border: '1px solid hsl(var(--accent) / 0.3)', flexShrink: 0 }}>
                     {entry.type}
+                  </span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.35)', padding: '0.2rem 0.5rem', border: '1px solid hsl(var(--border))', flexShrink: 0 }}>
+                    {entry.area}
                   </span>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', color: 'hsl(var(--accent) / 0.35)', flexShrink: 0 }}>
                     {entry.ref}
@@ -856,12 +859,12 @@ export default function Home() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
-              { name: 'Standard Broom', code: 'BC-BRM', use: 'Driveways, walkways, utility slabs', note: 'Non-slip texture. Most requested finish for residential driveways on Maui.' },
-              { name: 'Light Broom', code: 'BC-LBR', use: 'Patios, lanai floors, pool surrounds', note: 'Smoother than standard. Comfortable for barefoot traffic.' },
-              { name: 'Stamped Ashlar', code: 'BC-STA', use: 'Entryways, patios, pool decks', note: 'Cut-stone pattern pressed into wet concrete. Color-hardened surface resists UV fade.' },
-              { name: 'Stamped Slate', code: 'BC-STS', use: 'Lanai, covered walkways', note: 'Natural slate texture. Popular for covered outdoor living spaces in Wailea.' },
-              { name: 'Exposed Aggregate', code: 'BC-EXP', use: 'Driveways, commercial entries', note: 'Top layer washed to reveal stone aggregate. Uses local volcanic rock blend from HC&D.' },
-              { name: 'Salt Finish', code: 'BC-SLT', use: 'Pool decks, shower entries', note: 'Rock salt pressed into surface, washed out after cure. Subtle pitted texture for grip.' },
+              { name: 'Standard Broom', code: 'BC-BRM', steps: 3, use: 'Driveways, walkways, utility slabs', popular: 'Kihei', note: 'Non-slip texture. Most requested finish for residential driveways on Maui.' },
+              { name: 'Light Broom', code: 'BC-LBR', steps: 3, use: 'Patios, lanai floors, pool surrounds', popular: 'Wailea', note: 'Smoother than standard. Comfortable for barefoot traffic.' },
+              { name: 'Stamped Ashlar', code: 'BC-STA', steps: 6, use: 'Entryways, patios, pool decks', popular: 'Makena', note: 'Cut-stone pattern pressed into wet concrete. Color-hardened surface resists UV fade.' },
+              { name: 'Stamped Slate', code: 'BC-STS', steps: 6, use: 'Lanai, covered walkways', popular: 'Wailea', note: 'Natural slate texture. Popular for covered outdoor living spaces in Wailea.' },
+              { name: 'Exposed Aggregate', code: 'BC-EXP', steps: 5, use: 'Driveways, commercial entries', popular: 'Kahului', note: 'Top layer washed to reveal stone aggregate. Uses local volcanic rock blend from HC&D.' },
+              { name: 'Salt Finish', code: 'BC-SLT', steps: 4, use: 'Pool decks, shower entries', popular: 'Kihei', note: 'Rock salt pressed into surface, washed out after cure. Subtle pitted texture for grip.' },
             ].map((finish) => (
               <div key={finish.code} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
@@ -870,6 +873,14 @@ export default function Home() {
                   </h3>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.4)' }}>
                     {finish.code}
+                  </span>
+                </div>
+                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', padding: '0.2rem 0.5rem', border: '1px solid hsl(var(--accent) / 0.3)', whiteSpace: 'nowrap' }}>
+                    {finish.steps}-step process
+                  </span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground) / 0.6)', padding: '0.2rem 0.5rem', border: '1px solid hsl(var(--border))', whiteSpace: 'nowrap' }}>
+                    Popular in {finish.popular}
                   </span>
                 </div>
                 <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginBottom: '0.4rem' }}>
@@ -984,7 +995,7 @@ export default function Home() {
             <div style={{ backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', padding: '1rem 1.25rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem 1.5rem' }}>
               {[
                 { key: 'Client', val: 'Residential · Condo' },
-                { key: 'Method', val: 'BC-SpecLock 4000' },
+                { key: 'Method', val: 'Maui-Grade™ 4000' },
                 { key: 'Crew', val: '4 (Burt, Manu, Koa, Jay)' },
                 { key: 'Finish', val: 'Stamped border + broom' },
                 { key: 'Drainage', val: 'French drain, mauka edge' },
@@ -1250,7 +1261,10 @@ export default function Home() {
       {/* ===== CREW RELIABILITY STRIP ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
-          <p className="iron-label" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>The Crew</p>
+          <p className="iron-label" style={{ marginBottom: '0.5rem', textAlign: 'center' }}>The Crew</p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--muted-foreground))', textAlign: 'center', marginBottom: '1.5rem' }}>
+            Combined 38 years pouring on Maui. Same four people on every job.
+          </p>
 
           {/* Owner featured strip — visually distinct from crew grid */}
           <div style={{ backgroundColor: 'hsl(var(--background))', borderLeft: '4px solid hsl(var(--accent))', padding: '1.5rem 2rem', marginBottom: '1px', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
