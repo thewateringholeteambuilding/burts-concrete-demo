@@ -27,25 +27,28 @@ const testimonials = [
   {
     headline: 'Showed up. Delivered.',
     quote: 'Burt did exactly what he said he would. Forms set Monday, poured Wednesday, site swept by Friday. Four days start to finish. Manu had the forms set by noon, and Koa hand-finished the edges before the afternoon heat. The final invoice matched the original quote to the dollar. The driveway looks incredible.',
-    author: 'Shannon Takemoto, Kihei',
-    detail: 'Homeowner · November 2024',
-    project: 'Driveway Repour',
+    author: 'Shannon Takemoto',
+    role: 'Homeowner, Alii Kai Place',
+    detail: 'Kihei · November 2024',
+    project: 'Driveway Repour · 680 sq ft',
     stars: 5,
   },
   {
     headline: 'The only one who came out',
     quote: 'Called three contractors for a retaining wall quote. Only Burt came out in person, walked the slope, and explained why our original plan would have failed in the first wet season. He redesigned the drainage layout on-site with a sketch on graph paper. Nine days from excavation to finished wall. It has held through two winters with no movement and no drainage issues.',
-    author: 'Ryan Medeiros, Makena',
-    detail: 'Property Owner · August 2024',
-    project: 'Retaining Wall',
+    author: 'Ryan Medeiros',
+    role: 'Property Owner, Makena Surf',
+    detail: 'Makena · August 2024',
+    project: 'Retaining Wall · 42 linear ft',
     stars: 5,
   },
   {
     headline: 'Best part of the backyard',
     quote: 'Jay had the site prepped by 6:30 AM to beat the heat. Manu and Koa poured and finished the patio in a single day. Burt came back at sunset to check the cure and adjust the barricades. The stamped pattern turned out better than the sample.',
-    author: 'Christine Akana, Wailea',
-    detail: 'Homeowner · March 2025',
-    project: 'Stamped Patio',
+    author: 'Christine Akana',
+    role: 'Homeowner, Wailea Fairway Villas',
+    detail: 'Wailea · March 2025',
+    project: 'Stamped Patio · 320 sq ft',
     stars: 5,
   },
 ]
@@ -96,6 +99,7 @@ function TestimonialSpotlight() {
   return (
     <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
+        <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.25)', marginBottom: '0.5rem', textAlign: 'center' }}>04</p>
         <p className="iron-label" style={{ marginBottom: '2rem', textAlign: 'center' }}>47 Projects · 47 Five-Star Reviews</p>
 
         {/* Trust badges — multi-source validation */}
@@ -151,6 +155,9 @@ function TestimonialSpotlight() {
           </div>
           <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground))' }}>
             {t.author}
+          </div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 500, color: 'hsl(var(--foreground) / 0.5)', marginTop: '0.2rem' }}>
+            {t.role}
           </div>
           <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.3rem' }}>
             {t.detail}
@@ -469,6 +476,7 @@ export default function Home() {
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', position: 'relative' }}>
           <div style={{ marginBottom: '3rem' }}>
+            <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.25)', marginBottom: '0.5rem' }}>01</p>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Grade. Form. Pour.&#8482;</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
               The Maui-Grade&#8482; Sequence
@@ -718,6 +726,7 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
             <div>
+              <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.25)', marginBottom: '0.5rem' }}>02</p>
               <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Our Services</p>
               <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
                 What We Pour
@@ -906,10 +915,13 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
-            <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Who We Pour For
+            <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Who We Partner With
           </p>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: 'hsl(var(--foreground))', marginBottom: '0.75rem', textAlign: 'center' }}>
+            Building Relationships, Not Just Slabs
+          </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
-            Different clients need different things from a concrete contractor. Here is how our 347 projects break down.
+            347 projects across four client types. Each relationship works differently because each client needs something different from their concrete contractor.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
             {[
@@ -963,6 +975,7 @@ export default function Home() {
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 4rem) 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'center' }} className="md:grid-cols-2">
           <div>
+            <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.25)', marginBottom: '0.5rem' }}>03</p>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Recent Work · Wailea Ekolu Village</p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
               We Tore It Out and Started Over
@@ -1732,14 +1745,28 @@ export default function Home() {
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
               <div style={{ flex: 1, minWidth: '240px' }}>
                 <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))', marginBottom: '0.5rem' }}>
-                  Free Resource
+                  Free Resource · Updated Sep 2026
                 </p>
                 <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.1rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.5rem', lineHeight: 1.2 }}>
-                  Concrete Maintenance Guide for Maui Homeowners
+                  The Maui Homeowner's Concrete Guide
                 </h3>
-                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
-                  Sealing schedules for coastal vs. upcountry. When to worry about cracks and when not to. Written by Burt from 22 years of callbacks and site visits.
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6, marginBottom: '0.75rem' }}>
+                  Written by Burt from 22 years of callbacks and site visits. No sales pitch.
                 </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                  {[
+                    'Sealing schedules: coastal vs. upcountry timelines',
+                    'When to worry about cracks (and when not to)',
+                    'PSI specs by project type and coastal proximity',
+                    'Permit thresholds and Maui County timelines',
+                    'Soil profiles by neighborhood: Kihei, Wailea, Kula',
+                  ].map((topic) => (
+                    <div key={topic} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', color: 'hsl(var(--accent))', flexShrink: 0 }}>&#9656;</span>
+                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.4 }}>{topic}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
               <Link
                 to="/contact"
@@ -1842,10 +1869,10 @@ export default function Home() {
             Financing available for projects over $5,000
           </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
-            Concrete Is the Ground You Live On
+            Ready to Work Together?
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
-            Burt walks the site, reads the soil, and gives you a firm number. One crew. One call. No runaround.
+            Burt walks the site, reads the soil, and gives you a firm number before he leaves your property. No deposit. No pressure. Just a conversation about what you need built.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2rem' }}>
             <Link to="/contact" className="iron-btn">
