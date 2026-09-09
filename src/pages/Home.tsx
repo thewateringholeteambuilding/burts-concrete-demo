@@ -8,12 +8,12 @@ const PROCESS_PHOTO = 'https://images.unsplash.com/photo-1685464196339-46a985b20
 const CTA_BAND_PHOTO = 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=1600&q=80'
 
 const services = [
-  { name: 'Structural Foundations', desc: 'Start with the ground right. Stem walls, grade beams, and slab-on-grade poured to seismic code for Maui soil conditions.', idealFor: 'New builds, additions, ADU projects', lastPoured: 'Mar 2025, Wailea ADU', volume: '89 foundation pours since 2004' },
-  { name: 'Driveways & Hardscape', desc: 'The first thing visitors see and the surface that takes the most abuse. Salt-air mix specs, 4,000 PSI minimum, broom or stamped finish.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu', volume: '142 driveways across South Maui' },
-  { name: 'Retaining & Site Walls', desc: 'Kihei clay and Wailea slopes move differently after heavy rain. Proper drainage behind the wall matters more than the wall itself.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei', volume: '53 walls, zero failures' },
-  { name: 'Structural Flatwork', desc: 'Cut joints at 24 hours, not whenever the crew returns. Flatwork finished to spec with consistent slope for drainage.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway', volume: '34 commercial flatwork jobs' },
-  { name: 'Decorative & Stamped', desc: 'Stamped patterns that hold up to barefoot traffic and salt exposure. Your lanai floor will outlast the furniture on it.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence', volume: '18 stamped finishes in Wailea-Makena' },
-  { name: 'Repair & Restoration', desc: 'Spalling from salt. Cracks from settling. Most repairs handled in a single visit with color-matched patching.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo', volume: '11 repair-only jobs in 2024' },
+  { name: 'Structural Foundations', desc: 'Start with the ground right. Stem walls, grade beams, and slab-on-grade poured to seismic code for Maui soil conditions.', idealFor: 'New builds, additions, ADU projects', lastPoured: 'Mar 2025, Wailea ADU', volume: '89 foundation pours since 2004', cta: 'See Foundation Specs' },
+  { name: 'Driveways & Hardscape', desc: 'The first thing visitors see and the surface that takes the most abuse. Salt-air mix specs, 4,000 PSI minimum, broom or stamped finish.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu', volume: '142 driveways across South Maui', cta: 'Compare Finishes' },
+  { name: 'Retaining & Site Walls', desc: 'Kihei clay and Wailea slopes move differently after heavy rain. Proper drainage behind the wall matters more than the wall itself.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei', volume: '53 walls, zero failures', cta: 'Wall Engineering' },
+  { name: 'Structural Flatwork', desc: 'Cut joints at 24 hours, not whenever the crew returns. Flatwork finished to spec with consistent slope for drainage.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway', volume: '34 commercial flatwork jobs', cta: 'Commercial Process' },
+  { name: 'Decorative & Stamped', desc: 'Stamped patterns that hold up to barefoot traffic and salt exposure. Your lanai floor will outlast the furniture on it.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence', volume: '18 stamped finishes in Wailea-Makena', cta: 'Browse Patterns' },
+  { name: 'Repair & Restoration', desc: 'Spalling from salt. Cracks from settling. Most repairs handled in a single visit with color-matched patching.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo', volume: '11 repair-only jobs in 2024', cta: 'Repair Options' },
 ]
 
 const processSteps = [
@@ -577,10 +577,10 @@ export default function Home() {
       <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
           <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem', textAlign: 'center' }}>
-            Burt's Concrete at a Glance
+            What 22 Years Looks Like
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.08em', color: 'hsl(var(--muted-foreground))', marginBottom: '1.25rem', textAlign: 'center' }}>
-            22 years of owner-operated concrete work across South Maui
+            Owner-operated concrete work across South Maui since 2004
           </p>
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
@@ -626,14 +626,20 @@ export default function Home() {
             Affiliated With
           </span>
           {[
-            'Maui Contractors Association',
-            'Hawaii Laborers\' Training Fund',
-            'Maui County Permit-Ready Contractor',
-            'HC&D Preferred Installer',
+            { name: 'Maui Contractors Association', detail: 'Member since 2006' },
+            { name: 'Hawaii Laborers\' Training Fund', detail: 'Crew certified' },
+            { name: 'Maui County Permit-Ready Contractor', detail: 'Active 2026' },
+            { name: 'HC&D Preferred Installer', detail: 'Since 2012' },
           ].map((org) => (
             <span
-              key={org}
+              key={org.name}
               style={{
+                display: 'inline-flex',
+                alignItems: 'baseline',
+                gap: '0.35rem',
+              }}
+            >
+              <span style={{
                 fontFamily: 'Oswald, sans-serif',
                 fontWeight: 600,
                 fontSize: '0.72rem',
@@ -641,9 +647,18 @@ export default function Home() {
                 letterSpacing: '0.1em',
                 color: 'hsl(var(--foreground) / 0.3)',
                 transition: 'color 0.2s',
-              }}
-            >
-              {org}
+              }}>
+                {org.name}
+              </span>
+              <span style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.42rem',
+                fontWeight: 500,
+                color: 'hsl(var(--muted-foreground) / 0.35)',
+                letterSpacing: '0.06em',
+              }}>
+                {org.detail}
+              </span>
             </span>
           ))}
         </div>
@@ -835,7 +850,7 @@ export default function Home() {
                   onMouseEnter={(e) => { e.currentTarget.style.opacity = '1' }}
                   onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.7' }}
                 >
-                  View Details <ArrowRight size={11} />
+                  {svc.cta} <ArrowRight size={11} />
                 </Link>
               </div>
             ))}
@@ -918,10 +933,10 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Who We Partner With
           </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: 'hsl(var(--foreground))', marginBottom: '0.75rem', textAlign: 'center' }}>
-            Building Relationships, Not Just Slabs
+            Every Client Starts With a Conversation
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
-            347 projects across four client types. Each relationship works differently because each client needs something different from their concrete contractor.
+            Whether you are a homeowner planning a driveway, a property manager on a guest turnaround schedule, or a GC who needs a sub that shows up ready, the process starts the same way: a site walk and a straight answer.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
             {[
