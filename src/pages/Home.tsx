@@ -157,9 +157,9 @@ function TestimonialSpotlight() {
             {t.author}
           </div>
           <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', fontWeight: 500, color: 'hsl(var(--foreground) / 0.5)', marginTop: '0.2rem' }}>
-            {t.role}
+            {t.role} · {t.project}
           </div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.3rem' }}>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.2rem' }}>
             {t.detail}
           </div>
         </div>
@@ -199,6 +199,69 @@ function TestimonialSpotlight() {
   )
 }
 
+function FAQItem({ faq, isOpen, onToggle }: { faq: { q: string; a: string }; isOpen: boolean; onToggle: () => void }) {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [measuredHeight, setMeasuredHeight] = useState(0)
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setMeasuredHeight(contentRef.current.scrollHeight)
+    }
+  }, [faq.a])
+
+  return (
+    <div
+      style={{
+        borderBottom: '1px solid hsl(var(--border))',
+        borderLeft: isOpen ? '3px solid hsl(var(--accent))' : '3px solid transparent',
+        paddingLeft: '0.75rem',
+        transition: 'border-color 0.25s ease',
+      }}
+    >
+      <button
+        onClick={onToggle}
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1rem',
+          padding: '1.25rem 0',
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          textAlign: 'left',
+        }}
+      >
+        <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.03em', color: 'hsl(var(--foreground))' }}>
+          {faq.q}
+        </span>
+        <ChevronDown
+          size={18}
+          style={{
+            color: 'hsl(var(--accent))',
+            flexShrink: 0,
+            transition: 'transform 0.25s ease',
+            transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+          }}
+        />
+      </button>
+      <div
+        ref={contentRef}
+        style={{
+          maxHeight: isOpen ? `${measuredHeight}px` : '0',
+          overflow: 'hidden',
+          transition: 'max-height 0.35s ease',
+        }}
+      >
+        <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, paddingBottom: '1.25rem' }}>
+          {faq.a}
+        </p>
+      </div>
+    </div>
+  )
+}
+
 function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
@@ -211,60 +274,14 @@ function FAQSection() {
         </h2>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i
-            return (
-              <div
-                key={i}
-                style={{
-                  borderBottom: '1px solid hsl(var(--border))',
-                  borderLeft: isOpen ? '3px solid hsl(var(--accent))' : '3px solid transparent',
-                  paddingLeft: isOpen ? '0.75rem' : '0.75rem',
-                  transition: 'border-color 0.25s ease',
-                }}
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    gap: '1rem',
-                    padding: '1.25rem 0',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                  }}
-                >
-                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.03em', color: 'hsl(var(--foreground))' }}>
-                    {faq.q}
-                  </span>
-                  <ChevronDown
-                    size={18}
-                    style={{
-                      color: 'hsl(var(--accent))',
-                      flexShrink: 0,
-                      transition: 'transform 0.25s ease',
-                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                    }}
-                  />
-                </button>
-                <div
-                  style={{
-                    maxHeight: isOpen ? '300px' : '0',
-                    overflow: 'hidden',
-                    transition: 'max-height 0.3s ease',
-                  }}
-                >
-                  <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, paddingBottom: '1.25rem' }}>
-                    {faq.a}
-                  </p>
-                </div>
-              </div>
-            )
-          })}
+          {faqs.map((faq, i) => (
+            <FAQItem
+              key={i}
+              faq={faq}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -356,12 +373,12 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
           </h1>
 
-          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '1.5rem' }}>
-            South Maui's Owner-Operated Concrete Contractor Since 2004
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 500, fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', color: 'hsl(var(--foreground) / 0.7)', maxWidth: '420px', marginBottom: '0.75rem', lineHeight: 1.5 }}>
+            Built for Maui soil. Backed by 347 pours.
           </p>
 
-          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', lineHeight: 1.7, color: 'hsl(var(--muted-foreground) / 0.8)', maxWidth: '420px', marginBottom: '2.5rem', fontWeight: 400 }}>
-            Owner-operated out of Kihei. Burt handles the estimate, the pour, and the finish. No subcontractors. No surprises on the invoice.
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', lineHeight: 1.7, color: 'hsl(var(--muted-foreground) / 0.65)', maxWidth: '420px', marginBottom: '2.5rem', fontWeight: 400 }}>
+            Owner-operated out of Kihei since 2004. Burt handles the estimate, the pour, and the finish. No subcontractors. No surprises on the invoice.
           </p>
 
           <div className="animate-fade-up-delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
@@ -604,7 +621,10 @@ export default function Home() {
                 cursor: 'pointer',
               }}
             >
-              <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.4rem', color: 'hsl(var(--foreground))', lineHeight: 0.95, letterSpacing: '-0.02em' }}>{stat.value}</div>
+              <div>
+                <div style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2.4rem', color: 'hsl(var(--foreground))', lineHeight: 0.95, letterSpacing: '-0.02em' }}>{stat.value}</div>
+                <div style={{ width: '24px', height: '2px', backgroundColor: 'hsl(var(--accent))', marginTop: '0.5rem' }} />
+              </div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'hsl(var(--muted-foreground))', marginTop: '0.4rem' }}>{stat.label}</div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--accent))', marginTop: '0.5rem', opacity: 0.7, transition: 'opacity 0.2s' }}>{stat.cta} &rarr;</div>
             </Link>
@@ -1166,37 +1186,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== MATERIALS & STANDARDS STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
-            Materials &amp; Standards
-          </span>
-          {['Hawaiian Cement', 'HC&D', 'Simpson Strong-Tie', 'ACI 318', 'ASTM C94'].map((item) => (
-            <span
-              key={item}
-              style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.4)' }}
-            >
-              {item}
+      {/* ===== CREDENTIALS — materials + community in one consolidated strip ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', flexShrink: 0 }}>
+              Materials
             </span>
-          ))}
-        </div>
-      </section>
-
-      {/* ===== COMMUNITY STANDING STRIP ===== */}
-      <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))' }}>
-            Community Standing
-          </span>
-          {['Maui Contractors Association', 'BBB Accredited', 'Maui County Licensed', 'OSHA 30-Hour Certified'].map((item) => (
-            <span
-              key={item}
-              style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground) / 0.4)' }}
-            >
-              {item}
+            {['Hawaiian Cement', 'HC&D', 'Simpson Strong-Tie', 'ACI 318', 'ASTM C94'].map((item) => (
+              <span
+                key={item}
+                style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.35)' }}
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+          <div style={{ width: '100%', height: '1px', backgroundColor: 'hsl(var(--border))' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))', flexShrink: 0 }}>
+              Standing
             </span>
-          ))}
+            {['Maui Contractors Association', 'BBB Accredited', 'Maui County Licensed', 'OSHA 30-Hour Certified'].map((item) => (
+              <span
+                key={item}
+                style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground) / 0.35)' }}
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
