@@ -391,9 +391,20 @@ export default function Home() {
               (808) 875-9085
             </a>
           </div>
-          <p className="animate-fade-up-delay-3" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground) / 0.6)', marginBottom: '2rem' }}>
-            No pressure, no obligation. Just a conversation about your project.
-          </p>
+          <div className="animate-fade-up-delay-3" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '2rem' }}>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground) / 0.6)' }}>
+              No pressure, no obligation. Just a conversation about your project.
+            </p>
+            <a
+              href="#featured-project"
+              onClick={(e) => { e.preventDefault(); document.getElementById('featured-project')?.scrollIntoView({ behavior: 'smooth' }) }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.7)', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54%)' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54% / 0.7)' }}
+            >
+              See Our Work &darr;
+            </a>
+          </div>
 
           {/* Trust row — specific credentials, not generic labels */}
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
@@ -417,9 +428,14 @@ export default function Home() {
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6, fontStyle: 'italic' }}>
               "I've poured on every type of soil this island has. The mix that works in Kihei is not the mix that works in Kula."
             </p>
-            <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))', marginTop: '0.35rem', display: 'block' }}>
-              Burt, Owner
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.35rem' }}>
+              <span style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '1.6rem', color: 'hsl(var(--accent) / 0.5)', fontStyle: 'italic', lineHeight: 1, letterSpacing: '-0.03em', userSelect: 'none' }}>
+                B
+              </span>
+              <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--accent))' }}>
+                Burt, Owner · 22 Years on Maui
+              </span>
+            </div>
           </div>
         </div>
 
@@ -586,6 +602,27 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            {/* Crew roster — named team visibility (GWC pattern) */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0, borderLeft: '1px solid hsl(var(--border))', paddingLeft: '1.5rem' }}>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--muted-foreground) / 0.5)' }}>
+                Your crew
+              </span>
+              {[
+                { name: 'Burt', role: 'Owner · Lead' },
+                { name: 'Manu', role: 'Forms' },
+                { name: 'Koa', role: 'Finish' },
+                { name: 'Jay', role: 'Prep' },
+              ].map((member) => (
+                <div key={member.name} style={{ textAlign: 'center' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', display: 'block' }}>
+                    {member.name}
+                  </span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.42rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', letterSpacing: '0.06em' }}>
+                    {member.role}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -729,9 +766,9 @@ export default function Home() {
             </span>
             <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
               {[
-                { date: 'Apr 2025', ref: 'BC-097', type: 'Driveway', area: 'Wailea', job: 'Driveway tear-out and repour, Wailea Ekolu Village' },
-                { date: 'Mar 2025', ref: 'BC-094', type: 'Patio', area: 'Makena', job: 'Stamped patio and pool deck, Makena residence' },
-                { date: 'Jan 2025', ref: 'BC-091', type: 'Retaining Wall', area: 'Kihei', job: 'Retaining wall and French drain, upper Kihei' },
+                { date: 'Apr 2025', ref: 'BC-097', type: 'Driveway', area: 'Wailea', sqft: '2,400', job: 'Driveway tear-out and repour, Wailea Ekolu Village' },
+                { date: 'Mar 2025', ref: 'BC-094', type: 'Patio', area: 'Makena', sqft: '320', job: 'Stamped patio and pool deck, Makena residence' },
+                { date: 'Jan 2025', ref: 'BC-091', type: 'Retaining Wall', area: 'Kihei', sqft: '42 lf', job: 'Retaining wall and French drain, upper Kihei' },
               ].map((entry) => (
                 <Link key={entry.ref} to="/gallery" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.75' }} onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0, minWidth: '68px' }}>
@@ -745,6 +782,9 @@ export default function Home() {
                   </span>
                   <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.1em', color: 'hsl(var(--accent) / 0.35)', flexShrink: 0 }}>
                     {entry.ref}
+                  </span>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground) / 0.5)', flexShrink: 0 }}>
+                    {entry.sqft} {entry.sqft.includes('lf') ? '' : 'sq ft'}
                   </span>
                   <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
                     {entry.job}
@@ -989,7 +1029,7 @@ export default function Home() {
       </section>
 
       {/* ===== FEATURED PROJECT, quantified scope ===== */}
-      <section style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
+      <section id="featured-project" style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         {/* Project hero photo */}
         <div style={{ position: 'relative', height: 'clamp(200px, 30vw, 320px)', overflow: 'hidden' }}>
           <img
@@ -1628,6 +1668,20 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== PHILOSOPHY INTERSTITIAL — breathing room before testimonials (GWC "Forever Starts Here" pattern) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(3rem, 6vw, 5rem) 0', borderTop: '1px solid hsl(var(--border))', textAlign: 'center' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ width: '24px', height: '2px', backgroundColor: 'hsl(var(--accent))', margin: '0 auto 1.5rem' }} />
+          <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', lineHeight: 1.3, marginBottom: '1rem' }}>
+            Good concrete is invisible. You park on it, walk on it, forget about it.
+          </p>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7 }}>
+            That is the point. Twenty years from now your driveway should be the thing you never think about. Every mix spec, every joint cut, every site walk exists to make that happen.
+          </p>
+          <div style={{ width: '24px', height: '2px', backgroundColor: 'hsl(var(--accent))', margin: '1.5rem auto 0' }} />
         </div>
       </section>
 
