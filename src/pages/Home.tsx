@@ -986,6 +986,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== WORKING PRINCIPLES — compact visual breather (Blach values pattern) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.75rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+            {[
+              { principle: 'Measure Twice', note: 'Site walk before every quote. Burt reads the soil profile and drainage before talking numbers.' },
+              { principle: 'One Crew, One Standard', note: 'No subcontractors, no rotating labor. The same four people on your property, start to finish.' },
+              { principle: 'Earn the Referral', note: '93% of new clients come from someone who watched us pour next door. That is the only marketing that matters.' },
+            ].map((item) => (
+              <div key={item.principle} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                <div style={{ width: '2px', height: '32px', backgroundColor: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.15rem' }} />
+                <div>
+                  <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.25rem' }}>
+                    {item.principle}
+                  </p>
+                  <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
+                    {item.note}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== WHO WE POUR FOR — customer segment cards ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -1000,10 +1025,10 @@ export default function Home() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
             {[
-              { segment: 'Homeowners', engagement: 'Direct-to-Owner', lead: 'Most of our work starts with a neighbor\'s recommendation.', detail: 'Driveways, patios, walkways, lanai slabs. Most of our referrals come from someone who watched the finished pour from across the street.', stat: '~243', statLabel: 'projects' },
-              { segment: 'Property Managers', engagement: 'PM Contract', lead: 'Occupancy schedules drive the timeline, not ours.', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We coordinate around guest bookings and work clean.', stat: '~52', statLabel: 'projects' },
-              { segment: 'General Contractors', engagement: 'GC Subcontract', lead: 'We show up with our own crew, forms, and rebar.', detail: 'Foundation subcontracting for new builds and additions. Burt coordinates directly with your site super. No babysitting required.', stat: '~35', statLabel: 'projects' },
-              { segment: 'Commercial', engagement: 'Commercial Bid', lead: 'The jobs the big outfits pass on.', detail: 'Parking pads, loading aprons, ADA ramps. Small commercial work where the margins are too thin for their overhead but right-sized for ours.', stat: '~17', statLabel: 'projects' },
+              { segment: 'Homeowners', engagement: 'Direct-to-Owner', lead: 'Most of our work starts with a neighbor\'s recommendation.', detail: 'Driveways, patios, walkways, lanai slabs. Most of our referrals come from someone who watched the finished pour from across the street.', stat: '~243', statLabel: 'projects', cta: 'Schedule a Site Walk', ctaHref: '/contact' },
+              { segment: 'Property Managers', engagement: 'PM Contract', lead: 'Occupancy schedules drive the timeline, not ours.', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We coordinate around guest bookings and work clean.', stat: '~52', statLabel: 'projects', cta: 'Discuss Your Schedule', ctaHref: '/contact' },
+              { segment: 'General Contractors', engagement: 'GC Subcontract', lead: 'We show up with our own crew, forms, and rebar.', detail: 'Foundation subcontracting for new builds and additions. Burt coordinates directly with your site super. No babysitting required.', stat: '~35', statLabel: 'projects', cta: 'Request Sub Rates', ctaHref: '/contact' },
+              { segment: 'Commercial', engagement: 'Commercial Bid', lead: 'The jobs the big outfits pass on.', detail: 'Parking pads, loading aprons, ADA ramps. Small commercial work where the margins are too thin for their overhead but right-sized for ours.', stat: '~17', statLabel: 'projects', cta: 'Get a Bid', ctaHref: '/contact' },
             ].map((item) => (
               <div key={item.segment} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem' }}>
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.5)', display: 'block', marginBottom: '0.4rem' }}>
@@ -1018,10 +1043,18 @@ export default function Home() {
                     <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--muted-foreground))', display: 'block', marginTop: '0.1rem' }}>{item.statLabel}</span>
                   </div>
                 </div>
-                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6, marginBottom: '0.75rem' }}>
                   <strong style={{ color: 'hsl(var(--foreground))', fontWeight: 600 }}>{item.lead}</strong>{' '}
                   {item.detail}
                 </p>
+                <Link
+                  to={item.ctaHref}
+                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', opacity: 0.7, transition: 'opacity 0.2s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '1' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.7' }}
+                >
+                  {item.cta} <ArrowRight size={10} />
+                </Link>
               </div>
             ))}
           </div>
@@ -1052,6 +1085,9 @@ export default function Home() {
           <div>
             <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.25)', marginBottom: '0.5rem' }}>03</p>
             <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Recent Work · Wailea Ekolu Village</p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', fontStyle: 'italic', color: 'hsl(var(--foreground) / 0.55)', lineHeight: 1.5, marginBottom: '0.75rem', maxWidth: '420px' }}>
+              Sometimes the right answer is to start from bare ground.
+            </p>
             <h2 className="iron-display" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem' }}>
               We Tore It Out and Started Over
             </h2>
@@ -1465,7 +1501,7 @@ export default function Home() {
               Volcanic soil shifts differently than mainland dirt. Salt air corrodes poorly mixed concrete. Hillside sites need drainage engineered before the forms go up.
             </p>
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.7, marginTop: '1rem' }}>
-              Burt has worked Maui soil for over 20 years. He knows where the clay pockets sit in Kihei, which Wailea slopes hold water, and why a foundation in Ma'alaea needs different rebar spacing than one in Makena.
+              Burt has worked Maui soil for the better part of two decades. He knows where the clay pockets sit in Kihei, which Wailea slopes hold water, and why a foundation in Ma'alaea needs different rebar spacing than one in Makena.
             </p>
 
             {/* Paired risk/reward — consequence vs. outcome */}
@@ -1962,45 +1998,36 @@ export default function Home() {
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
             Burt walks the site, reads the soil, and gives you a firm number before he leaves your property. No deposit. No pressure. Just a conversation about what you need built.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2rem' }}>
-            <Link to="/contact" className="iron-btn">
-              Get a Free Estimate
-              <ArrowRight size={14} />
-            </Link>
-            <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ borderColor: 'hsl(var(--foreground) / 0.4)' }}>
-              <Phone size={14} />
-              (808) 875-9085
-            </a>
-          </div>
-
-          {/* Project-type quick-select */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--foreground) / 0.4)' }}>
-              What best describes your project?
-            </span>
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {['Residential', 'Commercial', 'Repair / Repour'].map((type) => (
-                <Link
-                  key={type}
-                  to="/contact"
-                  style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '0.62rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.12em',
-                    color: 'hsl(var(--foreground) / 0.7)',
-                    padding: '0.5rem 1rem',
-                    border: '1px solid hsl(var(--foreground) / 0.2)',
-                    textDecoration: 'none',
-                    transition: 'background-color 0.2s, border-color 0.2s, color 0.2s',
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'hsl(var(--accent) / 0.15)'; e.currentTarget.style.borderColor = 'hsl(var(--accent))'; e.currentTarget.style.color = 'hsl(var(--accent))' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'hsl(var(--foreground) / 0.2)'; e.currentTarget.style.color = 'hsl(var(--foreground) / 0.7)' }}
-                >
-                  {type}
-                </Link>
-              ))}
+          {/* Dual-audience CTA lanes (Blach dual-CTA pattern) */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--foreground) / 0.15)', maxWidth: '680px', margin: '0 auto' }}>
+            <div style={{ backgroundColor: 'hsl(220 45% 7% / 0.6)', padding: '1.5rem', textAlign: 'center' }}>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent) / 0.6)', marginBottom: '0.5rem' }}>
+                Homeowners
+              </p>
+              <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
+                Bring your project to life
+              </p>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--foreground) / 0.5)', lineHeight: 1.5, marginBottom: '1rem' }}>
+                Free site walk. Firm quote within 48 hours. No deposit required.
+              </p>
+              <Link to="/contact" className="iron-btn" style={{ fontSize: '0.68rem', padding: '0.55rem 1.15rem' }}>
+                Schedule a Site Walk <ArrowRight size={12} />
+              </Link>
+            </div>
+            <div style={{ backgroundColor: 'hsl(220 45% 7% / 0.6)', padding: '1.5rem', textAlign: 'center' }}>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--foreground) / 0.35)', marginBottom: '0.5rem' }}>
+                GCs & Property Managers
+              </p>
+              <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>
+                Subcontract with Burt's crew
+              </p>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--foreground) / 0.5)', lineHeight: 1.5, marginBottom: '1rem' }}>
+                Own crew, own forms, own rebar. Burt coordinates with your site super.
+              </p>
+              <a href="tel:+18088759085" className="iron-btn iron-btn--ghost" style={{ fontSize: '0.68rem', padding: '0.55rem 1.15rem', borderColor: 'hsl(var(--foreground) / 0.3)' }}>
+                <Phone size={12} />
+                (808) 875-9085
+              </a>
             </div>
           </div>
         </div>
