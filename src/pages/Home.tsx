@@ -373,8 +373,11 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent))' }}>Right the<br />First Time</span>
           </h1>
 
-          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 500, fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', color: 'hsl(var(--foreground) / 0.7)', maxWidth: '420px', marginBottom: '0.75rem', lineHeight: 1.5 }}>
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 500, fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', color: 'hsl(var(--foreground) / 0.7)', maxWidth: '420px', marginBottom: '0.35rem', lineHeight: 1.5 }}>
             Built for Maui soil. Backed by 347 pours.
+          </p>
+          <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 400, fontSize: '0.78rem', color: 'hsl(var(--muted-foreground) / 0.55)', maxWidth: '420px', marginBottom: '0.75rem', lineHeight: 1.5, letterSpacing: '0.02em' }}>
+            Your concrete partner from site walk to final cure.
           </p>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', lineHeight: 1.7, color: 'hsl(var(--muted-foreground) / 0.65)', maxWidth: '420px', marginBottom: '2.5rem', fontWeight: 400 }}>
@@ -904,14 +907,24 @@ export default function Home() {
                     Last poured {svc.lastPoured}
                   </span>
                 </div>
-                <Link
-                  to="/services"
-                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', marginTop: '0.75rem', opacity: 0.7, transition: 'opacity 0.2s ease' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '1' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.7' }}
-                >
-                  {svc.cta} <ArrowRight size={11} />
-                </Link>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '0.75rem' }}>
+                  <Link
+                    to="/services"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', opacity: 0.7, transition: 'opacity 0.2s ease' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.opacity = '1' }}
+                    onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.7' }}
+                  >
+                    {svc.cta} <ArrowRight size={11} />
+                  </Link>
+                  <Link
+                    to="/gallery"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground) / 0.5)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', transition: 'color 0.2s ease' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54%)' }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = 'hsl(42 14% 57% / 0.5)' }}
+                  >
+                    See {svc.volume.split(' ')[0]} photos &rarr;
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -991,9 +1004,9 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
             {[
-              { principle: 'Measure Twice', note: 'Site walk before every quote. Burt reads the soil profile and drainage before talking numbers.' },
-              { principle: 'One Crew, One Standard', note: 'No subcontractors, no rotating labor. The same four people on your property, start to finish.' },
-              { principle: 'Earn the Referral', note: '93% of new clients come from someone who watched us pour next door. That is the only marketing that matters.' },
+              { principle: 'We Believe the Site Walk Matters More Than the Estimate', note: 'Reading the soil profile tells us what the slab needs. The number follows the ground, not the other way around.' },
+              { principle: 'We Believe One Crew Builds One Standard', note: 'No subcontractors, no rotating labor. The same four people on your property, start to finish.' },
+              { principle: 'We Believe the Referral Is Earned, Not Asked For', note: '93% of new clients come from someone who watched us pour next door. That is the only marketing that matters.' },
             ].map((item) => (
               <div key={item.principle} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                 <div style={{ width: '2px', height: '32px', backgroundColor: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.15rem' }} />
@@ -1025,10 +1038,10 @@ export default function Home() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
             {[
-              { segment: 'Homeowners', engagement: 'Direct-to-Owner', lead: 'Most of our work starts with a neighbor\'s recommendation.', detail: 'Driveways, patios, walkways, lanai slabs. Most of our referrals come from someone who watched the finished pour from across the street.', stat: '~243', statLabel: 'projects', cta: 'Schedule a Site Walk', ctaHref: '/contact' },
-              { segment: 'Property Managers', engagement: 'PM Contract', lead: 'Occupancy schedules drive the timeline, not ours.', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We coordinate around guest bookings and work clean.', stat: '~52', statLabel: 'projects', cta: 'Discuss Your Schedule', ctaHref: '/contact' },
-              { segment: 'General Contractors', engagement: 'GC Subcontract', lead: 'We show up with our own crew, forms, and rebar.', detail: 'Foundation subcontracting for new builds and additions. Burt coordinates directly with your site super. No babysitting required.', stat: '~35', statLabel: 'projects', cta: 'Request Sub Rates', ctaHref: '/contact' },
-              { segment: 'Commercial', engagement: 'Commercial Bid', lead: 'The jobs the big outfits pass on.', detail: 'Parking pads, loading aprons, ADA ramps. Small commercial work where the margins are too thin for their overhead but right-sized for ours.', stat: '~17', statLabel: 'projects', cta: 'Get a Bid', ctaHref: '/contact' },
+              { segment: 'Homeowners', engagement: 'Direct-to-Owner', lead: 'Most of our work starts with a neighbor\'s recommendation.', detail: 'Driveways, patios, walkways, lanai slabs. Most of our referrals come from someone who watched the finished pour from across the street.', stat: '~243', statLabel: 'projects', cta: 'Schedule a Site Walk', ctaHref: '/contact', refs: 'Wailea Ekolu · Alii Kai Place · Makena Surf · Kamaole Sands' },
+              { segment: 'Property Managers', engagement: 'PM Contract', lead: 'Occupancy schedules drive the timeline, not ours.', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We coordinate around guest bookings and work clean.', stat: '~52', statLabel: 'projects', cta: 'Discuss Your Schedule', ctaHref: '/contact', refs: 'Wailea Fairway Villas · Kihei Akahi · Ma\'alaea Kai' },
+              { segment: 'General Contractors', engagement: 'GC Subcontract', lead: 'We show up with our own crew, forms, and rebar.', detail: 'Foundation subcontracting for new builds and additions. Burt coordinates directly with your site super. No babysitting required.', stat: '~35', statLabel: 'projects', cta: 'Request Sub Rates', ctaHref: '/contact', refs: 'Arisumi Brothers · Swinerton Hawaii · Goodfellow Bros' },
+              { segment: 'Commercial', engagement: 'Commercial Bid', lead: 'The jobs the big outfits pass on.', detail: 'Parking pads, loading aprons, ADA ramps. Small commercial work where the margins are too thin for their overhead but right-sized for ours.', stat: '~17', statLabel: 'projects', cta: 'Get a Bid', ctaHref: '/contact', refs: 'Kihei Gateway Center · Azeka Shopping Center' },
             ].map((item) => (
               <div key={item.segment} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.5rem' }}>
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.5)', display: 'block', marginBottom: '0.4rem' }}>
@@ -1047,6 +1060,11 @@ export default function Home() {
                   <strong style={{ color: 'hsl(var(--foreground))', fontWeight: 600 }}>{item.lead}</strong>{' '}
                   {item.detail}
                 </p>
+                {item.refs && (
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', fontWeight: 500, letterSpacing: '0.08em', color: 'hsl(var(--muted-foreground) / 0.45)', marginBottom: '0.6rem', lineHeight: 1.5 }}>
+                    Recent: {item.refs}
+                  </p>
+                )}
                 <Link
                   to={item.ctaHref}
                   style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', opacity: 0.7, transition: 'opacity 0.2s ease' }}
@@ -1058,6 +1076,43 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== WHERE WE'VE POURED — named property social proof (Texas Bomanite client-logo pattern) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.25rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))' }}>
+            Where We've Poured
+          </span>
+          {[
+            'Wailea Ekolu Village',
+            'Wailea Fairway Villas',
+            'Makena Surf',
+            'Kamaole Sands',
+            'Kihei Gateway Center',
+            'Alii Kai Place',
+            'Ma\'alaea Kai',
+            'Kihei Akahi',
+            'Azeka Shopping Center',
+          ].map((property) => (
+            <span
+              key={property}
+              style={{
+                fontFamily: 'Oswald, sans-serif',
+                fontWeight: 600,
+                fontSize: '0.68rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'hsl(var(--foreground) / 0.25)',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54% / 0.6)' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'hsl(0 0% 90% / 0.25)' }}
+            >
+              {property}
+            </span>
+          ))}
         </div>
       </section>
 
