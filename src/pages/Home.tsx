@@ -643,7 +643,7 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
           {[
             { value: '347', label: 'Projects Since 2004', href: '/gallery', cta: 'View 47 Photos' },
-            { value: '97%', label: 'Estimates Within 3% of Final Invoice (2020–2025)', href: '/about', cta: 'Our Promise' },
+            { value: '97%', label: 'of 83 Estimates Within 3% of Final Invoice (2020–2025)', href: '/about', cta: 'Our Promise' },
             { value: '0', label: 'Warranty Callbacks (2020–2025)', href: '/about', cta: 'Our Promise' },
             { value: '3,500', label: 'PSI Minimum', href: '/services', cta: 'Mix Specs' },
             { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Our Process' },
@@ -821,7 +821,7 @@ export default function Home() {
           {/* Application-based quick-scan chips — buyer searches by space, not technique */}
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
             <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'hsl(var(--muted-foreground))', alignSelf: 'center', marginRight: '0.25rem' }}>
-              By Space
+              What space needs concrete?
             </span>
             {['Driveways', 'Patios & Lanai', 'Pool Decks', 'Foundations', 'Hillside Lots', 'Garage Slabs'].map((app) => (
               <Link
@@ -960,12 +960,12 @@ export default function Home() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
-              { name: 'Standard Broom', code: 'BC-BRM', steps: 3, use: 'Driveways, walkways, utility slabs', popular: 'Kihei', note: 'Non-slip texture. Most requested finish for residential driveways on Maui.' },
-              { name: 'Light Broom', code: 'BC-LBR', steps: 3, use: 'Patios, lanai floors, pool surrounds', popular: 'Wailea', note: 'Smoother than standard. Comfortable for barefoot traffic.' },
-              { name: 'Stamped Ashlar', code: 'BC-STA', steps: 6, use: 'Entryways, patios, pool decks', popular: 'Makena', note: 'Cut-stone pattern pressed into wet concrete. Color-hardened surface resists UV fade.' },
-              { name: 'Stamped Slate', code: 'BC-STS', steps: 6, use: 'Lanai, covered walkways', popular: 'Wailea', note: 'Natural slate texture. Popular for covered outdoor living spaces in Wailea.' },
-              { name: 'Exposed Aggregate', code: 'BC-EXP', steps: 5, use: 'Driveways, commercial entries', popular: 'Kahului', note: 'Top layer washed to reveal stone aggregate. Uses local volcanic rock blend from HC&D.' },
-              { name: 'Salt Finish', code: 'BC-SLT', steps: 4, use: 'Pool decks, shower entries', popular: 'Kihei', note: 'Rock salt pressed into surface, washed out after cure. Subtle pitted texture for grip.' },
+              { name: 'Standard Broom', code: 'BC-BRM', steps: 3, use: 'Driveways, walkways, utility slabs', popular: 'Kihei', note: 'Non-slip texture. Most requested finish for residential driveways on Maui.', pairs: 'Driveways & Hardscape, Structural Flatwork' },
+              { name: 'Light Broom', code: 'BC-LBR', steps: 3, use: 'Patios, lanai floors, pool surrounds', popular: 'Wailea', note: 'Smoother than standard. Comfortable for barefoot traffic.', pairs: 'Decorative & Stamped, Repair & Restoration' },
+              { name: 'Stamped Ashlar', code: 'BC-STA', steps: 6, use: 'Entryways, patios, pool decks', popular: 'Makena', note: 'Cut-stone pattern pressed into wet concrete. Color-hardened surface resists UV fade.', pairs: 'Decorative & Stamped, Driveways & Hardscape' },
+              { name: 'Stamped Slate', code: 'BC-STS', steps: 6, use: 'Lanai, covered walkways', popular: 'Wailea', note: 'Natural slate texture. Popular for covered outdoor living spaces in Wailea.', pairs: 'Decorative & Stamped' },
+              { name: 'Exposed Aggregate', code: 'BC-EXP', steps: 5, use: 'Driveways, commercial entries', popular: 'Kahului', note: 'Top layer washed to reveal stone aggregate. Uses local volcanic rock blend from HC&D.', pairs: 'Driveways & Hardscape, Structural Flatwork' },
+              { name: 'Salt Finish', code: 'BC-SLT', steps: 4, use: 'Pool decks, shower entries', popular: 'Kihei', note: 'Rock salt pressed into surface, washed out after cure. Subtle pitted texture for grip.', pairs: 'Decorative & Stamped, Repair & Restoration' },
             ].map((finish) => (
               <div key={finish.code} style={{ backgroundColor: 'hsl(var(--background))', padding: '1.25rem' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
@@ -989,6 +989,9 @@ export default function Home() {
                 </p>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>
                   {finish.note}
+                </p>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--muted-foreground) / 0.4)', marginTop: '0.5rem' }}>
+                  Pairs with: {finish.pairs}
                 </p>
               </div>
             ))}
@@ -1968,12 +1971,12 @@ export default function Home() {
               Coverage Confirmed
             </span>
             {[
-              { town: 'Kihei', time: 'Same-day site walk', callback: '2hr callback' },
-              { town: 'Wailea', time: 'Same-day site walk', callback: '2hr callback' },
-              { town: 'Makena', time: 'Same-day site walk', callback: '3hr callback' },
-              { town: 'Kahului', time: 'Next-day site walk', callback: '4hr callback' },
-              { town: 'Wailuku', time: 'Next-day site walk', callback: '4hr callback' },
-              { town: 'Kula', time: '48-hour site walk', callback: 'Same-day callback' },
+              { town: 'Kihei', time: 'Same-day site walk', callback: '2hr callback', drive: '5 min from shop' },
+              { town: 'Wailea', time: 'Same-day site walk', callback: '2hr callback', drive: '12 min' },
+              { town: 'Makena', time: 'Same-day site walk', callback: '3hr callback', drive: '18 min' },
+              { town: 'Kahului', time: 'Next-day site walk', callback: '4hr callback', drive: '25 min' },
+              { town: 'Wailuku', time: 'Next-day site walk', callback: '4hr callback', drive: '30 min' },
+              { town: 'Kula', time: '48-hour site walk', callback: 'Same-day callback', drive: '35 min' },
             ].map((area) => (
               <div key={area.town} style={{ display: 'flex', alignItems: 'baseline', gap: '0.35rem' }}>
                 <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))' }}>
@@ -1984,6 +1987,9 @@ export default function Home() {
                 </span>
                 <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, letterSpacing: '0.08em', color: 'hsl(var(--accent) / 0.5)' }}>
                   {area.callback}
+                </span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.42rem', fontWeight: 500, letterSpacing: '0.06em', color: 'hsl(var(--muted-foreground) / 0.35)' }}>
+                  {area.drive}
                 </span>
               </div>
             ))}
@@ -2001,7 +2007,7 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0', position: 'relative' }}>
             {[
-              { num: '1', title: 'Call or Text Burt', detail: 'Same number since 2004. Describe your project, ask questions, get a straight answer. No sales pitch, no pressure.' },
+              { num: '1', title: 'Call or Text Burt', detail: 'Same number since 2004. Describe your project, ask questions, get a straight answer. No sales pitch, no pressure.', badge: 'Most visitors start here' },
               { num: '2', title: 'Free Site Walk', detail: 'Burt walks your property, reads the soil, measures the area, and explains what the job requires. Written estimate within 48 hours.' },
               { num: '3', title: 'Schedule Your Pour', detail: 'Approve the estimate, pick a start date. Burt handles permits, materials, and crew. You get updates at every stage.' },
             ].map((step, i) => (
@@ -2015,6 +2021,11 @@ export default function Home() {
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
                   {step.detail}
                 </p>
+                {'badge' in step && (step as { badge?: string }).badge && (
+                  <span style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: '0.48rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent))', border: '1px solid hsl(var(--accent) / 0.3)', padding: '0.2rem 0.5rem', marginTop: '0.75rem' }}>
+                    {(step as { badge?: string }).badge}
+                  </span>
+                )}
               </div>
             ))}
           </div>
