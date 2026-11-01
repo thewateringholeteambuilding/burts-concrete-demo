@@ -86,7 +86,7 @@ export default function Footer() {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'hsl(var(--muted-foreground))', fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem' }}>
                 <Clock size={13} style={{ color: 'hsl(var(--accent))' }} />
-                Mon-Fri 7am-5pm
+                Mon-Sat 7am-5pm
               </div>
             </div>
           </div>

@@ -150,10 +150,10 @@ export default function Contact() {
                 <div>
                   <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--muted-foreground))', marginBottom: '0.25rem' }}>Hours</p>
                   <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '1.05rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))' }}>
-                    Mon-Fri, 7am-5pm
+                    Mon-Sat, 7am-5pm
                   </p>
                   <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.83rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.25rem' }}>
-                    Estimates scheduled within the week for most projects.
+                    Saturday site walks available for homeowners who work weekdays. Estimates scheduled within the week.
                   </p>
                 </div>
               </div>

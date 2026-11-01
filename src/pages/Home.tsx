@@ -12,8 +12,8 @@ const services = [
   { name: 'Driveways & Hardscape', desc: 'The first thing visitors see and the surface that takes the most abuse. Salt-air mix specs, 4,000 PSI minimum, broom or stamped finish.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu', volume: '142 driveways across South Maui', cta: 'Compare Finishes' },
   { name: 'Retaining & Site Walls', desc: 'Kihei clay and Wailea slopes move differently after heavy rain. Proper drainage behind the wall matters more than the wall itself.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei', volume: '53 walls, zero failures', cta: 'Wall Engineering' },
   { name: 'Structural Flatwork', desc: 'Cut joints at 24 hours, not whenever the crew returns. Flatwork finished to spec with consistent slope for drainage.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway', volume: '34 commercial flatwork jobs', cta: 'Commercial Process' },
-  { name: 'Decorative & Stamped', desc: 'Stamped patterns that hold up to barefoot traffic and salt exposure. Your lanai floor will outlast the furniture on it.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence', volume: '18 stamped finishes in Wailea-Makena', cta: 'Browse Patterns' },
-  { name: 'Repair & Restoration', desc: 'Spalling from salt. Cracks from settling. Most repairs handled in a single visit with color-matched patching.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo', volume: '11 repair-only jobs in 2024', cta: 'Repair Options' },
+  { name: 'Decorative & Stamped', desc: 'Ashlar Slate, Italian Stone, Old English Cobble, Running Bond. Stamped patterns that hold up to barefoot traffic and salt exposure. Solomon Colors integral pigments, Prosoco Consolideck sealer. Your lanai floor will outlast the furniture on it.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence', volume: '18 stamped finishes in Wailea-Makena', cta: 'Browse Patterns' },
+  { name: 'Repair & Restoration', desc: 'Spalling from salt. Cracks from settling. Most repairs run $800 to $2,500 and are handled in a single visit with color-matched patching. A full repour on the same surface would run $8,000 to $15,000. Burt assesses whether repair or replacement makes more sense at the site walk.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo', volume: '11 repair-only jobs in 2024', cta: 'Repair Options' },
 ]
 
 const processSteps = [
@@ -404,6 +404,10 @@ export default function Home() {
             <a href="tel:+18088759085" className="iron-btn iron-btn--ghost">
               <Phone size={14} />
               (808) 875-9085
+            </a>
+            <a href="sms:+18088759085" className="iron-btn iron-btn--ghost" style={{ fontSize: '0.72rem' }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Text Burt
             </a>
           </div>
           <div className="animate-fade-up-delay-3" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1rem' }}>
@@ -1287,6 +1291,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== SEASONAL DEMAND CALENDAR — month-by-month booking transparency (A-1 Concrete timeline pattern) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: '1.5rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'hsl(var(--accent))', flexShrink: 0 }}>
+              Booking Calendar
+            </span>
+            <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
+              Demand by month. Book early during peak season (Apr-Oct). Wet-season openings fill 2-3x faster.
+            </span>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { month: 'Jan', demand: 'Low', weeks: '3-4', bar: 25 },
+              { month: 'Feb', demand: 'Low', weeks: '3-4', bar: 30 },
+              { month: 'Mar', demand: 'Med', weeks: '5-6', bar: 50 },
+              { month: 'Apr', demand: 'High', weeks: '8-10', bar: 80 },
+              { month: 'May', demand: 'High', weeks: '8-12', bar: 90 },
+              { month: 'Jun', demand: 'Peak', weeks: '10-12', bar: 100 },
+              { month: 'Jul', demand: 'Peak', weeks: '10-12', bar: 100 },
+              { month: 'Aug', demand: 'High', weeks: '8-12', bar: 90 },
+              { month: 'Sep', demand: 'High', weeks: '8-10', bar: 85 },
+              { month: 'Oct', demand: 'Med', weeks: '6-8', bar: 60 },
+              { month: 'Nov', demand: 'Low', weeks: '4-6', bar: 35 },
+              { month: 'Dec', demand: 'Low', weeks: '3-4', bar: 20 },
+            ].map((m) => (
+              <div key={m.month} style={{ backgroundColor: 'hsl(var(--card))', padding: '0.6rem 0.4rem', textAlign: 'center', position: 'relative' }}>
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', display: 'block', marginBottom: '0.35rem' }}>{m.month}</span>
+                <div style={{ height: '40px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', marginBottom: '0.3rem' }}>
+                  <div style={{ width: '60%', height: `${m.bar}%`, backgroundColor: m.demand === 'Peak' ? 'hsl(var(--accent))' : m.demand === 'High' ? 'hsl(var(--accent) / 0.6)' : m.demand === 'Med' ? 'hsl(var(--accent) / 0.35)' : 'hsl(var(--accent) / 0.15)', transition: 'height 0.3s ease' }} />
+                </div>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.42rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: m.demand === 'Peak' ? 'hsl(var(--accent))' : 'hsl(var(--muted-foreground) / 0.6)', display: 'block' }}>{m.demand}</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.38rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.4)', display: 'block', marginTop: '0.15rem' }}>{m.weeks} wk</span>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '0.6rem', letterSpacing: '0.04em', textAlign: 'center' }}>
+            Lead times are estimates based on 2020-2025 booking patterns. Wet-season pours (Nov-Mar) include rain-delay protocols. Call for current availability.
+          </p>
+        </div>
+      </section>
+
       {/* ===== MID-PAGE CTA — conversion reminder with estimate-includes checklist ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(1.5rem, 4vw, 2.5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
@@ -1774,6 +1820,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== WHAT YOU TAKE HOME — post-project deliverables (A-1 Concrete pattern: tangible documentation) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(2rem, 5vw, 3rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
+            <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>After the Pour
+          </p>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem', textAlign: 'center' }}>
+            What You Take Home
+          </h2>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '480px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
+            Every completed project includes a documentation package. Not just a handshake.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { num: '01', item: 'Signed Spec Sheet', detail: 'PSI, rebar layout, finish type, drainage plan. The document Burt quoted from, signed by both parties.' },
+              { num: '02', item: '5-Year Warranty Certificate', detail: 'Written warranty with coverage scope, start date, and Burt\'s direct number for claims.' },
+              { num: '03', item: 'Cure Schedule Card', detail: 'When you can walk on it, when you can drive on it, when the sealer goes on. Dates, not guesses.' },
+              { num: '04', item: 'Before & After Photos', detail: 'Timestamped photos from site prep through final finish. Emailed same week as project completion.' },
+              { num: '05', item: 'Maintenance Guide', detail: 'Resealing schedule for your specific finish and proximity to coast. When to call Burt vs. DIY.' },
+              { num: '06', item: 'Permit Close-Out', detail: 'For permitted jobs: final inspection sign-off from Maui County filed and copy provided.' },
+            ].map((d) => (
+              <div key={d.num} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.25rem', position: 'relative' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', backgroundColor: 'hsl(var(--accent))' }} />
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '1.2rem', color: 'hsl(var(--accent) / 0.2)', lineHeight: 1, display: 'block', marginBottom: '0.5rem' }}>{d.num}</span>
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem' }}>{d.item}</h3>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55 }}>{d.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== JOBSITE RESPONSIBILITY — asymmetric editorial ===== */}
       <section style={{ backgroundColor: 'hsl(var(--card))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="md:grid-cols-3">
@@ -1974,6 +2052,47 @@ export default function Home() {
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '0.75rem', letterSpacing: '0.04em' }}>
             Past clients get priority scheduling for all maintenance work. Call the same number you used for the original job.
           </p>
+        </div>
+      </section>
+
+      {/* ===== WHAT WAITING COSTS — deterioration timeline (A-1 Concrete "Dangers of doing nothing" pattern) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderTop: '1px solid hsl(var(--border))', borderBottom: '1px solid hsl(var(--border))', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <p className="iron-label" style={{ marginBottom: '0.75rem', textAlign: 'center' }}>
+            <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Concrete in Maui Climate
+          </p>
+          <h2 className="iron-display" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'hsl(var(--foreground))', marginBottom: '0.5rem', textAlign: 'center' }}>
+            What Waiting Costs
+          </h2>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '520px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
+            Salt air, volcanic soil, and UV exposure accelerate concrete deterioration on Maui faster than mainland timelines. Here is what Burt sees when homeowners wait.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
+            {[
+              { year: 'Year 1-2', title: 'Hairline Cracks', severity: 20, detail: 'Surface cracks from normal curing and thermal cycling. Cosmetic only. Sealing now prevents moisture intrusion. Cost to address: $200-$500 sealer application.', action: 'Seal' },
+              { year: 'Year 3-4', title: 'Spalling Begins', severity: 45, detail: 'Salt spray penetrates unsealed cracks. Surface layers flake and pit, especially within 1 mile of coast. Exposed aggregate becomes rough underfoot. Repair cost: $800-$2,500.', action: 'Repair' },
+              { year: 'Year 5-7', title: 'Structural Cracking', severity: 70, detail: 'Moisture reaches rebar through widened cracks. Rust expansion forces concrete apart from inside. Settling visible as water pools in new places. Partial replacement: $4,000-$8,000.', action: 'Partial Replace' },
+              { year: 'Year 8+', title: 'Full Failure', severity: 100, detail: 'Subgrade washout from uncontrolled drainage. Slab sections tilted or sunken. Trip hazards, liability risk, and property value impact. Full tear-out and repour: $8,000-$15,000+.', action: 'Full Repour' },
+            ].map((stage) => (
+              <div key={stage.year} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.5rem', position: 'relative' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, width: `${stage.severity}%`, height: '3px', backgroundColor: stage.severity >= 70 ? 'hsl(0 60% 50%)' : stage.severity >= 45 ? 'hsl(30 70% 50%)' : 'hsl(var(--accent))', transition: 'width 0.3s ease' }} />
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent))', display: 'block', marginBottom: '0.25rem' }}>{stage.year}</span>
+                <h3 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))', marginBottom: '0.5rem' }}>{stage.title}</h3>
+                <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.55, marginBottom: '0.5rem' }}>{stage.detail}</p>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.52rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: stage.severity >= 70 ? 'hsl(0 60% 55%)' : 'hsl(var(--accent))', padding: '0.2rem 0.5rem', border: `1px solid ${stage.severity >= 70 ? 'hsl(0 60% 55% / 0.3)' : 'hsl(var(--accent) / 0.3)'}` }}>
+                  {stage.action}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
+              Catching deterioration early saves thousands. Burt assesses repair vs. replace at every site walk.
+            </p>
+            <Link to="/contact" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', whiteSpace: 'nowrap' }}>
+              Schedule an Assessment <ArrowRight size={11} />
+            </Link>
+          </div>
         </div>
       </section>
 
