@@ -421,7 +421,7 @@ export default function Home() {
               onMouseEnter={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54%)' }}
               onMouseLeave={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54% / 0.7)' }}
             >
-              See Our Work &darr;
+              Scroll to start building &darr;
             </a>
           </div>
           {/* Research-stage CTA — low-commitment entry for visitors still comparing */}
@@ -550,8 +550,11 @@ export default function Home() {
             <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent) / 0.5)', marginBottom: '0.75rem' }}>
               Salt-air specs. Volcanic substrate prep. Island-calibrated mix design.
             </p>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.92rem', color: 'hsl(var(--muted-foreground))', maxWidth: '440px' }}>
-              Owner-operated site preparation, forming, and finishing for residential and commercial concrete on Maui.
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1.05rem', color: 'hsl(var(--foreground) / 0.8)', maxWidth: '480px', lineHeight: 1.6, marginBottom: '0.5rem' }}>
+              We read it first. Then we pour it once.
+            </p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', maxWidth: '440px', lineHeight: 1.6 }}>
+              Every pour starts with a site walk, a soil read, and a spec written for that specific lot. The prep is the job. The concrete is the last step.
             </p>
           </div>
 
@@ -2241,8 +2244,11 @@ export default function Home() {
           <h2 className="iron-display" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'hsl(var(--foreground))', marginBottom: '1rem', maxWidth: '680px' }}>
             Ready to Work Together?
           </h2>
-          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.6 }}>
-            Burt walks the site, reads the soil, and gives you a firm number before he leaves your property. No deposit. No pressure. Just a conversation about what you need built.
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '1rem', color: 'hsl(var(--foreground) / 0.7)', marginBottom: '0.75rem', maxWidth: '480px', lineHeight: 1.6 }}>
+            Call with an address, or just a rough idea. Burt will walk the site, read the soil, and come back with a firm number on scope, timeline, and total cost.
+          </p>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.82rem', color: 'hsl(var(--foreground) / 0.45)', marginBottom: '2rem', maxWidth: '480px', lineHeight: 1.5 }}>
+            No deposit required. Written quote within 48 hours of the site walk.
           </p>
           {/* Dual-audience CTA lanes (Blach dual-CTA pattern) */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--foreground) / 0.15)', maxWidth: '680px', margin: '0 auto' }}>

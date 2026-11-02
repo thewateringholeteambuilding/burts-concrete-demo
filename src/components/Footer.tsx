@@ -17,8 +17,8 @@ export default function Footer() {
                 Burt's Concrete
               </span>
             </div>
-            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6, fontStyle: 'italic' }}>
-              Grade the soil. Set the forms. Pour it right.
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
+              We make your concrete the most predictable part of the build.
             </p>
           </div>
 
@@ -113,6 +113,27 @@ export default function Footer() {
             >
               {item.label}
             </Link>
+          ))}
+        </div>
+
+        {/* Named partners & suppliers — verifiable trust chain */}
+        <div style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '1.25rem', paddingBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))' }}>
+            Materials &amp; Partners
+          </span>
+          {[
+            'Hawaiian Cement (batch plant)',
+            'HC&D Aggregate',
+            'Solomon Colors (integral pigments)',
+            'Prosoco Consolideck (sealers)',
+            'First Insurance Co. of Hawaii (GL carrier)',
+          ].map((item) => (
+            <span
+              key={item}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'hsl(var(--foreground) / 0.3)' }}
+            >
+              {item}
+            </span>
           ))}
         </div>
 
