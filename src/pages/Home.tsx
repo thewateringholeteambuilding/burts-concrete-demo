@@ -295,6 +295,22 @@ function FAQSection() {
             />
           ))}
         </div>
+
+        {/* Contextual phone CTA — catches visitors with questions beyond the FAQ */}
+        <div style={{ marginTop: '2rem', padding: '1.25rem', backgroundColor: 'hsl(var(--background))', border: '1px solid hsl(var(--border))', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+          <div>
+            <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--foreground))' }}>
+              Question not listed here?
+            </p>
+            <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.15rem' }}>
+              Burt has answered soil and concrete questions on Maui for 22 years. Ask him directly.
+            </p>
+          </div>
+          <a href="tel:+18088759085" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent))', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'opacity 0.2s' }} onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.opacity = '0.7' }} onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.opacity = '1' }}>
+            <Phone size={13} />
+            (808) 875-9085
+          </a>
+        </div>
       </div>
     </section>
   )
@@ -389,7 +405,7 @@ export default function Home() {
             Built for Maui soil. Backed by 347 pours.
           </p>
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 400, fontSize: '0.78rem', color: 'hsl(var(--muted-foreground) / 0.55)', maxWidth: '420px', marginBottom: '0.75rem', lineHeight: 1.5, letterSpacing: '0.02em' }}>
-            Your concrete partner from site walk to final cure.
+            Driveways, foundations, retaining walls, and flatwork across South Maui.
           </p>
 
           <p className="animate-fade-up-delay-2" style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', lineHeight: 1.7, color: 'hsl(var(--muted-foreground) / 0.65)', maxWidth: '420px', marginBottom: '2.5rem', fontWeight: 400 }}>
@@ -1043,9 +1059,9 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
             {[
-              { principle: 'We Believe the Site Walk Matters More Than the Estimate', note: 'Reading the soil profile tells us what the slab needs. The number follows the ground, not the other way around.' },
-              { principle: 'We Believe One Crew Builds One Standard', note: 'No subcontractors, no rotating labor. The same four people on your property, start to finish.' },
-              { principle: 'We Believe the Referral Is Earned, Not Asked For', note: '93% of new clients come from someone who watched us pour next door. That is the only marketing that matters.' },
+              { principle: 'The Site Walk Comes Before the Number', note: 'Reading the soil profile tells us what the slab needs. The number follows the ground, not the other way around.' },
+              { principle: 'Same Four People, Every Job', note: 'No subcontractors, no rotating labor. Burt, Manu, Koa, Jay. Start to finish.' },
+              { principle: '93% of Clients Found Us Through a Neighbor', note: 'That is the only marketing that matters. Do good work on one driveway, the street notices.' },
             ].map((item) => (
               <div key={item.principle} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                 <div style={{ width: '2px', height: '32px', backgroundColor: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.15rem' }} />
@@ -1060,6 +1076,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.72rem', fontStyle: 'italic', color: 'hsl(var(--muted-foreground) / 0.5)', marginTop: '1.25rem', textAlign: 'center', letterSpacing: '0.02em' }}>
+            "If the ground isn't right, we don't pour." — said at every site walk since 2004
+          </p>
         </div>
       </section>
 
@@ -1364,18 +1383,21 @@ export default function Home() {
             <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--accent))', marginBottom: '0.75rem' }}>
               What Your Free Estimate Includes
             </p>
-            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.75rem 1.5rem' }}>
               {[
-                'In-person site walk by Burt',
-                'Soil profile and drainage assessment',
-                'Written spec (PSI, rebar, finish type)',
-                'Firm total price, no change orders',
-                'Permit guidance if required',
-                'Timeline with start and completion dates',
+                { concern: 'Price', answer: 'Firm total price, no change orders' },
+                { concern: 'Quality', answer: 'Written spec: PSI, rebar layout, finish type' },
+                { concern: 'Timeline', answer: 'Start and completion dates on the contract' },
+                { concern: 'Trust', answer: 'In-person site walk by Burt, not a salesperson' },
+                { concern: 'Surprises', answer: 'Soil profile and drainage assessed before quoting' },
+                { concern: 'Permits', answer: 'Burt handles county permits if required' },
               ].map((item) => (
-                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <CheckCircle2 size={11} style={{ color: 'hsl(var(--accent))', flexShrink: 0 }} />
-                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>{item}</span>
+                <div key={item.concern} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.4rem' }}>
+                  <CheckCircle2 size={11} style={{ color: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.15rem' }} />
+                  <div>
+                    <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.5rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent) / 0.6)', display: 'block', marginBottom: '0.1rem' }}>{item.concern}</span>
+                    <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>{item.answer}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -1833,7 +1855,7 @@ export default function Home() {
             What You Take Home
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '480px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
-            Every completed project includes a documentation package. Not just a handshake.
+            Every completed project includes a documentation package. Specs, warranty, and photos on file.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
             {[
