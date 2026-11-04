@@ -20,6 +20,16 @@ export default function Footer() {
             <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
               We make your concrete the most predictable part of the build.
             </p>
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
+              {['Read the Soil', 'Honest Number', 'One Crew'].map((value) => (
+                <span
+                  key={value}
+                  style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--accent) / 0.5)', padding: '0.3rem 0.6rem', border: '1px solid hsl(var(--accent) / 0.15)' }}
+                >
+                  {value}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Pages */}

@@ -8,19 +8,19 @@ const PROCESS_PHOTO = 'https://images.unsplash.com/photo-1685464196339-46a985b20
 const CTA_BAND_PHOTO = 'https://images.unsplash.com/photo-1625337905408-7b6fe970e187?auto=format&fit=crop&w=1600&q=80'
 
 const services = [
-  { name: 'Structural Foundations', desc: 'Start with the ground right. Stem walls, grade beams, and slab-on-grade poured to seismic code for Maui soil conditions.', idealFor: 'New builds, additions, ADU projects', lastPoured: 'Mar 2025, Wailea ADU', volume: '89 foundation pours since 2004', cta: 'See Foundation Specs' },
-  { name: 'Driveways & Hardscape', desc: 'The first thing visitors see and the surface that takes the most abuse. Salt-air mix specs, 4,000 PSI minimum, broom or stamped finish.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu', volume: '142 driveways across South Maui', cta: 'Compare Finishes' },
-  { name: 'Retaining & Site Walls', desc: 'Kihei clay and Wailea slopes move differently after heavy rain. Proper drainage behind the wall matters more than the wall itself.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei', volume: '53 walls, zero failures', cta: 'Wall Engineering' },
-  { name: 'Structural Flatwork', desc: 'Cut joints at 24 hours, not whenever the crew returns. Flatwork finished to spec with consistent slope for drainage.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway', volume: '34 commercial flatwork jobs', cta: 'Commercial Process' },
-  { name: 'Decorative & Stamped', desc: 'Ashlar Slate, Italian Stone, Old English Cobble, Running Bond. Stamped patterns that hold up to barefoot traffic and salt exposure. Solomon Colors integral pigments, Prosoco Consolideck sealer. Your lanai floor will outlast the furniture on it.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence', volume: '18 stamped finishes in Wailea-Makena', cta: 'Browse Patterns' },
-  { name: 'Repair & Restoration', desc: 'Spalling from salt. Cracks from settling. Most repairs run $800 to $2,500 and are handled in a single visit with color-matched patching. A full repour on the same surface would run $8,000 to $15,000. Burt assesses whether repair or replacement makes more sense at the site walk.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo', volume: '11 repair-only jobs in 2024', cta: 'Repair Options' },
+  { name: 'Structural Foundations', desc: 'Your addition or ADU stands or settles on the foundation pour. Stem walls, grade beams, and slab-on-grade poured to seismic code for Maui soil conditions.', idealFor: 'New builds, additions, ADU projects', lastPoured: 'Mar 2025, Wailea ADU', volume: '89 foundation pours since 2004', cta: 'See Foundation Specs' },
+  { name: 'Driveways & Hardscape', desc: 'Protect your home\'s curb appeal and resale value with a surface built for salt air. 4,000 PSI minimum, broom or stamped finish, engineered for Maui\'s UV and chloride exposure.', idealFor: 'Homeowners, vacation rental owners', lastPoured: 'Apr 2025, Wailea Ekolu', volume: '142 driveways across South Maui', cta: 'Compare Finishes' },
+  { name: 'Retaining & Site Walls', desc: 'Stop erosion before it reaches your structure. Kihei clay and Wailea slopes move differently after heavy rain. Proper drainage behind the wall matters more than the wall itself.', idealFor: 'Hillside lots, erosion-prone properties', lastPoured: 'Jan 2025, upper Kihei', volume: '53 walls, zero failures', cta: 'Wall Engineering' },
+  { name: 'Structural Flatwork', desc: 'Keep water moving away from your building, not pooling against it. Flatwork finished to spec with consistent slope for drainage. Joints cut at 24 hours, not whenever the crew returns.', idealFor: 'Commercial properties, HOA common areas', lastPoured: 'Feb 2025, Kihei Gateway', volume: '34 commercial flatwork jobs', cta: 'Commercial Process' },
+  { name: 'Decorative & Stamped', desc: 'Give your outdoor space a surface guests remember. Ashlar Slate, Italian Stone, Old English Cobble, Running Bond. Solomon Colors integral pigments, Prosoco Consolideck sealer. Your lanai floor will outlast the furniture on it.', idealFor: 'Pool decks, lanai floors, entryways', lastPoured: 'Mar 2025, Makena residence', volume: '18 stamped finishes in Wailea-Makena', cta: 'Browse Patterns' },
+  { name: 'Repair & Restoration', desc: 'Save thousands by repairing instead of replacing. Most repairs run $800 to $2,500 and are handled in a single visit with color-matched patching. A full repour on the same surface would run $8,000 to $15,000. Burt assesses whether repair or replacement makes more sense at the site walk.', idealFor: 'Aging driveways, salt-damaged surfaces', lastPoured: 'May 2025, Ma\'alaea condo', volume: '11 repair-only jobs in 2024', cta: 'Repair Options' },
 ]
 
 const processSteps = [
-  { num: '01', title: 'Call or Text Burt', method: 'BC-Direct', duration: 'Same-day callback', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
-  { num: '02', title: 'Site Walk', method: 'BC-ReadGrade', duration: '1-2 hrs on-site', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. Mainland contractors skip this step and pour on whatever is there. On Maui, that means cracking within two rainy seasons. You get a firm number before he leaves your property.' },
-  { num: '03', title: 'Mix & Forms', method: 'Maui-Grade™ Spec', duration: '1-3 days prep', body: 'Standard mainland residential is 2,500 PSI. Burt specs 3,500 PSI minimum (40% above that baseline), 4,000 PSI for driveways (60% above). The difference is salt-air resistance and load tolerance on volcanic substrate. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers, twice the reinforcement density of typical mainland residential. Forms leveled and pinned to engineered grade.' },
-  { num: '04', title: 'Pour & Finish', method: 'BC-OnePour', duration: '1 day pour · 28-day cure', body: 'One continuous pour. No cold joints, no seams. A cold joint is where one batch dries before the next is poured against it. It is the first place concrete cracks. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
+  { num: '.01', title: 'Call or Text Burt', method: 'BC-Direct', duration: 'Same-day callback', body: 'Same number since 2004. Burt returns calls directly, usually same day. License BC-29174, $2M general liability, fully bonded.' },
+  { num: '.02', title: 'Site Walk', method: 'BC-ReadGrade', duration: '1-2 hrs on-site', body: 'Burt walks it himself. Reads the soil profile, checks drainage slope, marks grade with string line. Mainland contractors skip this step and pour on whatever is there. On Maui, that means cracking within two rainy seasons. You get a firm number before he leaves your property.' },
+  { num: '.03', title: 'Mix & Forms', method: 'Maui-Grade™ Spec', duration: '1-3 days prep', body: 'Standard mainland residential is 2,500 PSI. Burt specs 3,500 PSI minimum (40% above that baseline), 4,000 PSI for driveways (60% above). The difference is salt-air resistance and load tolerance on volcanic substrate. Hawaiian Cement or HC&D batch plant, #4 rebar at 12-inch centers, twice the reinforcement density of typical mainland residential. Forms leveled and pinned to engineered grade.' },
+  { num: '.04', title: 'Pour & Finish', method: 'BC-OnePour', duration: '1 day pour · 28-day cure', body: 'One continuous pour. No cold joints, no seams. A cold joint is where one batch dries before the next is poured against it. It is the first place concrete cracks. Control joints cut at 24 hours, broom or stamped finish per spec. Forms pulled and site swept same week.' },
 ]
 
 const testimonials = [
@@ -783,13 +783,13 @@ export default function Home() {
             7 of 7 South Maui Communities
           </span>
           {[
-            { area: 'Kihei', projects: 142, drive: '5 min', featured: 'Driveways' },
-            { area: 'Wailea', projects: 89, drive: '12 min', featured: 'Patios' },
-            { area: 'Makena', projects: 34, drive: '18 min', featured: 'Retaining Walls' },
-            { area: 'Ma\'alaea', projects: 28, drive: '15 min', featured: 'Repairs' },
-            { area: 'Kahului', projects: 21, drive: '25 min', featured: 'Foundations' },
-            { area: 'Wailuku', projects: 18, drive: '30 min', featured: 'Commercial' },
-            { area: 'Kula', projects: 15, drive: '35 min', featured: 'Walkways' },
+            { area: 'Kihei', projects: 142, drive: '5 min', featured: 'Driveways', tmk: 'TMK 3-9' },
+            { area: 'Wailea', projects: 89, drive: '12 min', featured: 'Patios', tmk: 'TMK 2-1' },
+            { area: 'Makena', projects: 34, drive: '18 min', featured: 'Retaining Walls', tmk: 'TMK 2-1' },
+            { area: 'Ma\'alaea', projects: 28, drive: '15 min', featured: 'Repairs', tmk: 'TMK 3-8' },
+            { area: 'Kahului', projects: 21, drive: '25 min', featured: 'Foundations', tmk: 'TMK 3-7' },
+            { area: 'Wailuku', projects: 18, drive: '30 min', featured: 'Commercial', tmk: 'TMK 3-4' },
+            { area: 'Kula', projects: 15, drive: '35 min', featured: 'Walkways', tmk: 'TMK 2-3' },
           ].map((item) => (
             <span
               key={item.area}
@@ -803,6 +803,9 @@ export default function Home() {
               </span>
               <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.42rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.4)', letterSpacing: '0.06em' }}>
                 {item.featured}
+              </span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.38rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.25)', letterSpacing: '0.06em' }}>
+                {item.tmk}
               </span>
             </span>
           ))}
@@ -1241,6 +1244,8 @@ export default function Home() {
               {[
                 { key: 'Client', val: 'Residential · Condo' },
                 { key: 'Method', val: 'Maui-Grade™ 4000' },
+                { key: 'Batch Plant', val: 'Hawaiian Cement, Kahului' },
+                { key: 'Rebar', val: '#4 @ 12″ O.C., epoxy-coated' },
                 { key: 'Crew', val: '4 (Burt, Manu, Koa, Jay)' },
                 { key: 'Finish', val: 'Stamped border + broom' },
                 { key: 'Drainage', val: 'French drain, mauka edge' },
