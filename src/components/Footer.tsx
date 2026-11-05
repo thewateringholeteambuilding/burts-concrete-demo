@@ -147,15 +147,15 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Industry affiliations */}
-        <div style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '1.25rem', paddingBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {/* Industry affiliations — visual badge treatment (HP certification pattern) */}
+        <div style={{ borderTop: '1px solid hsl(var(--border))', paddingTop: '1.25rem', paddingBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--muted-foreground))' }}>
-            Standards &amp; Affiliations
+            Standards
           </span>
           {['ACI 318 Compliant', 'ASTM C94', 'Maui Contractors Assoc.', 'Hawaii DCCA Licensed', 'EPA CGP Compliant'].map((item) => (
             <span
               key={item}
-              style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.3)' }}
+              style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.55rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'hsl(var(--foreground) / 0.35)', padding: '0.35rem 0.7rem', border: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card) / 0.5)' }}
             >
               {item}
             </span>

@@ -100,7 +100,8 @@ function TestimonialSpotlight() {
     <section style={{ backgroundColor: 'hsl(var(--background))', padding: 'clamp(4rem, 10vw, 8rem) 0', borderTop: '1px solid hsl(var(--border))' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem' }}>
         <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.25)', marginBottom: '0.5rem', textAlign: 'center' }}>04</p>
-        <p className="iron-label" style={{ marginBottom: '1.25rem', textAlign: 'center' }}>47 Projects · 47 Five-Star Reviews</p>
+        <p className="iron-label" style={{ marginBottom: '0.35rem', textAlign: 'center' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Pour</p>
+        <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--muted-foreground))', marginBottom: '1.25rem', textAlign: 'center' }}>47 Projects · 47 Five-Star Reviews</p>
 
         {/* Anniversary callout — DCoV "23 Years of Excellence" badge pattern */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
@@ -525,9 +526,9 @@ export default function Home() {
       <section style={{ backgroundColor: 'hsl(var(--card))', borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))' }}>
           {[
-            { stat: '5-Year', label: 'Written Warranty', detail: 'Covers structural cracking, settling from subgrade prep, spalling from mix issues, and drainage failures. Defect within five years, Burt inspects and repairs at no cost.' },
-            { stat: '24hr', label: 'Joint Cuts, Every Time', detail: 'Control joints cut on schedule. Not when the crew returns next week.' },
-            { stat: '1 Crew', label: 'Start to Finish', detail: 'Same four people on every job. No subcontractors, no handoffs.' },
+            { stat: '5-Year', label: 'Written Warranty', detail: 'Structural cracking, settling, spalling, drainage failures. Defect appears, Burt inspects and repairs at no cost.' },
+            { stat: '24hr', label: 'Joint Cuts, Every Time', detail: 'Control joints cut on schedule. Not when the crew gets around to it.' },
+            { stat: '1 Crew', label: 'Start to Finish', detail: 'Burt, Manu, Koa, Jay. Same four on every job. No subs, no handoffs.' },
           ].map((item) => (
             <div key={item.label} style={{ backgroundColor: 'hsl(var(--card))', padding: '1.5rem 1.75rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
               <CheckCircle2 size={18} style={{ color: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.15rem' }} />
@@ -538,6 +539,26 @@ export default function Home() {
                 </div>
                 <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.78rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>{item.detail}</p>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== THREE-PILLAR BRAND EXPANSION — Grade / Form / Pour (HP "Plan. Build. Manage." pattern) ===== */}
+      <section style={{ backgroundColor: 'hsl(var(--background))', borderBottom: '1px solid hsl(var(--border))' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0' }}>
+          {[
+            { verb: 'Grade', expansion: 'Read the soil before anything else. Kihei clay, Wailea rock, Kula cinder. The subgrade determines the spec, the mix, and whether the slab holds or settles.' },
+            { verb: 'Form', expansion: 'Set the geometry. Level the boards, pin to engineered grade, space the rebar. Everything that controls where the concrete goes happens before the truck arrives.' },
+            { verb: 'Pour', expansion: 'One continuous pour. No cold joints, no seams. Control joints cut at 24 hours, finish applied to spec, site swept same week.' },
+          ].map((pillar, i) => (
+            <div key={pillar.verb} style={{ padding: '2.5rem 2rem', borderRight: i < 2 ? '1px solid hsl(var(--border))' : 'none' }}>
+              <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '2rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'hsl(var(--accent))', display: 'block', marginBottom: '0.75rem', lineHeight: 1 }}>
+                {pillar.verb}
+              </span>
+              <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.88rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.65, maxWidth: '320px' }}>
+                {pillar.expansion}
+              </p>
             </div>
           ))}
         </div>
@@ -683,10 +704,10 @@ export default function Home() {
       <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
           <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem', textAlign: 'center' }}>
-            What 22 Years Looks Like
+            By the Numbers
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.08em', color: 'hsl(var(--muted-foreground))', marginBottom: '1.25rem', textAlign: 'center' }}>
-            Owner-operated concrete work across South Maui since 2004
+            Kihei, HI · 2004 to present
           </p>
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
@@ -857,7 +878,7 @@ export default function Home() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
             <div>
               <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.22em', color: 'hsl(var(--accent) / 0.25)', marginBottom: '0.5rem' }}>02</p>
-              <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Our Services</p>
+              <p className="iron-label" style={{ marginBottom: '0.75rem' }}><span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Form</p>
               <h2 className="iron-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'hsl(var(--foreground))' }}>
                 What We Pour
               </h2>
