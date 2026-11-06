@@ -461,7 +461,7 @@ export default function Home() {
             {[
               { text: 'License BC-29174 · Jan–Dec 2026', source: 'Verify: cca.hawaii.gov' },
               { text: '$2M GL · Renewed Mar 2026–Mar 2027', source: 'Carrier: First Insurance Co.' },
-              { text: '22 Consecutive Years · Kihei', source: 'Est. 2004 · Maui County records' },
+              { text: '5.0 Google · 47 Reviews · Zero Below 5', source: 'Last verified Aug 2026' },
             ].map((t) => (
               <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                 <CheckCircle2 size={13} style={{ color: 'hsl(var(--accent))', flexShrink: 0 }} />
@@ -681,17 +681,20 @@ export default function Home() {
                 Your crew
               </span>
               {[
-                { name: 'Burt', role: 'Owner · Lead' },
-                { name: 'Manu', role: 'Forms' },
-                { name: 'Koa', role: 'Finish' },
-                { name: 'Jay', role: 'Prep' },
+                { name: 'Burt', role: 'Owner · Lead', since: '2004', note: 'Every site walk, every estimate, every pour day.' },
+                { name: 'Manu', role: 'Forms', since: '2011', note: '14 years setting forms on Maui volcanic substrate.' },
+                { name: 'Koa', role: 'Finish', since: '2016', note: 'Stamped, broom, exposed aggregate. Hands on every surface.' },
+                { name: 'Jay', role: 'Prep', since: '2018', note: 'Grading, compaction, rebar layout. The pour starts with Jay.' },
               ].map((member) => (
-                <div key={member.name} style={{ textAlign: 'center' }}>
+                <div key={member.name} style={{ textAlign: 'center', minWidth: '80px' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', display: 'block' }}>
                     {member.name}
                   </span>
-                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.42rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', letterSpacing: '0.06em' }}>
-                    {member.role}
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.42rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', letterSpacing: '0.06em', display: 'block' }}>
+                    {member.role} · Since {member.since}
+                  </span>
+                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.48rem', fontWeight: 400, color: 'hsl(var(--muted-foreground) / 0.4)', lineHeight: 1.4, display: 'block', marginTop: '0.15rem', maxWidth: '120px' }}>
+                    {member.note}
                   </span>
                 </div>
               ))}
@@ -718,6 +721,7 @@ export default function Home() {
             { value: '3,500', label: 'PSI Minimum (40% Above Mainland Residential)', href: '/services', cta: 'Mix Specs' },
             { value: '24hr', label: 'Joint Cuts', href: '/services', cta: 'Our Process' },
             { value: '93%', label: 'Referral Rate (2024)', href: '/contact', cta: 'Get in Touch' },
+            { value: '38%', label: 'Returning Clients (2nd+ Project with Burt)', href: '/about', cta: 'About Us' },
           ].map((stat, i) => (
             <Link
               key={stat.label}
@@ -1113,12 +1117,27 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Who We Partner With
           </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: 'hsl(var(--foreground))', marginBottom: '0.75rem', textAlign: 'center' }}>
-            Every Client Starts With a Conversation
+            Your Project. Our Pour.
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
-            Whether you are a homeowner planning a driveway, a property manager on a guest turnaround schedule, or a GC who needs a sub that shows up ready, the process starts the same way: a site walk and a straight answer.
+            You know what your property needs. We know what Maui soil does to concrete. The site walk is where those two things meet. Same process whether you are a homeowner, a property manager on a turnaround schedule, or a GC who needs a sub that shows up ready.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '2rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginTop: '2rem', marginBottom: '0', flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.16em', color: 'hsl(var(--muted-foreground))' }}>
+              Which describes you?
+            </span>
+            {['Homeowner', 'Property Manager', 'General Contractor', 'Commercial'].map((label) => (
+              <span
+                key={label}
+                style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.58rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'hsl(var(--accent) / 0.6)', padding: '0.35rem 0.75rem', border: '1px solid hsl(var(--accent) / 0.25)', cursor: 'default', transition: 'color 0.2s, border-color 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54%)'; e.currentTarget.style.borderColor = 'hsl(42 54% 54%)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'hsl(42 54% 54% / 0.6)'; e.currentTarget.style.borderColor = 'hsl(42 54% 54% / 0.25)' }}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1px', backgroundColor: 'hsl(var(--border))', marginTop: '1rem' }}>
             {[
               { segment: 'Homeowners', engagement: 'Direct-to-Owner', lead: 'Most of our work starts with a neighbor\'s recommendation.', detail: 'Driveways, patios, walkways, lanai slabs. Most of our referrals come from someone who watched the finished pour from across the street.', stat: '~243', statLabel: 'projects', cta: 'Schedule a Site Walk', ctaHref: '/contact', refs: 'Wailea Ekolu · Alii Kai Place · Makena Surf · Kamaole Sands' },
               { segment: 'Property Managers', engagement: 'PM Contract', lead: 'Occupancy schedules drive the timeline, not ours.', detail: 'Vacation rental turnarounds, condo association repairs, tenant-occupied flatwork. We coordinate around guest bookings and work clean.', stat: '~52', statLabel: 'projects', cta: 'Discuss Your Schedule', ctaHref: '/contact', refs: 'Wailea Fairway Villas · Kihei Akahi · Ma\'alaea Kai' },
