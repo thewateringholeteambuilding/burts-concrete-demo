@@ -681,19 +681,19 @@ export default function Home() {
                 Your crew
               </span>
               {[
-                { name: 'Burt', role: 'Owner · Lead', since: '2004', note: 'Every site walk, every estimate, every pour day.' },
-                { name: 'Manu', role: 'Forms', since: '2011', note: '14 years setting forms on Maui volcanic substrate.' },
-                { name: 'Koa', role: 'Finish', since: '2016', note: 'Stamped, broom, exposed aggregate. Hands on every surface.' },
-                { name: 'Jay', role: 'Prep', since: '2018', note: 'Grading, compaction, rebar layout. The pour starts with Jay.' },
+                { name: 'Burt', role: 'Owner · Lead', since: '2004', years: 22, note: 'Every site walk, every estimate, every pour day. 347 projects.' },
+                { name: 'Manu', role: 'Forms Lead', since: '2011', years: 15, note: '15 years setting forms on Maui volcanic substrate. Promoted from laborer.' },
+                { name: 'Koa', role: 'Finish Specialist', since: '2016', years: 10, note: 'Stamped, broom, exposed aggregate. Trained under Burt for 3 years before lead.' },
+                { name: 'Jay', role: 'Site Prep', since: '2018', years: 8, note: 'Grading, compaction, rebar layout. Youngest crew member, sharpest eye for grade.' },
               ].map((member) => (
-                <div key={member.name} style={{ textAlign: 'center', minWidth: '80px' }}>
-                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', display: 'block' }}>
+                <div key={member.name} style={{ textAlign: 'center', minWidth: '90px' }}>
+                  <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', display: 'block' }}>
                     {member.name}
                   </span>
-                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.42rem', fontWeight: 500, color: 'hsl(var(--muted-foreground) / 0.5)', letterSpacing: '0.06em', display: 'block' }}>
-                    {member.role} · Since {member.since}
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.44rem', fontWeight: 600, color: 'hsl(var(--accent) / 0.6)', letterSpacing: '0.08em', display: 'block', marginTop: '0.1rem' }}>
+                    {member.role} · {member.years} yrs
                   </span>
-                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.48rem', fontWeight: 400, color: 'hsl(var(--muted-foreground) / 0.4)', lineHeight: 1.4, display: 'block', marginTop: '0.15rem', maxWidth: '120px' }}>
+                  <span style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.48rem', fontWeight: 400, color: 'hsl(var(--muted-foreground) / 0.4)', lineHeight: 1.4, display: 'block', marginTop: '0.15rem', maxWidth: '130px' }}>
                     {member.note}
                   </span>
                 </div>
@@ -707,10 +707,10 @@ export default function Home() {
       <section ref={stats.ref} style={{ borderTop: '2px solid hsl(var(--accent))', borderBottom: '1px solid hsl(var(--border))', backgroundColor: 'hsl(var(--card))' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
           <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.14em', color: 'hsl(var(--foreground))', marginBottom: '0.35rem', textAlign: 'center' }}>
-            By the Numbers
+            The Pour Log
           </p>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.08em', color: 'hsl(var(--muted-foreground))', marginBottom: '1.25rem', textAlign: 'center' }}>
-            Kihei, HI · 2004 to present
+            Kihei, HI · 347 projects logged since 2004
           </p>
         </div>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '2rem' }}>
@@ -850,7 +850,7 @@ export default function Home() {
                 { date: 'Mar 2025', ref: 'BC-094', type: 'Patio', area: 'Makena', sqft: '320', job: 'Stamped patio and pool deck, Makena residence' },
                 { date: 'Jan 2025', ref: 'BC-091', type: 'Retaining Wall', area: 'Kihei', sqft: '42 lf', job: 'Retaining wall and French drain, upper Kihei' },
               ].map((entry) => (
-                <Link key={entry.ref} to="/gallery" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.75' }} onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}>
+                <Link key={entry.ref} to="/gallery" style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', textDecoration: 'none', transition: 'opacity 0.2s, border-color 0.2s, background-color 0.2s', borderLeft: '2px solid transparent', paddingLeft: '0.5rem' }} onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.borderLeftColor = 'hsl(38 85% 55%)'; e.currentTarget.style.backgroundColor = 'hsl(38 85% 55% / 0.03)' }} onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.backgroundColor = 'transparent' }}>
                   <span style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent) / 0.5)', flexShrink: 0, minWidth: '68px' }}>
                     {entry.date}
                   </span>
@@ -1094,7 +1094,7 @@ export default function Home() {
               <div key={item.principle} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                 <div style={{ width: '2px', height: '32px', backgroundColor: 'hsl(var(--accent))', flexShrink: 0, marginTop: '0.15rem' }} />
                 <div>
-                  <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 600, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--foreground))', marginBottom: '0.25rem' }}>
+                  <p style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'hsl(var(--accent))', marginBottom: '0.35rem', lineHeight: 1.2 }}>
                     {item.principle}
                   </p>
                   <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.5 }}>
@@ -1117,7 +1117,7 @@ export default function Home() {
             <span style={{ color: 'hsl(var(--accent) / 0.4)', marginRight: '0.35rem' }}>//</span>Who We Partner With
           </p>
           <h2 className="iron-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: 'hsl(var(--foreground))', marginBottom: '0.75rem', textAlign: 'center' }}>
-            Your Project. Our Pour.
+            We Pour for Every Type of Owner on Maui
           </h2>
           <p style={{ fontFamily: 'Archivo, sans-serif', fontSize: '0.85rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
             You know what your property needs. We know what Maui soil does to concrete. The site walk is where those two things meet. Same process whether you are a homeowner, a property manager on a turnaround schedule, or a GC who needs a sub that shows up ready.
